@@ -7,8 +7,8 @@
 		<meta name="keywords" content=""/>
 		<meta name="author" content=""/>
 		<link rel="shortcut icon" href=""/>
-		<link rel="stylesheet" type="text/css" href=""/>
-		<script type="text/javascript" src="../css/style.css"></script>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script type="text/javascript" src=""></script>
 </head>
 	<body>
 		<?php
