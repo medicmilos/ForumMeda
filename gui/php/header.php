@@ -1,6 +1,6 @@
 <div id="header">
 	<div id="container">
-		<span id="logo"><h1><a href="">ForumMeda</a></h1></span>
+		<span id="logo"><h1><a href="index.php">ForumMeda</a></h1></span>
 		<span id="login">
 			<form action="login.php" method="POST" id="loginforma" name="loginforma">
 				<input type="text" id="tbUsername" name="tbUsername" placeholder=" username"/> 

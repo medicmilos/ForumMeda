@@ -1,6 +1,7 @@
 *{padding:0px; margin:0px;}
 .cisti{clear:both;}
 
+body{background-color:#fdfdfd;}
 /*---------------------------------------BEGIN OF HEADER---------------------------------------------*/
 #header{
 	width:100%;
@@ -209,3 +210,98 @@
     
 }
 /*---------------------------------------END OF FOOTER---------------------------------------------*/
+
+/*---------------------------------------BEGIN OF REGISTER.PHP---------------------------------------------*/
+#registerpage{
+	width:340px;
+	height:230px;
+	margin:0px auto;
+	text-align:center; /*background-color:blue;*/
+}
+#registerpage h2{
+	text-align:center;
+	font-family:Arial;
+	color:#4F4F4F;
+}
+#tbUsername2{
+	border-radius:5px;
+	box-shadow:none;
+	width:250px;
+	height:40px;
+	border:none;
+	background-color:#efefef;
+	padding-left:5px;
+}
+#tbUsername2:focus{
+    outline-color:#48c9b0;
+}
+#tbPassword2:focus{
+    outline-color:#48c9b0;
+}#tbEmail:focus{
+    outline-color:#48c9b0;
+}
+#tbPassword2{
+	border-radius:5px;
+	box-shadow:none;
+	width:250px;
+	height:35px;
+	border:none;
+	background-color:#efefef;
+	padding-left:5px;
+}
+#tbEmail2{
+	border-radius:5px;
+	box-shadow:none;
+	width:250px;
+	height:35px;
+	border:none;
+	background-color:#efefef;
+	padding-left:5px;
+}
+#btnRegister2{
+	background-color:#48c9b0;
+	color:#efefef;
+	height:28px;
+	width:80px;
+	text-align:center; 
+	border:none;
+	border-radius:3px; 
+}
+#btnRegister2:hover{
+	background-color:#e64b21;
+}
+#erori{ 
+	font-family:Arial;
+	color:#a94442;
+	margin:0px auto;
+	font-size:15px;
+	text-align:center;
+	background-color: #f2dede;
+    border-color: #ebccd1;
+	padding:3px;
+	border-radius:5px;
+
+}
+#uspesno{
+	color:#3c763d;
+	background-color:#dff0d8;
+	border-color:#d6e9c6
+}
+#neuspesno{
+	color:#a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+#uspesno{
+	color:#3c763d;
+	background-color:#dff0d8;
+	border-color:#d6e9c6; 
+	font-family:Arial; 
+	margin:0px auto;
+	font-size:15px;
+	text-align:center; 
+	padding:5px;
+	border-radius:5px;
+
+}
+/*---------------------------------------END OF REGISTER.PHP---------------------------------------------*/
