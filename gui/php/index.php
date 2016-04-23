@@ -8,9 +8,11 @@
 		<meta name="author" content=""/>
 		<link rel="shortcut icon" href=""/>
 		<link rel="stylesheet" type="text/css" href=""/>
-		<script type="text/javascript" src="style.css"></script>
+		<script type="text/javascript" src="../css/style.css"></script>
 </head>
 	<body>
-		
+		<?php
+			include("header.php");
+		?>
 	</body>
 </html>

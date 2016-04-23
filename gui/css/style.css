@@ -1,3 +1,81 @@
 *{padding:0px; margin:0px;}
 .cisti{clear:both;}
 
+/*---------------------------------------BEGIN OF HEADER---------------------------------------------*/
+#header{
+	width:100%;
+	height:70px;
+	background-color:#4F4F4F;
+}
+#container{
+	max-width:960px;
+	margin:0px auto; 
+}
+#logo{	 
+	width:200px;
+	height:70px;
+	float:left;
+	color:white;
+	font-family:Arial;
+	text-align:center;
+	margin:20px auto;
+	
+}
+#logo a{
+	text-decoration:none;
+	color:white;
+}
+#login{	 
+	width:600px;
+	height:70px;
+	float:right; 
+	margin:20px auto;
+}
+#registerforma{
+	width:87px;float:left;
+	
+}
+#loginforma{
+	width:360px;
+	float:left;
+	
+}
+#btnLogin{
+	background-color:#48c9b0;
+	color:white;
+	height:28px;
+	width:70px;
+	text-align:center; 
+	border:none;
+	border-radius:3px;
+}
+#btnLogin:hover{
+	background-color:#e64b21;
+}
+#btnRegister:hover{
+	background-color:#e64b21;
+}
+#btnRegister{
+	background-color:#48c9b0;
+	color:white;
+	height:28px;
+	width:80px;
+	text-align:center; 
+	border:none;
+	border-radius:3px; 
+}
+#tbUsername{
+	border-radius:3px;
+	box-shadow:none;
+	width:130px;
+	height:23px;
+	border:none;
+}
+#tbPassword{
+	border-radius:3px;
+	box-shadow:none;
+	width:140px;
+	height:23px;
+	border:none;
+}
+/*---------------------------------------END OF HEADER---------------------------------------------*/
