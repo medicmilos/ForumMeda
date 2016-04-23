@@ -15,7 +15,7 @@
 	width:200px;
 	height:70px;
 	float:left;
-	color:white;
+	color:#c9c9c9;
 	font-family:Arial;
 	text-align:center;
 	margin:20px auto;
@@ -23,7 +23,10 @@
 }
 #logo a{
 	text-decoration:none;
-	color:white;
+	color:#efefef;
+}
+#logo a:hover{
+	color:#efefef;
 }
 #login{	 
 	width:600px;
@@ -38,11 +41,10 @@
 #loginforma{
 	width:360px;
 	float:left;
-	
 }
 #btnLogin{
 	background-color:#48c9b0;
-	color:white;
+	color:#efefef;
 	height:28px;
 	width:70px;
 	text-align:center; 
@@ -57,7 +59,7 @@
 }
 #btnRegister{
 	background-color:#48c9b0;
-	color:white;
+	color:#efefef;
 	height:28px;
 	width:80px;
 	text-align:center; 
@@ -67,16 +69,26 @@
 #tbUsername{
 	border-radius:3px;
 	box-shadow:none;
-	width:130px;
+	width:125px;
 	height:23px;
 	border:none;
+	background-color:#efefef;
+	padding-left:5px;
+}
+#tbUsername:focus{
+    outline-color:#48c9b0;
+}
+#tbPassword:focus{
+    outline-color:#48c9b0;
 }
 #tbPassword{
 	border-radius:3px;
 	box-shadow:none;
-	width:140px;
+	width:135px;
 	height:23px;
 	border:none;
+	background-color:#efefef;
+	padding-left:5px;
 }
 /*---------------------------------------END OF HEADER---------------------------------------------*/
 
@@ -94,14 +106,20 @@
     width:100%;
     height:50px;
     background-color: #2f2f31;
-    color:white;
-    font-family: Arial;
-    border-bottom: #000;
+    color:#c9c9c9;
+    font-family: Arial; 
+	-moz-box-shadow:    inset  0  5px 5px -5px #696868, 
+                        inset  0 -5px 5px -5px #696868;
+    -webkit-box-shadow: inset  0  5px 5px -5px #696868, 
+                        inset  0 -5px 5px -5px #696868;
+     box-shadow:        inset  0  5px 5px -5px #696868, 
+                        inset  0 -5px 5px -5px #696868;
 }
 
 #gore2
 {
     width:960px;
+	margin:0px auto;
 }
 
 #gore2 h3
@@ -109,11 +127,20 @@
     margin-top: 15px;
     width:100px;
     float:left;
+	height:20px;
+}
+
+#gore2 p
+{
+	width:140px;
+	font-size:11px; 
+	height:15px;
 }
 
 #meni_footer
 {
     float:right;
+	margin-top:-30px;
 }
 
 #meni_footer ul li
@@ -125,7 +152,23 @@
 {
     text-decoration:none; 
 	display:block;
-    color:white;
+    color:#c9c9c9;
+	font-weight:bold;
+}
+#meni_footer ul li a:hover
+{ 
+    color:#48c9b0;
+}
+
+#dole2 a
+{
+	text-decoration:none;
+	color:#c9c9c9; 
+}
+
+#dole2 a:hover
+{ 
+	color:#48c9b0; 
 }
 
 #dole
@@ -141,11 +184,23 @@
     width:960px;
     text-align:center;
     padding-top:25px;
+	margin:0px auto;
 }
 
-#dole2 p
+#dole2  p
 {
-    color:white;
+    color:#c9c9c9; 
+}
+
+#dole3 a
+{
+	text-decoration:none; 
+	color:#c9c9c9; 
+}
+
+#dole3 a:hover
+{
+    color:#48c9b0;
 }
 
 #mreze
@@ -153,6 +208,4 @@
     float:right;
     
 }
-
-
 /*---------------------------------------END OF FOOTER---------------------------------------------*/
