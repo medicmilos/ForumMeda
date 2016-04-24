@@ -1,10 +1,6 @@
 <?php  
-		$konekcija = mysql_connect('localhost', 'root', '0454527676842');
-		$database = mysql_select_db('meda_forum') or die( "Database in unavailable!"); 
-		if (!$konekcija) {
-			die('Database connection has timed out! '.mysql_error());
-		}
-		
+	include("konekcija.php");
+	
 	if(isset($_REQUEST['btnRegister2'])) {
 		$email = trim($_REQUEST['tbEmail2']); 
 		$username = trim($_REQUEST['tbUsername2']); 
@@ -33,9 +29,26 @@
 			if(mysql_num_rows($rezultat) == 0){
 				$upit = "INSERT INTO users (id_users, username, password, email, user_mod, active) VALUES (NULL, '".$username."', '".$password."', '".$email."', '2', '0')";
 				$rezultat = mysql_query($upit, $konekcija); 
-				header("location:register.php?message= <div id='uspesno'>Registration was successful, you can login now.</div><br/>");
+				//header("location:register.php?message= <div id='uspesno'>Registration was successful, you can login now.</div><br/>");
+				
+				if(!$rezultat){ 
+					header("location:register.php?message=Error: " . mysql_error()); 
+				}else { 
+					$to = $email;
+					$subject = 'Registration'; 
+					$message = '127.0.0.1/git/meda-forum/gui/php/confirm.php?username='.$username.'&code='.$password.'';
+					if (mail($to, $subject, $message)) { 
+						header("location:register.php?message= <div id='erori'>Confirm your email adress!.</div>"); 
+					}else { 
+						header("location:register.php?message= <div id='erori'Registration failed!</div>"); 
+					}
+				}
+				
+				
+				
+				
 			}else {
-				header("location:register.php?message=User with that email or username is registered, try with another email or username!");
+				header("location:register.php?message=<div id='erori'>User with that email or username is registered, <br/>try with another email or username!</div>");
 			}
 		}else{
 			foreach($greske as $value){
