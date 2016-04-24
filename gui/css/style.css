@@ -1,7 +1,7 @@
 *{padding:0px; margin:0px;}
 .cisti{clear:both;}
 
-body{background-color:#fdfdfd;}
+body{background-color:#fdfdfd;font-family: Open Sans, Arial, Helvetica, sans-serif;}
 /*---------------------------------------BEGIN OF HEADER---------------------------------------------*/
 #header{
 	width:100%;
@@ -14,7 +14,7 @@ body{background-color:#fdfdfd;}
 }
 #logo{	 
 	width:200px;
-	height:70px;
+	height:20px;
 	float:left;
 	color:#c9c9c9;
 	font-family:Arial;
@@ -31,7 +31,7 @@ body{background-color:#fdfdfd;}
 }
 #login{	 
 	width:600px;
-	height:70px;
+	height:20px;
 	float:right; 
 	margin:20px auto;
 }
@@ -97,8 +97,7 @@ body{background-color:#fdfdfd;}
 #footer
 {
     width:100%;
-    height:120px;
-    margin-top:700px;
+    height:120px; 
 }
 
 
@@ -304,3 +303,97 @@ body{background-color:#fdfdfd;}
 
 }
 /*---------------------------------------END OF REGISTER.PHP---------------------------------------------*/
+
+/*---------------------------------------START OF CONTENT.PHP---------------------------------------------*/
+#wrapper{
+	width:960px;
+	min-height:451px;
+	margin:0px auto;
+}
+#sadrzaj{
+	float:left;
+	width:735px;
+	min-height:400px; 
+}
+#desno{
+	float:left;
+	width:225px;
+	min-height:400px; 
+}
+/*---------------------------------------END OF RCONTENT.PHP---------------------------------------------*/
+
+/*---------------------------------------START OF MENU.PHP---------------------------------------------*/
+#navmenu{
+	width:500px;
+	height:42px;
+}
+#mainmenu{
+	width:960px;
+	height:42px;
+	margin:0px auto;
+} 
+#mainmenu ul li{
+    display:inline-block;
+}
+#mainmenu ul li a{
+    text-decoration:none;  
+    color:#3b3b3b; 
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:600;
+	text-transform:uppercase;
+}
+#navmenu .active{
+	border-top:5px solid #48c9b0;
+	padding:9px 18px 7px 18px;
+	background-color:#fdfdfd;
+}
+#navmenu .active:hover{ 
+	border-top:5px solid #e64b21 !important;
+}
+#mainmenuwrapper{
+	width:100%;
+	height:42px;
+	background-color:#f2f2f2; 
+}
+#number{ 
+	font-size:10.5px;
+	color:#e64b21; 
+}
+/*---------------------------------------END OF MENU.PHP---------------------------------------------*/
+
+/*---------------------------------------START OF WIDGET.PHP---------------------------------------------*/
+#desnocontent{
+	width:215px;
+	height:100%;
+	margin:0px auto;
+}
+#statistika{
+	background-color:#f2f2f2;
+	border-radius:5px;  
+}
+#desnocontent:first-child p{
+	border-bottom:1px solid #e6e6e6;
+	margin:15px 0px 10px 0px;
+	padding-bottom:5px;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#636267;
+}
+.tridela{
+	padding:10px 0px 5px 10px;
+	height:34px;
+	border-bottom:1px solid #e6e6e6;
+}
+.brojevi{
+	color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 600;
+}
+.spanovi{
+	   color: #7b7b7b;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+/*---------------------------------------END OF WIDGET.PHP---------------------------------------------*/
