@@ -99,15 +99,13 @@ body{
 /*---------------------------------------END OF HEADER---------------------------------------------*/
 
 /*---------------------------------------BEGIN OF FOOTER---------------------------------------------*/
-#footer
-{
+#footer{
     width:100%;
     height:120px; 
 }
 
 
-#gore
-{
+#gore{
     width:100%;
     height:50px;
     background-color: #2f2f31;
@@ -121,95 +119,80 @@ body{
                         inset  0 -5px 5px -5px #696868;
 }
 
-#gore2
-{
+#gore2{
     width:960px;
 	margin:0px auto;
 }
 
-#gore2 h3
-{
+#gore2 h3{
     margin-top: 15px;
     width:100px;
     float:left;
 	height:20px;
 }
 
-#gore2 p
-{
+#gore2 p{
 	width:140px;
 	font-size:11px; 
 	height:15px;
 }
 
-#meni_footer
-{
+#meni_footer{
     float:right;
 	margin-top:-30px;
 }
 
-#meni_footer ul li
-{
+#meni_footer ul li{
     display:inline-block;
 }
 
-#meni_footer ul li a
-{
+#meni_footer ul li a{
     text-decoration:none; 
 	display:block;
     color:#c9c9c9;
 	font-weight:bold;
 }
-#meni_footer ul li a:hover
-{ 
+#meni_footer ul li a:hover{ 
     color:#48c9b0;
 }
 
-#dole2 a
-{
+#dole2 a{
 	text-decoration:none;
 	color:#c9c9c9; 
 }
 
-#dole2 a:hover
-{ 
+#dole2 a:hover{ 
 	color:#48c9b0; 
 }
 
-#dole
-{
+#dole{
     width:100%;
     height:70px;
     background-color: #242424;
     font-family: Arial;
 }
 
-#dole2
-{
+#dole2{
     width:960px;
     text-align:center;
     padding-top:25px;
 	margin:0px auto;
 }
 
-#dole2  p
-{
+#dole2  p{
     color:#c9c9c9; 
 }
 
-#dole3 a
-{
+#dole3 a{
 	text-decoration:none; 
 	color:#c9c9c9; 
 }
 
-#dole3 a:hover
-{
+#dole3 a:hover{
     color:#48c9b0;
 }
 
-#mreze
-{
+#mreze{
     float:right;
     
 }
@@ -325,6 +308,60 @@ body{
 	width:225px;
 	min-height:400px; 
 }
+.sadrzaj_paket{
+	margin: 10px;
+	border-top: 1px solid #e6e6e6;
+	padding-top: 10px;
+	width: 700px;
+	/*height: 100px;*/
+	float:left;
+}
+.paket_levo{
+	/*border: 1px solid red;*/
+	float:left;
+	margin-top:10px;
+	/*height:100%;*/
+}
+.paket_levo_glasovi{
+	width:35px;
+	float: left;
+	text-align: center;
+	margin-right: 5px;
+	color:#9199a1;
+}
+.paket_desno{
+	max-width:576px;
+	/*border: 1px solid blue;*/
+	float:left;
+}
+.paket_levo_glasovi_tekst{
+	font-size:10px;
+}
+.paket_desno_naslov{
+	padding: 5px;
+	color:#3af;
+}
+.paket_desno_tagovi{
+	margin-left:5px;
+	float: left;
+	margin-bottom: 6px;
+}
+.paket_desno_tagovi_tag{
+	background-color:#cee0ed;
+	padding: 2px 7px;
+    font-size: 13px;
+	color:#07c;
+}
+.paket_desno_opis{
+	float:right;
+	font-size: 13px;
+	color:#9199a1;
+}
+.paket_desno_opis_user{
+	color:#3af;
+}
+
+
 /*---------------------------------------END OF RCONTENT.PHP---------------------------------------------*/
 
 /*---------------------------------------START OF MENU.PHP---------------------------------------------*/
