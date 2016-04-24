@@ -75,18 +75,34 @@
 			include("header.php");
 		?>
 		<?php
-			
+			include("menu.php");
 		?>
-		<div id="registerpage">
-		<h2>Register: </h2><br/>
-		<header><?php if(isset($_REQUEST['message'])) echo $_REQUEST["message"]; ?></header><br/>
-			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
-				<input type="text" name="tbEmail2" id="tbEmail2" placeholder="email"/><br/><br/>
-				<input type="text" name="tbUsername2" id="tbUsername2" placeholder="username"/><br/><br/>
-				<input type="password" name="tbPassword2" id="tbPassword2" placeholder="password"/><br/><br/>
-				<input type="submit" name="btnRegister2" id="btnRegister2" value="Register"/><br/><br/>
-			</form>
-		</div><br/><br/><br/><br/>
+		
+		
+		
+		<div id="wrapper">
+			<div id="sadrzaj">
+						 <div id='registerpage'>
+				<h2>Register: </h2><br/>
+				<header><?php if(isset($_REQUEST['message'])) echo $_REQUEST['message']; ?></header><br/>
+					<form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='GET'>
+						<input type='text' name='tbEmail2' id='tbEmail2' placeholder='email'/><br/><br/>
+						<input type='text' name='tbUsername2' id='tbUsername2' placeholder='username'/><br/><br/>
+						<input type='password' name='tbPassword2' id='tbPassword2' placeholder='password'/><br/><br/>
+						<input type='submit' name='btnRegister2' id='btnRegister2' value='Register'/><br/><br/>
+					</form>
+				</div>
+			</div>
+			<div id="desno">
+			<?php
+				include("widget.php");
+			?>
+		</div>
+		</div>
+		
+		
+		
+		
         <?php
 			include("footer.php");
 		?>

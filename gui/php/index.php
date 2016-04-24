@@ -17,9 +17,11 @@
 		<?php
 			include("menu.php");
 		?>
+		<div id="wrapper">
 		<?php
 			include("content.php");
 		?>
+		</div>
         <?php
 			include("footer.php");
 		?>

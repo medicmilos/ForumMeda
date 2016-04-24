@@ -1,4 +1,3 @@
-<div id="desno">
 	<div id="desnocontent">
 		<p>STATISTICS</p>
 		<div id="statistika"> 
@@ -16,4 +15,3 @@
 			</div>
 		</div>
 	</div>
-</div>
