@@ -1,6 +1,4 @@
 <?php  
-	include("konekcija.php");
-	
 	if(isset($_REQUEST['btnRegister2'])) {
 		$email = trim($_REQUEST['tbEmail2']); 
 		$username = trim($_REQUEST['tbUsername2']); 
@@ -25,11 +23,14 @@
 		if(empty($greske)){ 
 			$password = sha1($password); 
 			$upit = "SELECT * FROM users WHERE email='".$email."' OR username = '".$username."' ";
-			$rezultat = mysql_query($upit, $konekcija); 
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);
+			mysql_close($konekcija);
 			if(mysql_num_rows($rezultat) == 0){
 				$upit = "INSERT INTO users (id_users, username, password, email, user_mod, active) VALUES (NULL, '".$username."', '".$password."', '".$email."', '2', '0')";
-				$rezultat = mysql_query($upit, $konekcija); 
-				//header("location:register.php?message= <div id='uspesno'>Registration was successful, you can login now.</div><br/>");
+				include("konekcija.php");
+				$rezultat = mysql_query($upit, $konekcija);  
+				mysql_close($konekcija);
 				
 				if(!$rezultat){ 
 					header("location:register.php?message=Error: " . mysql_error()); 
@@ -52,7 +53,9 @@
 			}
 		}else{
 			foreach($greske as $value){
-				header("location:register.php?message= <div id='erori'>".$value."</div><br/>");
+				$pom_greska .="<div id='erori'>".$value."</div><br/>";
+				header("location:register.php?message=$pom_greska");
+				//header("location:register.php?message= <div id='erori'>".$value."</div><br/>");
 			} 
 		}
 	}
