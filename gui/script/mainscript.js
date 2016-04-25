@@ -13,8 +13,12 @@ $(document).ready(function(){
 		});
 	});
 /*---------------------------NESTO NOVO---------------------------------------------------------*/
-	
+ 	$("#dodatak2").hide();
+	$("#tbKlik").focus(function(){ 
+		$("#tbKlik").hide();
+		$("#dodatak2").show();
+	});
+	 
+	 
 });
-
-
  

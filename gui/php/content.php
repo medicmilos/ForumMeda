@@ -19,7 +19,7 @@
 		} 
 
 		if(empty($greske)){
-			$upit = "INSERT INTO posts (id_posts, title, description, username, tags) VALUES (NULL, '".$title."', '".$post."', 'milos', '".$tags."')";
+			$upit = "INSERT INTO posts (id_posts, title, description, username, tags) VALUES (NULL, '".$title."', '".$post."', 'NadrogiranaPrepelica', '".$tags."')";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija);
@@ -39,51 +39,48 @@
 		</div>
 	</form>
 	
-<?php
-	$upit = "SELECT * FROM posts";
-		include("konekcija.php");
-		$rezultat = mysql_query($upit, $konekcija);  
-		mysql_close($konekcija);
-	
-	while($red = mysql_fetch_array($rezultat)){
-		$title = $red['title'];
-		$description = $red['description'];
-		$username = $red['username'];
-		$tags = $red['tags']; 
-		$time = $red['time']; 
-		 
+	<?php
+		$upit = "SELECT * FROM posts";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);  
+			mysql_close($konekcija);
 		
-		
-		
-		echo ("<div class='sadrzaj_paket'>
-		<div class='paket_levo'>
-			<div class='paket_levo_glasovi'>
-				<span class='paket_levo_glasovi_broj'>1</span>
-				<span class='paket_levo_glasovi_tekst'>votes</span>
+		while($red = mysql_fetch_array($rezultat)){
+			$title = $red['title'];
+			$description = $red['description'];
+			$username = $red['username'];
+			$tags = $red['tags']; 
+			$time = $red['time'];  
+			
+			echo ("<div class='sadrzaj_paket'>
+			<div class='paket_levo'>
+				<div class='paket_levo_glasovi'>
+					<span class='paket_levo_glasovi_broj'>1</span>
+					<span class='paket_levo_glasovi_tekst'>votes</span>
+				</div>
+				<div class='paket_levo_glasovi'>
+					<span class='paket_levo_glasovi_broj'>2</span>
+					<span class='paket_levo_glasovi_tekst'>answer</span>
+				</div>
+				<div class='paket_levo_glasovi'>
+					<span class='paket_levo_glasovi_broj'>3</span>
+					<span class='paket_levo_glasovi_tekst'>views</span>
+				</div>
 			</div>
-			<div class='paket_levo_glasovi'>
-				<span class='paket_levo_glasovi_broj'>2</span>
-				<span class='paket_levo_glasovi_tekst'>answer</span>
+			<div class='paket_desno'>
+				<div class='paket_desno_naslov'><a href='posts.php?title=$title'>$title</a></div>
+				<div class='paket_desno_tagovi'>
+					<span class='paket_desno_tagovi_tag'>$tags</span> 
+				</div>
+				<div class='paket_desno_opis'>
+					<span class='paket_desno_opis_time'>$time &nbsp;by</span>
+					<span class='paket_desno_opis_user'>$username</span>
+				</div>
 			</div>
-			<div class='paket_levo_glasovi'>
-				<span class='paket_levo_glasovi_broj'>3</span>
-				<span class='paket_levo_glasovi_tekst'>views</span>
-			</div>
-		</div>
-		<div class='paket_desno'>
-			<div class='paket_desno_naslov'>$title</div>
-			<div class='paket_desno_tagovi'>
-				<span class='paket_desno_tagovi_tag'>$tags</span> 
-			</div>
-			<div class='paket_desno_opis'>
-				<span class='paket_desno_opis_time'>$time</span>
-				<span class='paket_desno_opis_user'>$username</span>
-			</div>
-		</div>
-	</div>
-	<div class='cisti'></div>");
-	}
-?>
+		</div> 
+		<div class='cisti'></div>");
+		}
+	?>	 
 	
 </div>
 <div id="desno">
