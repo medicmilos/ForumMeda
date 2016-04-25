@@ -3,7 +3,7 @@
         <div id="gore2">
 			<div id="dole3">
 				<a href="#"><h3>ForumMeda</h3><br/><br/>
-				<p>With you since Oluja 1995.</p></a>
+				<p>Feel free to ask anything.</p></a>
 			</div>
 			
 			<div id="meni_footer">

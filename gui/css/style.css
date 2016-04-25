@@ -56,12 +56,17 @@ body{
 	text-align:center; 
 	border:none;
 	border-radius:3px;
+	box-shadow: inset 0 1px 0 #91decf;
 }
 #btnLogin:hover{
 	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
 }
 #btnRegister:hover{
 	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
 }
 #btnRegister{
 	background-color:#48c9b0;
@@ -71,6 +76,7 @@ body{
 	text-align:center; 
 	border:none;
 	border-radius:3px; 
+	box-shadow: inset 0 1px 0 #91decf;
 }
 #tbUsername{
 	border-radius:3px;
@@ -224,7 +230,8 @@ body{
 }
 #tbPassword2:focus{
     outline-color:#48c9b0;
-}#tbEmail:focus{
+}
+#tbEmail:focus{
     outline-color:#48c9b0;
 }
 #tbPassword2{
@@ -360,9 +367,75 @@ body{
 .paket_desno_opis_user{
 	color:#3af;
 }
-
-
-/*---------------------------------------END OF RCONTENT.PHP---------------------------------------------*/
+#tbTitle:focus{
+    outline-color:#48c9b0;
+}
+#tbTitle{
+	margin:10px 0px 7px 10px;
+	border-radius:5px; 
+	width:700px;
+	height:35px;  
+	padding-left:5px;
+    border: 1px solid #e6e6e6;
+    background: none;
+    border-color: #e6e6e6 !important;	
+}
+#taPost:focus{
+    outline-color:#48c9b0;
+}
+#taPost{
+	resize:none;
+	margin:0px 0px -7px 10px;
+	border: 1px solid #e6e6e6;
+    background: none;
+    border-color: #e6e6e6 !important;
+	border-radius:5px; 
+}
+#tbTags:focus{
+    outline-color:#48c9b0;
+}
+#tbTags{
+	margin:10px 0px 7px 10px;
+	border-radius:5px; 
+	width:700px;
+	height:30px;  
+	padding-left:5px;
+    border: 1px solid #e6e6e6;
+    background: none;
+    border-color: #e6e6e6 !important;	
+}
+#btnPost{
+	margin:0px 0px 0px 10px;
+	background-color:#48c9b0;
+	color:#efefef;
+	height:28px;
+	width:80px;
+	text-align:center; 
+	border:none;
+	border-radius:3px; 
+	box-shadow: inset 0 1px 0 #91decf;
+}
+#btnPost:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
+}
+#btnClose{
+	background-color:#48c9b0;
+	color:#efefef;
+	height:28px;
+	width:80px;
+	text-align:center; 
+	border:none;
+	border-radius:3px; 
+	box-shadow: inset 0 1px 0 #91decf;
+}
+#btnClose:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
+}
+/*---------------------------------------END OF CONTENT.PHP---------------------------------------------*/
 
 /*---------------------------------------START OF MENU.PHP---------------------------------------------*/
 #navmenu{

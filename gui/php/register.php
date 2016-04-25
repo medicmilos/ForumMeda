@@ -16,10 +16,7 @@
 		} 
 		if(!preg_match($rpassword, $password)){
 			$greske[] = " Password can contain only letters, numbers and _. ."; 
-		}
-
-		
-
+		} 
 		if(empty($greske)){ 
 			$password = sha1($password); 
 			$upit = "SELECT * FROM users WHERE email='".$email."' OR username = '".$username."' ";
@@ -43,11 +40,7 @@
 					}else { 
 						header("location:register.php?message= <div id='erori'Registration failed!</div>"); 
 					}
-				}
-				
-				
-				
-				
+				} 
 			}else {
 				header("location:register.php?message=<div id='erori'>User with that email or username is registered, <br/>try with another email or username!</div>");
 			}
@@ -71,7 +64,7 @@
 		<meta name="author" content=""/>
 		<link rel="shortcut icon" href=""/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
-		<script type="text/javascript" src=""></script>
+		<script type="text/javascript" src="../script/mainscript.js"></script>
 </head>
 	<body>
 		<?php
@@ -79,10 +72,7 @@
 		?>
 		<?php
 			include("menu.php");
-		?>
-		
-		
-		
+		?> 
 		<div id="wrapper">
 			<div id="sadrzaj">
 						 <div id='registerpage'>
@@ -101,11 +91,7 @@
 				include("widget.php");
 			?>
 		</div>
-		</div>
-		
-		
-		
-		
+		</div> 
         <?php
 			include("footer.php");
 		?>
