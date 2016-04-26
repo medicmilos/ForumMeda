@@ -426,6 +426,19 @@ body{
     border-color: #e6e6e6 !important;
 	border-radius:5px; 
 }
+#taPost:focus{
+    outline-color:#48c9b0;
+}
+#taPost{
+	resize:none;
+	margin: 0px 0px -7px 10px;
+	border: 1px solid #e6e6e6;
+    background: none;
+    border-color: #e6e6e6 !important;
+	border-radius:5px; 
+}
+
+
 #tbTags:focus{
     outline-color:#48c9b0;
 }
@@ -439,7 +452,7 @@ body{
     background: none;
     border-color: #e6e6e6 !important;	
 }
-#btnReply{
+#btnPost{
 	margin:0px 0px 0px 10px;
 	background-color:#48c9b0;
 	color:#efefef;
@@ -450,7 +463,7 @@ body{
 	border-radius:3px; 
 	box-shadow: inset 0 1px 0 #91decf;
 }
-#btnReply:hover{
+#btnPost:hover{
 	background-color:#e64b21;
 	box-shadow: inset 0 1px 0 #f09379;
 	outline-color:#48c9b0;
@@ -577,7 +590,22 @@ body{
 	margin-top:-12px;
 }
 
-
+#btnReply{
+	margin:0px 0px 0px 10px;
+	background-color:#48c9b0;
+	color:#efefef;
+	height:28px;
+	width:80px;
+	text-align:center; 
+	border:none;
+	border-radius:3px; 
+	box-shadow: inset 0 1px 0 #91decf;
+}
+#btnReply:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
+}
 
 
 

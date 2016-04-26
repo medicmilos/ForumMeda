@@ -46,12 +46,13 @@
 					<div class='paket_desno_description'>$description</div>
 					<div>Your answer: </div><br/><br/>
 					<form action='#' method='GET'>
-						<input type='text' name='tbKlik' id='tbKlik' placeholder='Click here to start your discussion.'/><br/> <br/>
 						<div id='dodatak2'>
-							<textarea name='taPost' id='taPost' rows='6' cols='98.5'></textarea><br/><br/>
-							<input type='submit' name='btnPost' id='btnPost' value='Reply'/>
+							<textarea name='taComment' id='taComment' rows='6' cols='98.5'></textarea><br/><br/>
+							<input type='submit' name='btnReply' id='btnReply' value='Reply'/>
 							<input type='button' name='btnClose' id='btnClose' value='Close'/></br>
 						</div>
+						<input type='text' name='tbKlik' id='tbKlik' placeholder='Click here to start your discussion.'/><br/> <br/>
+						
 					</form>
 				</div>
 				 
