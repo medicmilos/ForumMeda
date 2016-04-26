@@ -3,7 +3,7 @@
 		$title = trim($_REQUEST['tbTitle']); 
 		$post = trim($_REQUEST['taPost']); 
 		$tags = trim($_REQUEST['tbTags']);
-		$rtitle = "//"; 
+		/*$rtitle = "//"; 
 		$rpost = "//"; 
 		$rtags = "//";
 		$greske = array(); 
@@ -16,7 +16,7 @@
 		} 
 		if(!preg_match($rtags, $tags)){
 			$greske[] = " greska u tagu "; 
-		} 
+		} */
 
 		if(empty($greske)){
 			$upit = "INSERT INTO posts (id_posts, title, description, username, tags) VALUES (NULL, '".$title."', '".$post."', 'NadrogiranaPrepelica', '".$tags."')";
