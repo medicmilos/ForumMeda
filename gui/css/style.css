@@ -5,9 +5,7 @@ body{
 	background-color:#fdfdfd;
 	font-family: Open Sans, Arial, Helvetica, sans-serif;
 }
-::selection {
-  background: #48c9b0;
-}
+ 
 /*---------------------------------------BEGIN OF HEADER---------------------------------------------*/
 #header{
 	width:100%;
@@ -417,12 +415,12 @@ body{
     background: none;
     border-color: #e6e6e6 !important;	
 }
-#taPost:focus{
+#taComment:focus{
     outline-color:#48c9b0;
 }
-#taPost{
+#taComment{
 	resize:none;
-	margin:0px 0px -7px 10px;
+	margin: 0px 0px -7px 10px;
 	border: 1px solid #e6e6e6;
     background: none;
     border-color: #e6e6e6 !important;
@@ -441,7 +439,7 @@ body{
     background: none;
     border-color: #e6e6e6 !important;	
 }
-#btnPost{
+#btnReply{
 	margin:0px 0px 0px 10px;
 	background-color:#48c9b0;
 	color:#efefef;
@@ -452,7 +450,7 @@ body{
 	border-radius:3px; 
 	box-shadow: inset 0 1px 0 #91decf;
 }
-#btnPost:hover{
+#btnReply:hover{
 	background-color:#e64b21;
 	box-shadow: inset 0 1px 0 #f09379;
 	outline-color:#48c9b0;
@@ -568,14 +566,16 @@ body{
 #tbKlik{
 	width: 700px;
     border: 1px solid #e6e6e6;
-    height: 40px;
+    height: 20px;
     border-radius: 3px;
     cursor: text; 
     color: #bdc3c7; 
     padding: 10px;
-    
+    margin-top:-11px;
 }
-
+#dodatak2{
+	margin-top:-12px;
+}
 
 
 

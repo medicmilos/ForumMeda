@@ -16,9 +16,14 @@ $(document).ready(function(){
  	$("#dodatak2").hide();
 	$("#tbKlik").focus(function(){ 
 		$("#tbKlik").hide();
-		$("#dodatak2").show();
+		$("#dodatak2").slideDown();
+		$("#taComment").focus();
 	});
-	 
+	$("#btnClose").click(function(){ 
+		
+		$("#dodatak2").slideUp();
+		$("#tbKlik").show();
+	});
 	 
 });
  

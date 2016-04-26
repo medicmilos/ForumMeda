@@ -62,7 +62,7 @@
 		<meta name="description" content=""/>
 		<meta name="keywords" content=""/>
 		<meta name="author" content=""/>
-		<link rel="shortcut icon" href=""/>
+		<link rel="shortcut icon" href="../images/icon.ico"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 		<script type="text/javascript" src="../script/mainscript.js"></script>
 </head>
