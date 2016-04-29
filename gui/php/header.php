@@ -1,15 +1,39 @@
+<?php
+	include("login.php");
+?>
 <div id="header">
-	<div id="container">
-		<span id="logo"><h1><a href="index.php">ForumMeda</a></h1></span>
-		<span id="login">
-			<form action="login.php" method="POST" id="loginforma" name="loginforma">
-				<input type="text" id="tbUsername" name="tbUsername" placeholder=" username"/> 
-				<input type="password" id="tbPassword" name="tbPassword" placeholder=" password"/> 
-				<input type="submit" id="btnLogin" name="btnLogi" value="Login"/> 
+	
+	
+	<?php
+	if(!isset($_SESSION['id_users'])){
+		echo ("<div id='container'>
+		<span id='logo'><h1><a href='index.php'>ForumMeda</a></h1></span>
+		<span id='login'>
+			<form action='". $_SERVER['PHP_SELF'] ."' method='GET' id='loginforma' name='loginforma'>
+				<input type='text' id='tbUsername' name='tbUsername' placeholder=' username'/> 
+				<input type='password' id='tbPassword' name='tbPassword' placeholder=' password'/> 
+				<input type='submit' id='btnLogin' name='btnLogin' value='Login'/> 
 			</form>
-			<form action="register.php" method="POST" id="registerforma" name="registerforma"> 
-				<input type="submit" id="btnRegister" name="btnRegister" value="Register"/> 
+			<form action='register.php' method='POST' id='registerforma' name='registerforma'> 
+				<input type='submit' id='btnRegister' name=btnRegister' value='Register'/> 
 			</form>
 		</span>
-	</div>
+	</div>");
+	}else{
+		echo ("<div id='container'>
+		<span id='logo'><h1><a href='index.php'>ForumMeda</a></h1></span>
+		<span id='login'> 
+			<form action='logout.php' method='POST' id='logoutforma' name='logoutforma'> 
+				<input type='submit' id='btnRegister' name=btnRegister' value='Register'/> 
+			</form>
+		</span>
+	</div>");
+		
+	}
+	
+	
+	
+	?> 
+	
+	
 </div>
