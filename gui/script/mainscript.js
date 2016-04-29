@@ -24,6 +24,18 @@ $(document).ready(function(){
 		$("#dodatak2").slideUp();
 		$("#tbKlik").show();
 	});
-	 
+/*---------------------------NESTO NOVO---------------------------------------------------------*/	
+ $('#menu li ul').css({
+		display: "none",
+		left: "auto"
+	});
+	$("#menu li").click(function(){ 
+		$("#menu li ul").toggle(function(){
+			$( this ).find('ul').slideDown();
+		},function(){
+			$( this ).find('ul').slideUp();
+		});
+	});
+
 });
  

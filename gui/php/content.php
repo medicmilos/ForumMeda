@@ -29,7 +29,13 @@
 ?>
 
 <div id="sadrzaj">
-	<form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='GET'>
+
+<?php
+if(!isset($_SESSION['id_users'])){
+	
+}else{
+	echo("
+	<form action='". $_SERVER['PHP_SELF'] ."' method='GET'>
 		<input type='text' name='tbTitle' id='tbTitle' placeholder='Whats your question? Be specific.'/><br/> 
 		<div id='dodatak'>
 			<textarea name='taPost' id='taPost' rows='6' cols='98.5'></textarea>
@@ -37,7 +43,12 @@
 			<input type='submit' name='btnPost' id='btnPost' value='Submit post'/>
 			<input type='button' name='btnClose' id='btnClose' value='Close'/></br>
 		</div>
-	</form>
+	</form>	");			
+}
+?> 
+	
+	
+	
 	
 	<?php
 		$upit = "SELECT * FROM posts";
@@ -51,6 +62,15 @@
 			$username = $red['username'];
 			$tags = $red['tags']; 
 			$time = $red['time'];  
+			
+			$pomocna = '';
+			if(!isset($_SESSION['id_users'])){
+				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
+			}else{
+				$pomocna = "<a href='posts.php?title=$title'>$title</a>";				
+			}
+			
+			
 			
 			echo ("<div class='sadrzaj_paket'>
 			<div class='paket_levo'>
@@ -68,7 +88,7 @@
 				</div>
 			</div>
 			<div class='paket_desno'>
-				<div class='paket_desno_naslov'><a href='posts.php?title=$title'>$title</a></div>
+				<div class='paket_desno_naslov'>$pomocna</div>
 				<div class='paket_desno_tagovi'>
 					<span class='paket_desno_tagovi_tag'>$tags</span> 
 				</div>

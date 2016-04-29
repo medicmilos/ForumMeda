@@ -36,7 +36,8 @@ body{
 	width:447px; 
 	height:20px;
 	float:right; 
-	margin:20px auto;
+	margin:20px auto; 
+	text-align:right;
 }
 #registerforma{
 	width:87px;
@@ -606,6 +607,27 @@ body{
 	box-shadow: inset 0 1px 0 #f09379;
 	outline-color:#48c9b0;
 }
+/*usermenu----------------------------*/
+#usermenu{ 
+	color:red;
+	width:20px;
+	height:10px;
+	border-left: 1px solid #424242;
+	
+}
+#usermenu a{
+	text-decoration:none;
+	color:#CCC;
+}
+#usermenu a:hover{
+	text-decoration:none;
+	color:#fff;
+} 
+.dropdown-profile {
+    width: 50px;
+    height: 50px; 
+    z-index: 9999;  
+}
 
 
 
@@ -613,3 +635,69 @@ body{
 
 
 
+
+
+
+
+
+
+
+ 
+#nav{
+	width:440px;
+	position:absolute;   
+	height:50px;
+	top:15px;
+	z-index:5; 
+	
+}
+#nav ul { 
+	width: 170px;
+	height: 50px;
+	list-style: none;
+	text-align: center; 
+	float:right;
+}
+
+#nav ul li{ 
+	height:50px;
+	width: 128px; 
+	text-align:center;
+}
+#nav ul li a{
+	height: 43px;
+	width:170px;
+	color: #a5a9ac;
+	display: block; 
+	text-decoration: none; 
+	font-size:15px;   
+	padding-top:12px;  
+}
+#nav li ul { 
+	display:none;
+	position: absolute;
+	width: 130px; 
+	height:111px;
+	background-color:#F2F2F2;
+	padding:10px 5px 0px 5px;
+	border:1px solid #4F4F4F;
+}
+#nav li ul a{
+	background-color:#F2F2F2;
+	width:120px;
+	height:5px; 
+	text-align:center;
+}
+#nav #sub2 ul {	 
+	width: 140px; 
+	height:88px;
+	background-color:#F2F2F2; 
+}
+#nav #sub2 ul li a{	
+	background-color:#CCC;
+	width:140px;
+	height:5px; 
+}
+#nav #sub2 ul li a:hover{	
+	color:Red;
+}
