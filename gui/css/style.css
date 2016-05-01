@@ -701,3 +701,54 @@ body{
 #nav #sub2 ul li a:hover{	
 	color:Red;
 }
+
+
+
+
+#komentari{
+	margin: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 0px 10px 0px;
+    width: 650px;
+    min-height: 100px;
+}
+#komentari_komentar{
+	width: 610px;
+    min-height: 100px;
+	background-color: #eff0f1;
+	margin-left:40px;
+}
+#komentari_edit{
+	float:left;
+	width:100px;
+	height:25px;
+	text-align:left;
+	font-size: 13px;
+    color: #9199a1;
+	margin-left: 40px;
+}
+#komentari_info{
+	float:left;
+	width:510px;
+	height:20px;
+	text-align:right;
+    font-size: 13px;
+    color: #9199a1;
+}
+#komentari_komentarisi{
+	width:610px;
+	height:25px; 
+	text-align:left;
+	font-size: 13px;
+	margin-left: 40px;
+    color: #9199a1; 
+}
+#komentari_levi{
+	vertical-align: top;
+    margin-right: 15px;
+	font-size:30px;
+	min-height: 100px;
+	width:40px; 
+	float:left;
+	color: #9199a1; 
+}

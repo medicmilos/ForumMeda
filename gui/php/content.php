@@ -58,6 +58,7 @@ if(!isset($_SESSION['id_users'])){
 		
 		while($red = mysql_fetch_array($rezultat)){
 			$title = $red['title'];
+			$idpost = $red['id_posts'];
 			$description = $red['description'];
 			$username = $red['username'];
 			$tags = $red['tags']; 
@@ -94,7 +95,8 @@ if(!isset($_SESSION['id_users'])){
 			if(!isset($_SESSION['id_users'])){
 				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
 			}else{
-				$pomocna = "<a href='posts.php?title=$title'>$title</a>";				
+				$pomocna = "<a href='posts.php?title=$title&idposta=$idpost'>$title</a>";
+				$_SESSION['lazarzmaj'] = "posts.php?title=$title&idposta=$idpost";
 			}
 			
 			
