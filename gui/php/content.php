@@ -19,7 +19,7 @@
 		} */
 
 		if(empty($greske)){
-			$upit = "INSERT INTO posts (id_posts, title, description, username, tags) VALUES (NULL, '".$title."', '".$post."', 'NadrogiranaPrepelica', '".$tags."')";
+			$upit = "INSERT INTO posts (id_posts, title, description, username, tags) VALUES (NULL, '".$title."', '".$post."', '".$_SESSION['username']."', '".$tags."')";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija);
@@ -61,7 +61,34 @@ if(!isset($_SESSION['id_users'])){
 			$description = $red['description'];
 			$username = $red['username'];
 			$tags = $red['tags']; 
-			$time = $red['time'];  
+			$time = $red['time'];
+  
+			$time = time() - strtotime($time);
+			 
+			if ($time<60) {
+				if($time == 1){
+					$time = round($time)." sec";
+				}else{
+					$time = round($time)." secs";
+				}
+			} elseif ($time<3600-1) {
+				if(($time>60) && ($time<3600-1)){
+					$time = round($time / 60)." mins";
+				}else{
+					$time = round($time / 60)." min";
+				}
+			} elseif ($time<86400) {
+				$time = round($time / 60 / 60)." hours";
+			}elseif ($time<604800) {
+				$time = round($time / 60 / 60 / 60 +1)." days"; 
+			}elseif ($time<31536000) {
+				$time = round($time / 60 / 60 / 60 / 12 + 1)." months";
+			}else{
+				$time = round($time / 60 / 60 / 60 / 60 /60 + 1)." years";
+			}
+ 
+			
+			
 			
 			$pomocna = '';
 			if(!isset($_SESSION['id_users'])){
@@ -93,13 +120,14 @@ if(!isset($_SESSION['id_users'])){
 					<span class='paket_desno_tagovi_tag'>$tags</span> 
 				</div>
 				<div class='paket_desno_opis'>
-					<span class='paket_desno_opis_time'>$time &nbsp;by</span>
+					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
 					<span class='paket_desno_opis_user'>$username</span>
 				</div>
 			</div>
 		</div> 
 		<div class='cisti'></div>");
 		}
+		
 	?>	 
 	
 </div>
