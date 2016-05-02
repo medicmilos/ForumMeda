@@ -121,7 +121,7 @@ body{
                         inset  0 -5px 5px -5px #696868;
     -webkit-box-shadow: inset  0  5px 5px -5px #696868, 
                         inset  0 -5px 5px -5px #696868;
-     box-shadow:        inset  0  5px 5px -5px #696868, 
+    box-shadow:        inset  0  5px 5px -5px #696868, 
                         inset  0 -5px 5px -5px #696868;
 }
 
@@ -752,3 +752,95 @@ body{
 	float:left;
 	color: #9199a1; 
 }
+
+
+
+#sadrzaj_members{ 
+	width:730px;
+	height:230px; 
+	margin-top:20px;
+	padding-top:20px;
+}
+#sadrzaj_membersin{ 
+	width:704px;
+	height:165px; 
+	margin:0px auto;  
+}
+#sadrzaj_membersin2{ 
+	width:683px;
+	min-height:20px; 
+	z-index:10;
+	margin:0px auto;  
+    background: #ecf0f1; 
+    border-radius: 3px;
+    margin-top: 49px;
+    color: #7b7b7b;
+    font-size: 0.85em;
+	padding: 6px 0px 6px 21px;
+}
+#sadrzaj_membersingore{
+	width:704px;
+	height:82.5px;
+	background-color: #f0f0f0; 
+	z-index:111;
+}
+#sadrzaj_membersindole{
+	width:704px;
+	height:115px;
+	background-color:#fff; 
+	border-bottom:1px solid #f2f2f2;
+	z-index:111;
+}
+#sadrzaj_members_avatar{
+	margin:5px 0px 0px 10px;
+	width:145px;
+	height:155px;
+	float:left;
+	z-index:999; 
+	border:1px solid #7b7b7b;;
+} 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-block {
+    display: block; 
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn {  
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center; 
+    -ms-touch-action: manipulation;
+    touch-action: manipulation; 
+    background-image: none; 
+    border-radius: 4px;  
+	border:1px solid #d8d8d8;
+	color: #7b7b7b;
+}
+.btn:hover{
+	    background-color: #f0f0f0;
+		border:1px solid #d8d8d8;
+		cursor: pointer;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 144px;
+    height: 33px;
+    font-size: 90px;
+    text-align: center;
+    filter: alpha(opacity=0); 
+    opacity: 0;
+    outline: 0;
+    background: #fff; 
+    display: block;
+}
+
+ 
