@@ -1,67 +1,60 @@
 <?php
-	 session_start();
-	/*if(empty($_FILES['avatar']['temp_name']) == false){
-		$file_ext = end(explode('.', $_FILES['avatar']['name']));
-		if(in_array(strtolower($file_ext),array('jpg'. 'jpeg','png','gif')) == false){
-			echo ( 'Your avatar must be an image.');
-		}
+	session_start(); 
+	
+	if(isset($_POST['submit'])){
+		move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
+		$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
+		include("konekcija.php");
+		$rezultat = mysql_query($upit2, $konekcija);  
+		mysql_close($konekcija);
+	} 
+	
+	$upit = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
+	include("konekcija.php");
+	$rezultat = mysql_query($upit, $konekcija);  
+	mysql_close($konekcija);
+	//header("Location: $_SERVER[PHP_SELF]");
+	
+	$username = '';
+	$time = '';
+	$maliavatar = '';
+	$slika = ''; 
+	while($red = mysql_fetch_array($rezultat)){
+		$slika .= $red['image'];  
+		$time = $red['time']; 
+		
+	} 
+	$time = strtotime($time);
+	$time = date('M d, Y', $time);
+	
+	if($slika == ''){ 
+		$maliavatar = "<img src='../images/members/default.png' width='145px' height='155px' alt='default_img' >";   
+	}else{ 
+		$maliavatar = "<img src='../images/members/$slika' width='145px' height='155px' alt='default_img' >";
+	} 
+	
+	if(isset($_REQUEST['btnSaveDesc'])){
+		$deskripcija = ($_REQUEST['taEditProfile']);
+		
+		$upit = "UPDATE users SET description = '".$deskripcija."' WHERE username = '".$_SESSION['username']."'";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);  
+			mysql_close($konekcija); 
 	}
-
-
-	if(file_exists($_FILES['avatar'])){
-		$src_size = getimagesize($_FILES['avatar']);
-		
-		
-		
-		
-		
-			$upit = "INSERT INTO users (image) VALUES ('".$title."')";
+	$upit2 = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
 			include("konekcija.php");
-			$rezultat = mysql_query($upit, $konekcija);  
+			$rezultat = mysql_query($upit2, $konekcija);  
 			mysql_close($konekcija);
-			header("Location: $_SERVER[PHP_SELF]");
-		}*/
-		
-			if(isset($_POST['submit'])){
-				move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
-				$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
-				include("konekcija.php");
-				$rezultat = mysql_query($upit2, $konekcija);  
-				mysql_close($konekcija);
+		$descript = '';
+		while($red = mysql_fetch_array($rezultat)){
+			$descript = $red['description']; 
+			if($descript == ''){
+				$descript = "This user did not update his description yet.";
+			}else{
+				$descript;
 			}
-
-
-			$upit = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
-			include("konekcija.php");
-			$rezultat = mysql_query($upit, $konekcija);  
-			mysql_close($konekcija);
-			//header("Location: $_SERVER[PHP_SELF]");
-			
-			$username = '';
-			$time = '';
-			$maliavatar = '';
-			$slika = ''; 
-			while($red = mysql_fetch_array($rezultat)){
-				$slika .= $red['image'];  
-				$time = $red['time']; 
-				
-			}
-		
-			
-			$time = strtotime($time);
-			$time = date('M d, Y', $time);
-			
-			
-			
-			if($slika == ''){ 
-				$maliavatar = "<img src='../images/members/default.png' width='145px' height='155px' alt='default_img' >";   
-			}else{ 
-				$maliavatar = "<img src='../images/members/$slika' width='145px' height='155px' alt='default_img' >";
-			}
-			
-
+		}
 ?>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -86,14 +79,6 @@
 		<div id='wrapper'>
 		<?php
 		
-			
-			
-			
-			
-			
-			
-			
-			
 			echo ("<div id='sadrzaj'>
 				<div id='sadrzaj_members'> 
 					<div id='sadrzaj_membersin'>
@@ -113,8 +98,10 @@
 						</div>
 						<div id='sadrzaj_membersindole'>
 							<div id='description'>
-								<p class='edit'>This user did not update his description yet.</p>
-								<span class='tagline'>Click on description to edit it.</span>
+								<form action='". $_SERVER['PHP_SELF'] ."' method='POST'>
+									<p class='edit'>$descript</p>
+									<span class='tagline'>Click on description to edit it.</span>
+								</form> 
 							</div>
 						</div>
 					</div>
@@ -124,6 +111,10 @@
 				</div>
 			</div>
 			");
+			
+			
+		
+			
 			?>
 			<div id='desno'>
 				<?php

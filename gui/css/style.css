@@ -633,50 +633,47 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-
+ 
  
 #nav{
 	width:440px;
 	position:absolute;   
-	height:50px;
-	top:15px;
+	height:60px;
+	top:7px;
 	z-index:5; 
 	
 }
 #nav ul { 
-	width: 170px;
-	height: 50px;
+	min-width: 70px;
+	height: 58px;
 	list-style: none;
 	text-align: center; 
 	float:right;
+	border-left: 1px solid #2c2e2e;
 }
-
+#nav #firstavatar{
+	margin-right:20px;  
+	border: 1px solid #7b7b7b;
+}
 #nav ul li{ 
-	height:50px;
-	width: 128px; 
-	text-align:center;
+	height:30px;
+	min-width: 70px;
+	text-align:right;
 }
 #nav ul li a{
-	height: 43px;
-	width:170px;
+	height: 22px;
+	min-width: 58px;
 	color: #a5a9ac;
 	display: block; 
 	text-decoration: none; 
-	font-size:15px;   
-	padding-top:12px;  
+	font-size:15px;    
+	padding-top:40px;  
+	padding-left:12px;  
 }
 #nav li ul { 
 	display:none;
 	position: absolute;
-	width: 130px; 
+	min-width: 146px;
 	height:111px;
 	background-color:#F2F2F2;
 	padding:10px 5px 0px 5px;

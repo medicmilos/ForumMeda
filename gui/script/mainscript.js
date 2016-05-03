@@ -42,7 +42,7 @@ $(document).ready(function(){
 	
 	$('#description .edit').click(function(){
 	
-	$(this).parent().html("<textarea id='taEditProfile' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveDesc'> <span id='span_close'> &#10006;</span>");
+	$(this).parent().html("<textarea id='taEditProfile' name='taEditProfile' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveDesc'>");
   
 	});	 
  
