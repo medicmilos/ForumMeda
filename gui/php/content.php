@@ -123,7 +123,7 @@ if(!isset($_SESSION['id_users'])){
 				</div>
 				<div class='paket_desno_opis'>
 					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
-					<span class='paket_desno_opis_user'>$username</span>
+					<span class='paket_desno_opis_user'><a href='member.php'>$username</a></span>
 				</div>
 			</div>
 		</div> 

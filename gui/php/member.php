@@ -1,7 +1,7 @@
 <?php
 	session_start(); 
-	
-	if(isset($_POST['submit'])){
+	$medic = @$_REQUEST['pomocnapom'];
+	if($medic == 'meda'){
 		move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
 		$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
 		include("konekcija.php");
@@ -78,18 +78,17 @@
 		?>
 		<div id='wrapper'>
 		<?php
-		
+
 			echo ("<div id='sadrzaj'>
 				<div id='sadrzaj_members'> 
 					<div id='sadrzaj_membersin'>
 						<div id='sadrzaj_members_avatar'>
 						$maliavatar
-							<span  >
-								Set avatar
-								<form action='' method='POST' enctype='multipart/form-data'>
-									<input type='file' name='file'><br/>
-									<input type='submit' name='submit' value='Submit'> 
-								</form>
+							<span id='avatar_span'>
+								<p>Set avatar</p>
+								<form action='". $_SERVER['PHP_SELF'] ."?pomocnapom=meda' method='POST' enctype='multipart/form-data'>
+									<input  id='forma_avatar' type='file' name='file'onchange='javascript:this.form.submit();'> 
+								</form> 
 							</span>
 						</div>
 						<div id='sadrzaj_membersingore'>

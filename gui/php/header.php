@@ -21,9 +21,9 @@
 		}  
 		
 		if($slika == ''){ 
-			$maliavatar2 = "<img src='../images/members/default.png' width='55px' height='55px' alt='default_img' id='firstavatar'>";   
+			$maliavatar2 = "<a href='member.php'><img src='../images/members/default.png' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";   
 		}else{ 
-			$maliavatar2 = "<img src='../images/members/$slika' width='55px' height='55px' alt='default_img' id='firstavatar' >";
+			$maliavatar2 = "<a href='member.php'><img src='../images/members/$slika' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";
 		} 
 		
 		

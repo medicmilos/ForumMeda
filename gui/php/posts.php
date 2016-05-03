@@ -80,7 +80,7 @@
 								<span id='komentari_levi'>&and;<br/>&or;</span> 
 								<div id='komentari_komentar'>$komentarizbaze</div> <br/>
 								<span id='komentari_edit'>edit</span>
-								<span id='komentari_info'>answered $time2 ago by <span class='paket_desno_opis_user'>$userizbaze</span></span><br/><br/><br/>
+								<span id='komentari_info'>answered $time2 ago by <a href='member.php'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
 								<div id='komentari_komentarisi'>add a comment</div>
 							</div>";
 		}

@@ -320,7 +320,7 @@ body{
 	border-top: 1px solid #e6e6e6;
 	padding-top: 10px;
 	width: 700px; 
-	float:left;
+	float:left; 
 }
 .paket_levo{ 
 	float:left;
@@ -369,8 +369,12 @@ body{
 }
 .paket_desno_opis_user{
 	color:#3af;
+	text-decoration:none;
 }
-
+.paket_desno_opis_user a{ 
+	text-decoration:none;
+	color:#3af;
+}
 
 
 .paket_desno_pnaslov{
@@ -732,6 +736,9 @@ body{
     font-size: 13px;
     color: #9199a1;
 }
+#komentari_info a{
+	text-decoration:none;
+}
 #komentari_komentarisi{
 	width:610px;
 	height:25px; 
@@ -796,49 +803,7 @@ body{
 	z-index:999; 
 	border:1px solid #7b7b7b;;
 } 
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-.btn-block {
-    display: block; 
-}
-.btn-default {
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-}
-.btn {  
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center; 
-    -ms-touch-action: manipulation;
-    touch-action: manipulation; 
-    background-image: none; 
-    border-radius: 4px;  
-	border:1px solid #d8d8d8;
-	color: #7b7b7b;
-}
-.btn:hover{
-	    background-color: #f0f0f0;
-		border:1px solid #d8d8d8;
-		cursor: pointer;
-}
-.btn-file input[type=file] {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 144px;
-    height: 33px;
-    font-size: 90px;
-    text-align: center;
-    filter: alpha(opacity=0); 
-    opacity: 0;
-    outline: 0;
-    background: #fff; 
-    display: block;
-}
+ 
 #sadrzaj_membersingore #secondchildp{
 	font-size: 0.85em;
     color: #b3b3b3;
@@ -883,28 +848,33 @@ body{
 	box-shadow: inset 0 1px 0 #91decf;
 	cursor:pointer;
 } 
-.form-control {
-    display: block; 
-    height: 34px; 
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-#span_close{
-	color:red;
-}
-#span_close:hover{
-	cursor:pointer;
-}
-
-
  
+#avatar_span form{
+	opacity:0; 
+	position:absolute;
+	top:-21px;
+	left:0;
+	width:100px;
+	
+}
+#avatar_span{
+	position:relative;   
+}
+
+#avatar_span p{
+	position:relative;
+	width:145px;
+	height:20px; 
+	font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;    
+    border-radius: 4px;  
+	border:1px solid #d8d8d8; 
+	color: #7b7b7b;  
+} 
+#forma_avatar{
+	width: 235px;
+    cursor: pointer;
+    margin-left: -89px;
+}
