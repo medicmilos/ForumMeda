@@ -842,5 +842,72 @@ body{
     background: #fff; 
     display: block;
 }
+#sadrzaj_membersingore #secondchildp{
+	font-size: 0.85em;
+    color: #b3b3b3;
+    display: block;
+    margin-top: 3px; 
+    height: 17px; 
+	padding: 0px 0px 0px 190px; 
+}
+#sadrzaj_membersingore #firstchildp{
+	color: #727272;
+    font-size: 1.20em;
+    font-weight: 600;
+	padding: 20px 0px 0px 190px; 
+}
+.tagline {
+    margin-left: 4px;
+    color: #888;
+    font-size: x-small;
+}
+#taEditProfile {
+    width: 100%!important;
+}
+#description{
+	padding:5px 0px 5px 187px;
+}
+.edit{
+	color: #727272;
+	font-size: 0.85em;
+}
+.save{
+	background-color:#48c9b0;
+	color:#efefef;
+	height:21px;
+	width:46px;
+	text-align:center; 
+	border:none;
+	border-radius:3px;
+	box-shadow: inset 0 1px 0 #91decf;
+	margin-top:2px;
+}
+.save:hover{  
+	box-shadow: inset 0 1px 0 #91decf;
+	cursor:pointer;
+} 
+.form-control {
+    display: block; 
+    height: 34px; 
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+#span_close{
+	color:red;
+}
+#span_close:hover{
+	cursor:pointer;
+}
+
 
  

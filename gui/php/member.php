@@ -1,4 +1,5 @@
 <?php
+	 session_start();
 	/*if(empty($_FILES['avatar']['temp_name']) == false){
 		$file_ext = end(explode('.', $_FILES['avatar']['name']));
 		if(in_array(strtolower($file_ext),array('jpg'. 'jpeg','png','gif')) == false){
@@ -21,31 +22,43 @@
 			header("Location: $_SERVER[PHP_SELF]");
 		}*/
 		
-			if(isset($_REQUEST['submit'])){
-				move_uploaded_file($_FILES['avatar']['temp_name'],"../images/members/".$_FILES['avatar']['name']);
-				
-				
-				
+			if(isset($_POST['submit'])){
+				move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
+				$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
+				include("konekcija.php");
+				$rezultat = mysql_query($upit2, $konekcija);  
+				mysql_close($konekcija);
 			}
 
 
-			$upit = "SELECT * FROM users";
+			$upit = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija);
 			//header("Location: $_SERVER[PHP_SELF]");
 			
+			$username = '';
+			$time = '';
 			$maliavatar = '';
+			$slika = ''; 
 			while($red = mysql_fetch_array($rezultat)){
-			$slika = $red['image'];
+				$slika .= $red['image'];  
+				$time = $red['time']; 
+				
+			}
+		
 			
-			if($slika == ''){
-				$maliavatar = "<img src='../images/members/default.png' width='145px' height='155px' alt='default_img' >";
+			$time = strtotime($time);
+			$time = date('M d, Y', $time);
+			
+			
+			
+			if($slika == ''){ 
+				$maliavatar = "<img src='../images/members/default.png' width='145px' height='155px' alt='default_img' >";   
+			}else{ 
+				$maliavatar = "<img src='../images/members/$slika' width='145px' height='155px' alt='default_img' >";
 			}
 			
-			}
-
-
 
 ?>
 
@@ -72,25 +85,37 @@
 		?>
 		<div id='wrapper'>
 		<?php
+		
+			
+			
+			
+			
+			
+			
+			
+			
 			echo ("<div id='sadrzaj'>
 				<div id='sadrzaj_members'> 
 					<div id='sadrzaj_membersin'>
 						<div id='sadrzaj_members_avatar'>
 						$maliavatar
-							<span class='btn btn-default btn-block btn-file'>
+							<span  >
 								Set avatar
-								<form action='' method='GET' enctype='multipart/form-data'>
-									<input type='file' name='avatar'  class='form-control input-lg' id='uploadProfile' /> 
-									<input type='submit' name='submit'  /> 
-									
+								<form action='' method='POST' enctype='multipart/form-data'>
+									<input type='file' name='file'><br/>
+									<input type='submit' name='submit' value='Submit'> 
 								</form>
 							</span>
 						</div>
 						<div id='sadrzaj_membersingore'>
-						
+						<p id='firstchildp'>".$_SESSION['username']."</p>
+						<p id='secondchildp'>@".$_SESSION['username']." joined $time</p>
 						</div>
 						<div id='sadrzaj_membersindole'>
-							
+							<div id='description'>
+								<p class='edit'>This user did not update his description yet.</p>
+								<span class='tagline'>Click on description to edit it.</span>
+							</div>
 						</div>
 					</div>
 					<div id='sadrzaj_membersin2'>
