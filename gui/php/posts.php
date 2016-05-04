@@ -45,7 +45,7 @@
 			$rezultat2 = mysql_query($upit2, $konekcija);  
 			mysql_close($konekcija);	
 			
-			 
+			
 		while($red2 = mysql_fetch_array($rezultat2)){
 			$idpostaizbaze = $red2['id_posts'];
 			$userizbaze = $red2['username'];
@@ -111,13 +111,7 @@
 						<input type='text' name='tbKlik' id='tbKlik' placeholder='Click here to start your discussion.'/><br/> <br/>
 						
 					</form>
-				</div>
-				 
-				 
-				
-				
-			 
-		
+				</div> 
 		<div class='cisti'></div>");  
 		} 
 		 

@@ -755,10 +755,7 @@ body{
 	width:40px; 
 	float:left;
 	color: #9199a1; 
-}
-
-
-
+} 
 #sadrzaj_members{ 
 	width:730px;
 	height:230px; 
@@ -771,17 +768,18 @@ body{
 	margin:0px auto;  
 }
 #sadrzaj_membersin2{ 
-	width:683px;
-	min-height:20px; 
-	z-index:10;
-	margin:0px auto;  
-    background: #ecf0f1; 
+	width: 712px;
+    min-height: 20px;
+    z-index: 10;
+    margin: 0px auto;
+    background: #ecf0f1;
     border-radius: 3px;
     margin-top: 49px;
     color: #7b7b7b;
     font-size: 0.85em;
-	padding: 6px 0px 6px 21px;
+    padding: 6px 0px 6px 4px;
 }
+
 #sadrzaj_membersingore{
 	width:704px;
 	height:82.5px;
