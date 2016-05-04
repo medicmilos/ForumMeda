@@ -96,10 +96,9 @@ if(!isset($_SESSION['id_users'])){
 				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
 			}else{
 				$pomocna = "<a href='posts.php?title=$title&idposta=$idpost'>$title</a>";
-				$_SESSION['lazarzmaj'] = "posts.php?title=$title&idposta=$idpost";
-			}
-			
-			
+				$_SESSION['pomocniurl'] = "title=$title";
+				
+			} 
 			
 			echo ("<div class='sadrzaj_paket'>
 			<div class='paket_levo'>

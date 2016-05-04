@@ -18,16 +18,16 @@
 	
 	
 	$username = '';
-	$time = '';
+	$time2 = '';
 	$maliavatar = '';
 	$slika = ''; 
 	while($red = mysql_fetch_array($rezultat)){
 		$slika .= $red['image'];  
-		$time = $red['time']; 
+		$time2 = $red['time']; 
 		
 	} 
-	$time = strtotime($time);
-	$time = date('M d, Y', $time);
+	$time2 = strtotime($time2);
+	$time2 = date('M d, Y', $time2);
 	
 	if($slika == ''){ 
 		$maliavatar = "<img src='../images/members/default.png' width='145px' height='155px' alt='default_img' >";   
@@ -97,8 +97,32 @@
 		$description = $red['description'];
 		$username = $red['username'];
 		$tags = $red['tags']; 
-		$time = $red['time']; 
-		 
+		$time = $red['time'];
+ 
+		$time = time() - strtotime($time);
+			 
+		if ($time<60) {
+			if($time == 1){
+				$time = round($time)." sec";
+			}else{
+				$time = round($time)." secs";
+			}
+		} elseif ($time<3600-1) {
+			if(($time>60) && ($time<3600-1)){
+				$time = round($time / 60)." mins";
+			}else{
+				$time = round($time / 60)." min";
+			}
+		} elseif ($time<86400) {
+			$time = round($time / 60 / 60)." hours";
+		}elseif ($time<604800) {
+			$time = round($time / 60 / 60 / 60 +1)." days"; 
+		}elseif ($time<31536000) {
+			$time = round($time / 60 / 60 / 60 / 12 + 1)." months";
+		}else{
+			$time = round($time / 60 / 60 / 60 / 60 /60 + 1)." years";
+		}
+ 
 		$pomocna = '';
 		if(!isset($_SESSION['id_users'])){
 			$pomocna = "<a href='javascript:void(0);'>$title</a>";	
@@ -175,7 +199,7 @@
 						</div>
 						<div id='sadrzaj_membersingore'>
 						<p id='firstchildp'>".$_SESSION['username']."</p>
-						<p id='secondchildp'>@".$_SESSION['username']." joined $time</p>
+						<p id='secondchildp'>@".$_SESSION['username']." joined $time2</p>
 						</div>
 						<div id='sadrzaj_membersindole'>
 							<div id='description'>

@@ -31,23 +31,35 @@
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija);
 			
-		$idposta = '';
+			$idposta = '';
 			if(isset($_REQUEST['idposta'])){
 				$idposta = $_REQUEST['idposta'];	
-			}	
-			$_SESSION['idpostakomentar'] = $idposta;
+			}
+			
+			
 		
 			
 			
 			// where id_posts = '".$idposta."'
-		$upit2 = "SELECT * FROM comments";
+		//$upit2 = "SELECT  c.username  username, c.comment  comment, c.time  time FROM comments c  INNER JOIN posts p ON c.id_posts=p.id_posts WHERE p.id_posts= c.id_posts";
+		$upit2 = "SELECT  c.username  username, c.comment  comment, c.time  time FROM comments c  WHERE c.id_posts=(SELECT p.id_posts FROM posts p)";
+		
+		//INNER JOIN posts p ON c.id_posts=p.id_posts WHERE p.id_posts= c.id_posts";
+		
 			include("konekcija.php");
 			$rezultat2 = mysql_query($upit2, $konekcija);  
 			mysql_close($konekcija);	
 			
 			
+			
+			
+			
+			$promenljiva = '';
+			$userizbaze = '';
+			$komentarizbaze = '';
+			$time2 = '';
 		while($red2 = mysql_fetch_array($rezultat2)){
-			$idpostaizbaze = $red2['id_posts'];
+			 
 			$userizbaze = $red2['username'];
 			$komentarizbaze = $red2['comment'];
 			$time2 = $red2['time']; 
@@ -75,14 +87,14 @@
 			}else{
 				$time2 = round($time2 / 60 / 60 / 60 / 60 /60 + 1)." years";
 			}
-			
+			 
 			@$promenljiva .= "<div id='komentari'>
 								<span id='komentari_levi'>&and;<br/>&or;</span> 
 								<div id='komentari_komentar'>$komentarizbaze</div> <br/>
 								<span id='komentari_edit'>edit</span>
 								<span id='komentari_info'>answered $time2 ago by <a href='member.php'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
 								<div id='komentari_komentarisi'>add a comment</div>
-							</div>";
+							</div>"; 
 		}
 		
 		while($red = mysql_fetch_array($rezultat)){
@@ -102,26 +114,37 @@
 					<div class='paket_desno_description'>$description</div>
 					$promenljiva
 					<div>Your answer: </div><br/><br/>
-					<form action='". $_SESSION['lazarzmaj'] ."' method='GET'>
+					<form action='". $_SERVER['PHP_SELF'] ."'  method='GET'>
 						<div id='dodatak2'>
 							<textarea name='taComment' id='taComment' rows='6' cols='98.5'></textarea><br/><br/>
 							<input type='submit' name='btnReply' id='btnReply' value='Reply'/>
 							<input type='button' name='btnClose' id='btnClose' value='Close'/></br>
-						</div>
-						<input type='text' name='tbKlik' id='tbKlik' placeholder='Click here to start your discussion.'/><br/> <br/>
-						
+						</div> 
 					</form>
+					<input type='text' name='tbKlik' id='tbKlik' placeholder='Click here to start your discussion.'/><br/> <br/> 
 				</div> 
 		<div class='cisti'></div>");  
 		} 
-		 
+		
+		 if(isset($_REQUEST['idposta'])) { 
+		 $_SESSION['pomocniid333']=$_REQUEST['idposta'];
+				
+					echo($_SESSION['pomocniid333']);
+		 }
+			
 		if(isset($_REQUEST['btnReply'])) { 
-		 	 
-			 
-			$upit = "INSERT INTO comments (id_posts, username, comment) VALUES ('".$idposta."', '".$_SESSION['username']."', '".$_REQUEST['taComment']."')";
+		
+		
+		
+		$urlpom = $_SESSION['pomocniurl'];
+			$upit = "INSERT INTO comments (id_posts, username, comment) VALUES ('".$_SESSION['pomocniid333']."', '".$_SESSION['username']."', '".$_REQUEST['taComment']."')";
 					include("konekcija.php");
 					$rezultat = mysql_query($upit, $konekcija);  
 					mysql_close($konekcija);
+					header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333']."");
+					
+					
+			 
 		}
 		
 	?>	 		
