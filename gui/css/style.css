@@ -327,7 +327,7 @@ body{
 	margin-top:10px; 
 }
 .paket_levo_glasovi{
-	width:35px;
+	width:33px;
 	float: left;
 	text-align: center;
 	margin-right: 5px;
@@ -659,12 +659,12 @@ body{
 	margin-right:20px;  
 	border: 1px solid #7b7b7b;
 }
-#nav ul li{ 
-	height:30px;
-	min-width: 70px;
-	text-align:right;
+#nav ul li{  
+	height:40px;
+	min-width: 70px;  
 }
-#nav ul li a{
+ 
+#username_menu{
 	height: 22px;
 	min-width: 58px;
 	color: #a5a9ac;
@@ -674,13 +674,16 @@ body{
 	padding-top:40px;  
 	padding-left:12px;  
 }
+.profile_logout {
+	color: #a5a9ac;
+	text-decoration:none; 
+}
 #nav li ul { 
 	display:none;
 	position: absolute;
-	min-width: 146px;
-	height:111px;
-	background-color:#F2F2F2;
-	padding:10px 5px 0px 5px;
+	min-width: 162px;
+	height:79px;
+	background-color:#F2F2F2; 
 	border:1px solid #4F4F4F;
 }
 #nav li ul a{
@@ -827,6 +830,9 @@ body{
 #description{
 	padding:5px 0px 5px 187px;
 }
+#description2{
+	padding:5px 0px 5px 187px;
+}
 .edit{
 	color: #727272;
 	font-size: 0.85em;
@@ -875,4 +881,22 @@ body{
 	width: 235px;
     cursor: pointer;
     margin-left: -89px;
+}
+.reply{
+	text-decoration:none;
+	color: #9199a1;
+}
+.nested-comment{
+	width: 588px;
+    border: 1px solid #e6e6e6;
+    min-height: 10px;
+    border-radius: 3px;
+    cursor: text; 
+    padding: 4px; 
+}
+#nested-koments{
+	background-color: #eff0f1;
+	width:500px;
+	min-height:50px;
+	margin-left:150px;
 }

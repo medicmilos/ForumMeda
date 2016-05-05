@@ -26,10 +26,7 @@
 		if(isset($_REQUEST['title'])){
 			$naslov = $_REQUEST['title'];	
 		} 
-		$upit = "SELECT * FROM posts where title = '".$naslov."'";
-			include("konekcija.php");
-			$rezultat = mysql_query($upit, $konekcija);  
-			mysql_close($konekcija);
+		
 			
 			$idposta = '';
 			if(isset($_REQUEST['idposta'])){
@@ -37,33 +34,75 @@
 			}
 			
 			
+		if(isset($_REQUEST['idposta'])) { 
+			$_SESSION['pomocniid333']=$_REQUEST['idposta'];
+				 
+		}
+
+//citanje ugnjezdenog komentara	iz baze 
+
+				
+
+
+
+
+
 		
-			
-			
-			// where id_posts = '".$idposta."'
-		//$upit2 = "SELECT  c.username  username, c.comment  comment, c.time  time FROM comments c  INNER JOIN posts p ON c.id_posts=p.id_posts WHERE p.id_posts= c.id_posts";
-		$upit2 = "SELECT  c.username  username, c.comment  comment, c.time  time FROM comments c  WHERE c.id_posts=(SELECT p.id_posts FROM posts p)";
 		
-		//INNER JOIN posts p ON c.id_posts=p.id_posts WHERE p.id_posts= c.id_posts";
 		
+		
+		
+		 
+		
+		
+		$upit2 = "SELECT  c.username  username, c.comment  comment, c.time  time, c.id_comments id_comments FROM comments c  INNER JOIN posts p ON c.id_posts=p.id_posts WHERE c.id_posts= '".$_SESSION['pomocniid333']."'";
 			include("konekcija.php");
 			$rezultat2 = mysql_query($upit2, $konekcija);  
-			mysql_close($konekcija);	
-			
-			
-			
-			
-			
+			mysql_close($konekcija);
+
 			$promenljiva = '';
 			$userizbaze = '';
 			$komentarizbaze = '';
 			$time2 = '';
+			$idkomentara = '';
 		while($red2 = mysql_fetch_array($rezultat2)){
 			 
 			$userizbaze = $red2['username'];
 			$komentarizbaze = $red2['comment'];
 			$time2 = $red2['time']; 
+			$idkomentara = $red2['id_comments']; 
 			
+			
+			
+			
+////////---------------------------/			
+			
+			$upit33 = "SELECT * FROM nested_comments";
+			include("konekcija.php");
+			$rezultat23 = mysql_query($upit33, $konekcija);  
+			mysql_close($konekcija);
+
+			$nestusername = '';
+			$nestcomment = '';
+			$nesttime = '';
+			$nested_iz_baze = ''; 
+		while($red2 = mysql_fetch_array($rezultat23)){ 
+			$nestusername = $red2['username'];
+			$nestcomment = $red2['comment'];
+			$nesttime = $red2['time'];
+			
+			
+			$nested_iz_baze .= "<div id='nested-koments' class='$idkomentara' >$nestcomment, $idkomentara</div><br/>";
+			
+		}
+///////////////////////-----------------------/		
+		
+		
+		
+		
+		
+		
+		
 			$time2 = time() - strtotime($time2);
 			 
 			if ($time2<60) {
@@ -89,14 +128,25 @@
 			}
 			 
 			@$promenljiva .= "<div id='komentari'>
-								<span id='komentari_levi'>&and;<br/>&or;</span> 
+								<span id='komentari_levi'></span> 
 								<div id='komentari_komentar'>$komentarizbaze</div> <br/>
 								<span id='komentari_edit'>edit</span>
-								<span id='komentari_info'>answered $time2 ago by <a href='member.php'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
-								<div id='komentari_komentarisi'>add a comment</div>
+								<span id='komentari_info'>answered $time2 ago by <a href='member.php?usernamem=$userizbaze'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
+								$nested_iz_baze
+								<div id='komentari_komentarisi'><form action='". $_SERVER['PHP_SELF'] ."' method='GET'><a href='' class='reply'>add a comment</a></form></div>
 							</div>"; 
 		}
 		
+		
+		
+		
+		
+		
+		
+		$upit = "SELECT * FROM posts where id_posts = '".$_SESSION['pomocniid333']."'";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);  
+			mysql_close($konekcija);
 		while($red = mysql_fetch_array($rezultat)){
 			$title = $red['title'];
 			$description = $red['description'];
@@ -126,26 +176,37 @@
 		<div class='cisti'></div>");  
 		} 
 		
-		 if(isset($_REQUEST['idposta'])) { 
-		 $_SESSION['pomocniid333']=$_REQUEST['idposta'];
-				
-					echo($_SESSION['pomocniid333']);
-		 }
-			
-		if(isset($_REQUEST['btnReply'])) { 
-		
-		
-		
-		$urlpom = $_SESSION['pomocniurl'];
+		if(isset($_REQUEST['btnReply'])) {  
+			$urlpom = $_SESSION['pomocniurl'];
 			$upit = "INSERT INTO comments (id_posts, username, comment) VALUES ('".$_SESSION['pomocniid333']."', '".$_SESSION['username']."', '".$_REQUEST['taComment']."')";
 					include("konekcija.php");
-					$rezultat = mysql_query($upit, $konekcija);  
+					$rezultat = mysql_query($upit, $konekcija); 
 					mysql_close($konekcija);
-					header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333']."");
-					
-					
-			 
+					header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333'].""); 
+		}else{
+//brojanje pregleda
+			$upit4 = "UPDATE posts SET views=views+1 WHERE id_posts= '".$_SESSION['pomocniid333']."'";
+				include("konekcija.php"); 
+				$comments = mysql_query($upit4, $konekcija);
+				mysql_close($konekcija); 
 		}
+		
+		
+		
+		
+		
+		 
+		//upis u bazu ugnjezdenog komentara		
+
+		if(isset($_REQUEST['nested'])){ 
+			$upit2 = "INSERT INTO nested_comments (id_comments, username, comment, id_posts) VALUES ('".$idkomentara."', '".$_SESSION['username']."', '".$_REQUEST['nested']."', '".$_SESSION['pomocniid333']."') ";
+			include("konekcija.php");
+			$rezultat2 = mysql_query($upit2, $konekcija);  
+			mysql_close($konekcija);
+			echo $_REQUEST['nested'];
+			//header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333'].""); 
+		}
+
 		
 	?>	 		
 

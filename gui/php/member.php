@@ -11,12 +11,19 @@
 		mysql_close($konekcija);
 	} 
 	
-	$upit = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
-	include("konekcija.php");
-	$rezultat = mysql_query($upit, $konekcija);  
-	mysql_close($konekcija);
-	
-	
+	if(isset($_REQUEST['usernamem'])){ 
+		$upit = "SELECT * FROM users WHERE username = '".$_REQUEST['usernamem']."'";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);  
+			mysql_close($konekcija);
+		
+	}else{
+		$upit = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);  
+			mysql_close($konekcija); 
+	}
+ 
 	$username = '';
 	$time2 = '';
 	$maliavatar = '';
@@ -44,10 +51,21 @@
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija); 
 	}
-	$upit2 = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
+	
+	
+	if(isset($_REQUEST['usernamem'])){  
+			$upit2 = "SELECT * FROM users WHERE username = '".$_REQUEST['usernamem']."'";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit2, $konekcija);  
 			mysql_close($konekcija);
+		
+	}else{
+		$upit2 = "SELECT * FROM users WHERE username = '".$_SESSION['username']."'";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit2, $konekcija);  
+			mysql_close($konekcija); 
+	}
+	
 		$descript = '';
 		while($red = mysql_fetch_array($rezultat)){
 			$descript = $red['description']; 
@@ -58,8 +76,8 @@
 			}
 		}
 //topics created part 1
-	
-	$upit4 = "SELECT COUNT(*) as ukupno FROM posts where username = '".$_SESSION['username']."'";
+	if(isset($_REQUEST['usernamem'])){
+		$upit4 = "SELECT COUNT(*) as ukupno FROM posts where username = '".$_REQUEST['usernamem']."'";
 	include("konekcija.php"); 
 	$users = mysql_query($upit4, $konekcija); 
 	mysql_close($konekcija); 
@@ -77,13 +95,47 @@
 			$broj_postova2 = "<p>&#9888; $broj_postova3 topics created.</p>";
 		} 
 	}
+		
+	}else{
+		$upit4 = "SELECT COUNT(*) as ukupno FROM posts where username = '".$_SESSION['username']."'";
+	include("konekcija.php"); 
+	$users = mysql_query($upit4, $konekcija); 
+	mysql_close($konekcija); 
+	$pom2 = mysql_fetch_assoc($users);
+	$broj_usera = $pom2['ukupno'];
+	
+	$broj_postova3 = $broj_usera;
+	$broj_postova2 = '';
+	if($broj_usera == '0'){
+		$broj_postova2 = "<p>&#9888; 0 topics created.</p>"; 
+	}else{
+		if($broj_postova3 == '1'){
+			$broj_postova2 = "<p>&#9888; $broj_postova3 topic created.</p>";
+		}else{
+			$broj_postova2 = "<p>&#9888; $broj_postova3 topics created.</p>";
+		} 
+	}
+	}
+	
 //topics created part2
 	
-	$upit3 = "SELECT * FROM posts where username = '".$_SESSION['username']."'";
+		
+	if(isset($_REQUEST['usernamem'])){ 
+			$upit3 = "SELECT * FROM posts where username = '".$_REQUEST['usernamem']."'";
 		include("konekcija.php");
 		$rezultat = mysql_query($upit3, $konekcija);  
-		mysql_close($konekcija);	
+		mysql_close($konekcija);
 		
+	}else{
+		$upit3 = "SELECT * FROM posts where username = '".$_SESSION['username']."'";
+		include("konekcija.php");
+		$rezultat = mysql_query($upit3, $konekcija);  
+		mysql_close($konekcija);
+	}
+	
+	
+	
+	
 		$title = '';
 		$idpost = '';
 		$description = '';
@@ -131,19 +183,57 @@
 			$_SESSION['lazarzmaj'] = "posts.php?title=$title&idposta=$idpost";
 		}
 		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+//izlistavanje broja odgovora
+		$upit3 = "SELECT COUNT(*) as ukupno FROM comments c  INNER JOIN posts p ON c.id_posts=p.id_posts WHERE c.id_posts= '".$idpost."'";
+			include("konekcija.php"); 
+			$comments = mysql_query($upit3, $konekcija);
+			mysql_close($konekcija); 
+			
+			$pom3 = mysql_fetch_assoc($comments); 
+			$broj_komentara = $pom3['ukupno'];
+			$odgovori = '';
+			if($broj_komentara == 1){
+				$odgovori = "answer";
+			}else{
+				$odgovori = "answers";
+			}
+			
+//izlistavanje broja pregleda 
+
+		$upit4 = "SELECT views FROM posts WHERE id_posts= '".$idpost."'";
+			include("konekcija.php"); 
+			$result2 = mysql_query($upit4, $konekcija);
+			mysql_close($konekcija);
+			
+			$broj_pregleda = '';
+			while($row = mysql_fetch_array($result2)){
+				$broj_pregleda = $red['views'];
+			}
+			if($broj_pregleda == 1){
+				$pregledi = "view";
+			}else{
+				$pregledi = "views";
+			}
 		$sadrzaj_postovi .= "<div class='sadrzaj_paket'>
 			<div class='paket_levo'>
 				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>1</span>
+					<span class='paket_levo_glasovi_broj'>0</span>
 					<span class='paket_levo_glasovi_tekst'>votes</span>
 				</div>
 				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>2</span>
-					<span class='paket_levo_glasovi_tekst'>answer</span>
+					<span class='paket_levo_glasovi_broj'>$broj_komentara</span>
+					<span class='paket_levo_glasovi_tekst'>$odgovori</span>
 				</div>
 				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>3</span>
-					<span class='paket_levo_glasovi_tekst'>views</span>
+					<span class='paket_levo_glasovi_broj'>$broj_pregleda</span>
+					<span class='paket_levo_glasovi_tekst'> $pregledi</span>
 				</div>
 			</div>
 			<div class='paket_desno'>
@@ -153,12 +243,17 @@
 				</div>
 				<div class='paket_desno_opis'>
 					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
-					<span class='paket_desno_opis_user'><a href='member.php'>$username</a></span>
+					<span class='paket_desno_opis_user'><a href='member.php?usernamem=$username'>$username</a></span>
 				</div>
 			</div>
 			</div> 
 			<div class='cisti'></div>";  
 	} 
+	//sadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	
+	
+	
+	
 	
 ?>
 
@@ -183,42 +278,11 @@
 			include("menu.php");
 		?>
 		<div id='wrapper'>
-		<?php
-
-			echo ("<div id='sadrzaj'>
-				<div id='sadrzaj_members'> 
-					<div id='sadrzaj_membersin'>
-						<div id='sadrzaj_members_avatar'>
-						$maliavatar
-							<span id='avatar_span'>
-								<p>Change avatar</p>
-								<form action='". $_SERVER['PHP_SELF'] ."?pomocnapom=meda' method='POST' enctype='multipart/form-data'>
-									<input  id='forma_avatar' type='file' name='file'onchange='javascript:this.form.submit();'> 
-								</form> 
-							</span>
-						</div>
-						<div id='sadrzaj_membersingore'>
-						<p id='firstchildp'>".$_SESSION['username']."</p>
-						<p id='secondchildp'>@".$_SESSION['username']." joined $time2</p>
-						</div>
-						<div id='sadrzaj_membersindole'>
-							<div id='description'>
-								<form action='". $_SERVER['PHP_SELF'] ."' method='POST'>
-									<p class='edit'>$descript</p> 
-									<span class='tagline'>Click on description to edit it.</span>
-								</form> 
-							</div>
-						</div>
-					</div>
-					<div id='sadrzaj_membersin2'>
-						$broj_postova2
-						$sadrzaj_postovi
-					</div>
-				</div>
+			<div id='sadrzaj'>
+				<?php
+					include("user.php");
+				?>
 			</div>
-			"); 
-			
-			?>
 			<div id='desno'>
 				<?php
 					include("widget.php");

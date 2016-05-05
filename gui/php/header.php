@@ -26,11 +26,6 @@
 			$maliavatar2 = "<a href='member.php'><img src='../images/members/$slika' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";
 		} 
 		
-		
-		
-		
-		
-		
 		if(!isset($_SESSION['id_users'])){
 			echo ("<div id='container'>
 			<span id='logo'><h1><a href='index.php'>ForumMeda</a></h1></span>
@@ -52,10 +47,10 @@
 					<div id='nav'>
 					$maliavatar2
 						<ul id='menu'> 
-							<li><a href='javascript:void(0);'>".$_SESSION['username']." <img src='../images/strelica.png'></a>
+							<li ><a id='username_menu' href='javascript:void(0);'>".$_SESSION['username']." <img src='../images/strelica.png'></a>
 								<ul>
-									<li><a href='member.php' title='stark'><img src='../images/user.png'><br/>Profile</a></li>
-									<li><a href='logout.php' title='stark'><img src='../images/logout.png'><br/>Logout</a></li>
+									<a class='profile_logout' href='member.php'><li ><img src='../images/user.png'><br/>Profile</li></a>
+									<a class='profile_logout' href='logout.php'><li ><img src='../images/logout.png'><br/>Logout</li></a>
 								</ul>
 							</li> 
 						</ul>

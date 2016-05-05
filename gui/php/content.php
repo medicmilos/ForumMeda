@@ -45,12 +45,9 @@ if(!isset($_SESSION['id_users'])){
 		</div>
 	</form>	");			
 }
-?> 
-	
-	
-	
-	
-	<?php
+?>  
+
+	<?php 
 		$upit = "SELECT * FROM posts";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);  
@@ -87,32 +84,60 @@ if(!isset($_SESSION['id_users'])){
 			}else{
 				$time = round($time / 60 / 60 / 60 / 60 /60 + 1)." years";
 			}
- 
-			
-			
-			
+  
 			$pomocna = '';
 			if(!isset($_SESSION['id_users'])){
 				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
 			}else{
-				$pomocna = "<a href='posts.php?title=$title&idposta=$idpost'>$title</a>";
+				$pomocna = "<a href='posts.php?title=$title&username=$username&idposta=$idpost'>$title</a>";
 				$_SESSION['pomocniurl'] = "title=$title";
 				
 			} 
+//izlistavanje broja odgovora
+			$upit3 = "SELECT COUNT(*) as ukupno FROM comments c  INNER JOIN posts p ON c.id_posts=p.id_posts WHERE c.id_posts= '".$idpost."'";
+				include("konekcija.php"); 
+				$comments = mysql_query($upit3, $konekcija);
+				mysql_close($konekcija); 
+				
+				$pom3 = mysql_fetch_assoc($comments); 
+				$broj_komentara = $pom3['ukupno'];
+				$odgovori = '';
+				if($broj_komentara == 1){
+					$odgovori = "answer";
+				}else{
+					$odgovori = "answers";
+				}
+				
+//izlistavanje broja pregleda 
+
+			$upit4 = "SELECT views FROM posts WHERE id_posts= '".$idpost."'";
+				include("konekcija.php"); 
+				$result2 = mysql_query($upit4, $konekcija);
+				mysql_close($konekcija);
+				
+				$broj_pregleda = '';
+				while($row = mysql_fetch_array($result2)){
+					$broj_pregleda = $red['views'];
+				}
+				if($broj_pregleda == 1){
+					$pregledi = "view";
+				}else{
+					$pregledi = "views";
+				}
 			
 			echo ("<div class='sadrzaj_paket'>
 			<div class='paket_levo'>
 				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>1</span>
+					<span class='paket_levo_glasovi_broj'>0</span>
 					<span class='paket_levo_glasovi_tekst'>votes</span>
 				</div>
 				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>2</span>
-					<span class='paket_levo_glasovi_tekst'>answer</span>
+					<span class='paket_levo_glasovi_broj'>$broj_komentara</span>
+					<span class='paket_levo_glasovi_tekst'>$odgovori</span>
 				</div>
 				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>3</span>
-					<span class='paket_levo_glasovi_tekst'>views</span>
+					<span class='paket_levo_glasovi_broj'>$broj_pregleda</span>
+					<span class='paket_levo_glasovi_tekst'> $pregledi</span>
 				</div>
 			</div>
 			<div class='paket_desno'>
@@ -122,7 +147,7 @@ if(!isset($_SESSION['id_users'])){
 				</div>
 				<div class='paket_desno_opis'>
 					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
-					<span class='paket_desno_opis_user'><a href='member.php'>$username</a></span>
+					<span class='paket_desno_opis_user'><a href='member.php?usernamem=$username'>$username</a></span>
 				</div>
 			</div>
 		</div> 
