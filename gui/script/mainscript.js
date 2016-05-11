@@ -38,19 +38,12 @@ $(document).ready(function(){
 	$('#description .edit').click(function(){
 	$(this).parent().html("<textarea id='taEditProfile' name='taEditProfile' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveDesc'>");
 	});	 
-/*---------------------------NESTO NOVO---------------------------------------------------------*/	 
- 
+/*---------------------------blok koji se pojavljuje kada korisnik zeli da komentarise komentar----------------- ------------*/ 
 	$(".reply").on( "click",function (e) {
 		e.preventDefault();	
-		$(this).parent().html("<input type='text' name='nested' class='nested-comment' placeholder='write a comment...' >");
-	});
-	$(".nested-comment").keypress(function(event) {
-    if (event.which == 13) {
-        event.preventDefault();
-        $("form").submit();
-    }
-});
-
+		$(this).parent().html("<textarea name='nested' class='nested-comment' placeholder='write a comment...' rows='3' ></textarea><input type='submit' name='nested-reply' value='reply' id='btnReplyNested'/> ");  
+	});  
+/*---------------------------NESTO NOVO----------------------*/	 
 	
 	
 	

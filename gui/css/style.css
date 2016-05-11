@@ -744,7 +744,7 @@ body{
 }
 #komentari_komentarisi{
 	width:610px;
-	height:25px; 
+	min-height:25px; 
 	text-align:left;
 	font-size: 13px;
 	margin-left: 40px;
@@ -899,4 +899,19 @@ body{
 	width:500px;
 	min-height:50px;
 	margin-left:150px;
+}
+#btnReplyNested{ 
+	background-color:#48c9b0;
+	color:#efefef;
+	height:19px;
+	width:43px;
+	text-align:center; 
+	border:none;
+	border-radius:3px; 
+	box-shadow: inset 0 1px 0 #91decf;
+}
+#btnReplyNested:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
 }

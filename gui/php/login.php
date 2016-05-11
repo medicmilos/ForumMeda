@@ -13,23 +13,21 @@
  
         //$password = md5($password);
 		
-        $upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
-	include("konekcija.php");	
-        $rezultat = mysql_query($upit, $konekcija);
-	mysql_close($konekcija); 
-        
-	
-	
-	$id = '';
-    $db_password = '';
-	while($red = mysql_fetch_array($rezultat)){
-		$id = $red['id_users'];
-        $db_password = $red['password'];	
-    }
-	if($password == $db_password) {
-				$_SESSION['username'] = $username;
-				$_SESSION['id_users'] = $id;
-				header("location:index.php");
+		$upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+			include("konekcija.php");	
+				$rezultat = mysql_query($upit, $konekcija);
+			mysql_close($konekcija); 
+
+			$id = '';
+			$db_password = '';
+			while($red = mysql_fetch_array($rezultat)){
+				$id = $red['id_users'];
+				$db_password = $red['password'];	
+			}
+			if($password == $db_password) {
+					$_SESSION['username'] = $username;
+					$_SESSION['id_users'] = $id;
+					header("location:index.php");
 			} else { 
 				header("location:register.php?message= <div id='erori'> Login failed!</div>");
 			}
