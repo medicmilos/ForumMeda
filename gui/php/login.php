@@ -1,5 +1,4 @@
-<?php
-	@session_start();
+<?php 
  
     if(isset($_REQUEST['btnLogin'])) { 
         $username = strip_tags($_REQUEST['tbUsername']);
