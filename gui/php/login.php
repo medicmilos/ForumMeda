@@ -12,7 +12,7 @@
         //$password = mysql_real_escape_string($konekcija, $password);
  
         //$password = md5($password);
-		
+		if(!($username == '' && $password == '')){
 		$upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
 			include("konekcija.php");	
 				$rezultat = mysql_query($upit, $konekcija);
@@ -31,5 +31,6 @@
 			} else { 
 				header("location:register.php?message= <div id='erori'> Login failed!</div>");
 			}
+	}
 	}
 ?>

@@ -23,7 +23,7 @@
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija); 
 	}
- 
+
 	$username = '';
 	$time2 = '';
 	$maliavatar = '';
