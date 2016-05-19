@@ -69,17 +69,17 @@ if(!isset($_SESSION['id_users'])){
 				}else{
 					$time = round($time)." secs";
 				}
-			} elseif ($time<3600-1) {
+			} else if ($time<3600-1) {
 				if(($time>60) && ($time<3600-1)){
 					$time = round($time / 60)." mins";
 				}else{
 					$time = round($time / 60)." min";
 				}
-			} elseif ($time<86400) {
+			} else if ($time<86400) {
 				$time = round($time / 60 / 60)." hours";
-			}elseif ($time<604800) {
+			}else if ($time<604800) {
 				$time = round($time / 60 / 60 / 60 +1)." days"; 
-			}elseif ($time<31536000) {
+			}else if ($time<31536000) {
 				$time = round($time / 60 / 60 / 60 / 12 + 1)." months";
 			}else{
 				$time = round($time / 60 / 60 / 60 / 60 /60 + 1)." years";

@@ -48,6 +48,8 @@ $(document).ready(function(){
 	
 	
 	
+	setTimeout(function() {$(".info, .success, .error").fadeOut(300);}, 3000); // <-- time in milliseconds
+	
 	
 	
 });

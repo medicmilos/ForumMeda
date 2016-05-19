@@ -62,12 +62,43 @@
 						$nestcomment = '';
 						$nesttime = '';
 						$nested_iz_baze = ''; 
+						
+						
+						
+						$time3 = time() - strtotime($nesttime);
+						 
+						if ($time3<60) {
+							if($time3 == 1){
+								$time3 = round($time3)." sec";
+							}else{
+								$time3 = round($time3)." secs";
+							}
+						} else if ($time3<3600-1) {
+							if(($time3>60) && ($time3<3600-1)){
+								$time3 = round($time3 / 60)." mins";
+							}else{
+								$time3 = round($time3 / 60)." min";
+							}
+						} else if ($time3<86400) {
+							$time3 = round($time3 / 60 / 60)." hours";
+						}else if ($time3<604800) {
+							$time3 = round($time3 / 60 / 60 / 60 +1)." days"; 
+						}else if ($time3<31536000) {
+							$time3 = round($time3 / 60 / 60 / 60 / 12 + 1)." months";
+						}else{
+							$time3 = round($time3 / 60 / 60 / 60 / 60 /60 + 1)." years";
+						}
+						
+						
+						
+						
+						
 					while($red2 = mysql_fetch_array($rezultat23)){ 
 						$nestusername = $red2['username'];
 						$nestcomment = $red2['comment'];
 						$nesttime = $red2['time'];
 						$_SESSION['nestedidcomment'] = $idkomentara;
-						$nested_iz_baze .= "<div id='nested-koments'>$nestcomment</div><br/>"; 
+						$nested_iz_baze .= "<div id='nested-koments'>$nestcomment</div><div id='nested-info'>replied $time3 ago by <a href='member.php?usernamem=$nestusername'>$nestusername</a></div><br/>"; 
 					}
 //END citanje ugnjezdenog komentara	iz baze 
 						$time2 = time() - strtotime($time2);
@@ -78,17 +109,17 @@
 							}else{
 								$time2 = round($time2)." secs";
 							}
-						} elseif ($time2<3600-1) {
+						} else if ($time2<3600-1) {
 							if(($time2>60) && ($time2<3600-1)){
 								$time2 = round($time2 / 60)." mins";
 							}else{
 								$time2 = round($time2 / 60)." min";
 							}
-						} elseif ($time2<86400) {
+						} else if ($time2<86400) {
 							$time2 = round($time2 / 60 / 60)." hours";
-						}elseif ($time2<604800) {
+						}else if ($time2<604800) {
 							$time2 = round($time2 / 60 / 60 / 60 +1)." days"; 
-						}elseif ($time2<31536000) {
+						}else if ($time2<31536000) {
 							$time2 = round($time2 / 60 / 60 / 60 / 12 + 1)." months";
 						}else{
 							$time2 = round($time2 / 60 / 60 / 60 / 60 /60 + 1)." years";
@@ -97,16 +128,15 @@
 						@$promenljiva .= "<div id='komentari'>
 											<span id='komentari_levi'></span> 
 											<div id='komentari_komentar'>$komentarizbaze</div> <br/>
-											<span id='komentari_edit'>edit</span>
+											<span id='komentari_edit'> </span>
 											<span id='komentari_info'>answered $time2 ago by <a href='member.php?usernamem=$userizbaze'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
 											$nested_iz_baze
 											<div id='komentari_komentarisi'>
 												<form action='". $_SERVER['PHP_SELF'] ."' method='GET'>
 													<div class='msjdcsna'>
-														<a href='' class='reply'>reply</a>
+														<a href='' class='reply'>Reply</a>
 													</div>
-													<input type='text' name='idnested' value='".$idkomentara."' hidden />  
-													 
+													<input type='text' name='idnested' value='".$idkomentara."' hidden />   
 												</form>
 											</div>
 										</div>";  	
@@ -164,7 +194,7 @@
 								include("konekcija.php");
 								$rezultat = mysql_query($upit, $konekcija); 
 								mysql_close($konekcija);
-								header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333'].""); 
+								@header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333'].""); 
 //END upis komentara sa posta u bazu								
 					}else{
 //START brojanje pregleda

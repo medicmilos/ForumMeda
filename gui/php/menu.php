@@ -18,12 +18,10 @@
 					<span>ALL POSTS</span>
 					(<span id="number"><?php echo("$broj_postova")?></span>)
 				</a>
-			</li>
-
+			</li> 
 			<li>
-				<a href="#">
-					<b>&plus;</b>
-					<span>Following</span>
+				<a href="#"> 
+					<span>Members gallery</span>
 				</a>
 			</li>
 		</ul>

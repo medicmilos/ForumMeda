@@ -12,7 +12,7 @@
         //$password = mysql_real_escape_string($konekcija, $password);
  
         //$password = md5($password);
-		if(!($username == '' && $password == '')){
+		if(!($username == '' || $password == '')){
 		$upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
 			include("konekcija.php");	
 				$rezultat = mysql_query($upit, $konekcija);
@@ -27,10 +27,14 @@
 			if($password == $db_password) {
 					$_SESSION['username'] = $username;
 					$_SESSION['id_users'] = $id;
-					header("location:index.php");
+					header("location:index.php?message= <div class='success'> Welcome back ".$_SESSION['username']."!</div>");
 			} else { 
-				header("location:register.php?message= <div id='erori'> Login failed!</div>");
+				header("location:index.php?message= <div class='error'> Login failed!</div>");
 			}
-	}
+		}else{
+			header("location:index.php?message= <div class='error'> Login failed!</div>");
+		}
 	}
 ?>
+
+ 

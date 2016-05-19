@@ -641,11 +641,11 @@ body{
  
 #nav{
 	width:440px;
-	position:absolute;   
+	//position:absolute;   
 	height:60px;
 	top:7px;
 	z-index:5; 
-	
+	margin-top:-13px;
 }
 #nav ul { 
 	min-width: 70px;
@@ -717,10 +717,11 @@ body{
     min-height: 100px;
 }
 #komentari_komentar{
-	width: 610px;
-    min-height: 100px;
+	width: 600px;
+    min-height: 72px;
 	background-color: #eff0f1;
 	margin-left:40px;
+	padding:5px;
 }
 #komentari_edit{
 	float:left;
@@ -738,6 +739,7 @@ body{
 	text-align:right;
     font-size: 13px;
     color: #9199a1;
+	margin-top:-13px;
 }
 #komentari_info a{
 	text-decoration:none;
@@ -896,9 +898,11 @@ body{
 }
 #nested-koments{
 	background-color: #eff0f1;
-	width:500px;
-	min-height:50px;
+	width:490px;
+	min-height:40px;
 	margin-left:150px;
+	padding:5px;
+	margin-top:5px;
 }
 #btnReplyNested{ 
 	background-color:#48c9b0;
@@ -914,4 +918,35 @@ body{
 	background-color:#e64b21;
 	box-shadow: inset 0 1px 0 #f09379;
 	outline-color:#48c9b0;
+}
+#nested-info{
+	float: right;
+    width: 500px;
+    height: 20px;
+    text-align: right;
+    font-size: 13px;
+    color: #9199a1;  
+}
+#nested-info a{
+	color: #3af;
+    text-decoration: none;
+}
+.info, .success, .error { 
+	padding:15px 0px 15px 0px;
+	background-repeat: no-repeat; 
+}
+.info {
+	color: #00529B;
+	background-color: #BDE5F8; 
+	text-align:center;
+}
+.success {
+	color: #4F8A10;
+	background-color: #DFF2BF; 
+	text-align:center;
+} 
+.error {
+	color: #D8000C;
+	background-color: #FFBABA; 
+	text-align:center;
 }
