@@ -950,3 +950,35 @@ body{
 	background-color: #FFBABA; 
 	text-align:center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #tbTags{
+margin-bottom:10px;
+}
+.tag{
+padding: 1px 5px;
+margin-right: 10px;
+}
+.xmark{
+   background-image:url("http://www.clipartbest.com/cliparts/ncX/ByX/ncXByXMgi.gif");
+  background-size:15px;
+  width:15px;
+  height:15px;
+  display:inline-block;
+  margin: -2px;
+  margin-left:5px;

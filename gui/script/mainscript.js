@@ -43,17 +43,33 @@ $(document).ready(function(){
 		e.preventDefault();	
 		$(this).parent().html("<textarea name='nested' class='nested-comment' placeholder='write a comment...' rows='3' ></textarea><input type='submit' name='nested-reply' value='reply' id='btnReplyNested'/> ");  
 	});  
-/*---------------------------NESTO NOVO----------------------*/	 
+/*---------------------------HEADER INFO----------------------*/	 
+	setTimeout(function(){
+		$(".info, .success, .error").fadeOut(300);
+	}, 3000);
+/*---------------------------NESTO NOVO----------------------*/		
 	
+
+
+	 $(".xmark").click(function(){
+			//$(this).parent().css( "background-color", "yellow" );
+			 alert('KLIK');
+		});
 	
-	
-	
-	setTimeout(function() {$(".info, .success, .error").fadeOut(300);}, 3000); // <-- time in milliseconds
-	
-	
+ 
 	
 });
  
  
  
+ 
+function enter(event){
+	if(event.keyCode == 32 || event.which == 32){
+		var pom= "";
+		pom=document.getElementById("tbTags").value;
+		document.getElementById("tbTags").value="";
+		document.getElementById("p").innerHTML +="<span class='tag'>"+pom+"<span class='xmark'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";
+	}
+}
+
  

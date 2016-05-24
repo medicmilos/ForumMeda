@@ -39,7 +39,8 @@ if(!isset($_SESSION['id_users'])){
 		<input type='text' name='tbTitle' id='tbTitle' placeholder='Whats your question? Be specific.'/><br/> 
 		<div id='dodatak'>
 			<textarea name='taPost' id='taPost' rows='6' cols='98.5'></textarea>
-			<input type='text' name='tbTags' id='tbTags' placeholder='at least one tag such as (javascript, php), separated by coma, max 5 tags'/><br/>
+			<input type='text' name='tbTags' id='tbTags' onkeypress='enter(event);' placeholder='at least one tag such as (javascript, php), separated by coma, max 5 tags'/><br/>
+			<div id='p'></div><br/>
 			<input type='submit' name='btnPost' id='btnPost' value='Submit post'/>
 			<input type='button' name='btnClose' id='btnClose' value='Close'/></br>
 		</div>
