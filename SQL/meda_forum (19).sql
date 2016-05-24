@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2016 at 09:12 PM
+-- Generation Time: May 24, 2016 at 09:26 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -30,8 +30,8 @@ CREATE TABLE `comments` (
   `id_comments` int(11) NOT NULL,
   `id_posts` int(11) NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `comment` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -44,8 +44,8 @@ CREATE TABLE `nested_comments` (
   `id_nested_comments` int(11) NOT NULL,
   `id_comments` int(11) NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comment` varchar(1500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_posts` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -60,8 +60,9 @@ CREATE TABLE `posts` (
   `title` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(5000) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vote` int(11) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `votes` int(11) NOT NULL,
+  `views` int(10) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `tags` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -69,11 +70,8 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id_posts`, `title`, `description`, `username`, `vote`, `time`, `tags`) VALUES
-(47, 'prvi post', 'deskripcija prvog posta', 'NadrogiranaPrepelica', 0, '2016-04-25 17:01:18', 'tag1, tag2, tag3'),
-(48, 'drugi post', 'deskripcija drugog posta', 'NadrogiranaPrepelica', 0, '2016-04-25 17:01:43', 'tag1, tag2, tag3'),
-(49, 'treci post', 'deskripcija treceg posta', 'NadrogiranaPrepelica', 0, '2016-04-25 17:01:58', 'tag1, tag2, tag3'),
-(50, 'cetvrti post', 'deskripcija cetvrtog posta', 'NadrogiranaPrepelica', 0, '2016-04-25 17:02:14', 'tag1, tag2, tag3');
+INSERT INTO `posts` (`id_posts`, `title`, `description`, `username`, `votes`, `views`, `time`, `tags`) VALUES
+(1, 'pitanje 1', 'cao', 'test', 0, 3, '2016-05-24 18:13:22', 'tag tag');
 
 -- --------------------------------------------------------
 
@@ -87,6 +85,8 @@ CREATE TABLE `users` (
   `password` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_mod` int(2) NOT NULL,
   `active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -95,8 +95,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_users`, `username`, `password`, `email`, `image`, `user_mod`, `active`) VALUES
-(1, 'SuperMario95', '85e9ee797aee1ffc6f87a705c', 'medamilosmedic@gmail.com', '', 2, 0);
+INSERT INTO `users` (`id_users`, `username`, `password`, `email`, `image`, `description`, `time`, `user_mod`, `active`) VALUES
+(1, 'SuperMario95', 'marko', 'medamilosmedic@gmail.com', '1618627_934386476669604_5427652282228272887_n.jpg', 'Volem da vozim brzi auto.', '2016-05-05 12:51:30', 2, 1),
+(3, 'test', 'test', 'test@gmail.com', '12651334_952503741524544_4163918497195617192_n.jpg', 'My name is Bond, James Bond.', '2016-05-03 21:27:07', 2, 1),
+(4, 'I_Made_You_Read_This', 'test', 'ssss@gmail.com', 'IMG_4289.JPG', 'Dzon Snjezni je ziv!', '2016-05-05 15:45:20', 2, 1),
+(7, 'Administrator', 'admin', 'admin@admin.com', 'CDpfjmdWoAAxrbk.png', 'Admin.', '2016-05-03 21:39:22', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -169,12 +172,12 @@ ALTER TABLE `nested_comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id_posts` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_posts` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user_mods`
 --
