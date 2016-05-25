@@ -51,12 +51,12 @@ $(document).ready(function(){
 	
 
 
-	 $(".xmark").click(function(){
+	$(".xmark").click(function(){
 			//$(this).parent().css( "background-color", "yellow" );
 			 alert('KLIK');
-		});
+	});
 	
- 
+ //dom new element
 	
 });
  
@@ -68,8 +68,17 @@ function enter(event){
 		var pom= "";
 		pom=document.getElementById("tbTags").value;
 		document.getElementById("tbTags").value="";
-		document.getElementById("p").innerHTML +="<span class='tag'>"+pom+"<span class='xmark'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";
+		
+		
+		
+		var stari = document.getElementById("p");
+		var dodatak = "<span class='tag'>"+pom+"<span class='xmark'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";
+		var novi = document.createElement("div");
+		novi.innerHTML = dodatak;
+		stari.insertBefore(novi,null);
+		
+		
 	}
 }
 
- 
+ //document.getElementById("p").innerHTML +="<span class='tag'>"+pom+"<span class='xmark'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";
