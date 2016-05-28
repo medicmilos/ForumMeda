@@ -935,7 +935,7 @@ body{
     text-decoration: none;
 }
 .info, .success, .error { 
-	padding:15px 0px 15px 0px;
+	padding:5px 0px 5px 0px;
 	background-repeat: no-repeat; 
 }
 .info {

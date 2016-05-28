@@ -44,17 +44,17 @@ $(document).ready(function(){
 		$(this).parent().html("<textarea name='nested' class='nested-comment' placeholder='write a comment...' rows='3' ></textarea><input type='submit' name='nested-reply' value='reply' id='btnReplyNested'/> ");  
 	});  
 /*---------------------------HEADER INFO----------------------*/	 
-	setTimeout(function(){
-		$(".info, .success, .error").fadeOut(300);
+	setTimeout(function(){ 
+		$(".info, .success, .error").slideUp(500);
 	}, 3000);
-/*---------------------------NESTO NOVO----------------------*/		
+/*---------------------------NESTO NOVO----------------------*/	 
 	
 
 
-	$(".tag").click(function(){
+	/*$(".tag").click(function(){
 			//$(this).parent().css( "background-color", "yellow" );
 			 alert('KLIK');
-	});
+	});*/
 	
  //dom new element
  
@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 
 
-
+//provera registracije
 function check(){
 	
 	var username = document.getElementById("tbUsername2").value;

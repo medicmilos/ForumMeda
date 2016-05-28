@@ -40,7 +40,7 @@
 			$rezultat = mysql_query($upit, $konekcija);
 			mysql_close($konekcija);
 			if(mysql_num_rows($rezultat) == 0){
-				$upit = "INSERT INTO users (id_users, username, password, email, gender, user_mod, active) VALUES (NULL, '".$username."', '".$password."', '".$email."', '".$gender."', NULL, NULL)";
+				$upit = "INSERT INTO users (id_users, username, password, email, user_mod, active) VALUES (NULL, '".$username."', '".$password."', '".$email."', '2', '0')";
 				include("konekcija.php");
 				$rezultat = mysql_query($upit, $konekcija);  
 				mysql_close($konekcija);

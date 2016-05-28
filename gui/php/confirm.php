@@ -3,12 +3,15 @@
 	$code = $_REQUEST['code'];
 	
 	include('konekcija.php');
-	$upit = "SELECT username, password FROM users WHERE username='".$username."' AND password='".$code."' ";
-	$rezultat = mysql_query($upit, $konekcija);
+	$upit1 = "SELECT username, password FROM users WHERE username='".$username."' AND password='".$code."' ";
+	$rezultat2 = mysql_query($upit1, $konekcija);
+	mysql_close($konekcija);
 	
-	if($rezultat){
-		$upit = "UPDATE users SET active='1' WHERE username='".$username."' and password='".$code."' ";
+	if($rezultat2){
+		include('konekcija.php');
+		$upit = "UPDATE users SET active='1' WHERE username='".$username."' ";
 		$rezultat = mysql_query($upit, $konekcija); 
+		mysql_close($konekcija);
 		header("location:index.php?message= <div class='success'> Registration was successful, you can login now!</div>");
 	}
 ?>
