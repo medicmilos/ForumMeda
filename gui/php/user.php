@@ -31,7 +31,7 @@
 						<span id='avatar_span'>
 							<p>Change avatar</p>
 							<form action='". $_SERVER['PHP_SELF'] ."?pomocnapom=meda' method='POST' enctype='multipart/form-data'>
-								<input  id='forma_avatar' type='file' name='file'onchange='javascript:this.form.submit();'> 
+								<input  id='forma_avatar' type='file' name='file' onchange='javascript:this.form.submit();'> 
 							</form> 
 						</span>
 					</div>

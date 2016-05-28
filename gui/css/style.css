@@ -228,13 +228,16 @@ body{
 #tbUsername2:focus{
     outline-color:#48c9b0;
 }
-#tbPassword2:focus{
+#tbPassword2:focus, #tbPassword22:focus{
     outline-color:#48c9b0;
 }
+#tbPassword22:focus{
+    outline-color:#48c9b0;
+} 
 #tbEmail:focus{
     outline-color:#48c9b0;
 }
-#tbPassword2{
+#tbPassword2, #tbPassword22{
 	border-radius:5px;
 	box-shadow:none;
 	width:250px;
@@ -953,32 +956,57 @@ body{
 
 
 
+ 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  #tbTags{
-margin-bottom:10px;
+#tbTags{
+	margin-bottom:10px;
 }
 .tag{
-padding: 1px 5px;
-margin-right: 10px;
+	padding: 1px 5px;
+	margin-right: 10px;
 }
 .xmark{
-   background-image:url("http://www.clipartbest.com/cliparts/ncX/ByX/ncXByXMgi.gif");
-  background-size:15px;
-  width:15px;
-  height:15px;
-  display:inline-block;
-  margin: -2px;
-  margin-left:5px;
+	background-image:url("http://www.clipartbest.com/cliparts/ncX/ByX/ncXByXMgi.gif");
+	background-size:15px;
+	width:15px;
+	height:15px;
+	display:inline-block;
+	margin: -2px;
+	margin-left:5px;
+}
+
+ 
+.genders{
+	    color: #636267;
+}  
+  
+ 
+   
+  
+  
+.greskeR2{
+	font-family:Arial;
+	color:#a94442;
+	margin:0px auto;
+	font-size:15px;
+	text-align:center; 
+	padding:3px;  
+	display:block;
+	height:100%;
+	-webkit-animation: change_height 1s;
+	-moz-animation: change_height 1s;
+	-o-animation: change_height 1s;
+	animation: change_height 1s;
+}
+@keyframes change_height{
+	0% {
+		transform: scale(1,0);
+		transform-origin: 100% 0%;
+		margin-top:0px;
+	}
+	100% {
+	transform: scale(1,1); 
+	}
+}

@@ -1,0 +1,19 @@
+.ui-autocomplete { 
+	position: absolute; 
+	cursor: default;   
+	background-color: #ffffff; 
+	border:1px solid #48c9b0; 
+	border-radius: 5px;
+	padding:7px;
+	
+	color:#3b3b3b;
+    font-weight: 600;
+}
+ul.ui-autocomplete {
+    list-style: none;
+}
+.ui-state-focus {
+	background: none !important;
+	background-color: #c1c1c1 !important;
+	border: none !important;
+}

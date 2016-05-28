@@ -3,6 +3,7 @@
 		$title = trim($_REQUEST['tbTitle']); 
 		$post = trim($_REQUEST['taPost']); 
 		$tags = trim($_REQUEST['tbTags']);
+		//$tagovi = trim($_REQUEST['ovo']);
 		/*$rtitle = "//"; 
 		$rpost = "//"; 
 		$rtags = "//";
