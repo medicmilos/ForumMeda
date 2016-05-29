@@ -49,9 +49,20 @@
 					header("location:register.php?message=Error: " . mysql_error()); 
 				}else { 
 					$to = $email;
-					$subject = 'Registration'; 
-					$message = '127.0.0.1/git/meda-forum/gui/php/confirm.php?username='.$username.'&code='.$password.'';
-					if (mail($to, $subject, $message)) {   
+					
+					$ 
+ 
+					$ver_code = "http://milos-medic.byethost16.com/php/confirm.php?username=".$username."&code=".$password."";
+					//$ver_code = "http://127.0.0.1/git/meda-forum/gui/php/confirm.php?username='".$username."'&code='".$password."'";
+					$subject = "Verification link | ForumMeda"; 
+					$message = "<html><head></head><body>
+					<div>
+					 
+					<a style='background-color:red;' href='$ver_code'>Verifikacija</a>
+					</div></body></html>";
+					$headers = "MIME-Version: 1.0" . "\r\n";
+					$headers .= "Content-type:text/html;" . "\r\n";
+					if (mail($to, $subject, $message, $headers)) {   
 						header("location:index.php?message= <div class='info'> Confirm your email adress!!</div>");
 					}else { 
 						header("location:register.php?message= <div id='erori'Registration failed!</div>"); 

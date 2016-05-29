@@ -43,7 +43,10 @@ $(document).ready(function(){
 		e.preventDefault();	
 		$(this).parent().html("<textarea name='nested' class='nested-comment' placeholder='write a comment...' rows='3' ></textarea><input type='submit' name='nested-reply' value='reply' id='btnReplyNested'/> ");  
 	});  
-/*---------------------------HEADER INFO----------------------*/	 
+/*---------------------------HEADER INFO----------------------*/
+
+	 
+	 
 	setTimeout(function(){ 
 		$(".info, .success, .error").slideUp(500);
 	}, 3000);
