@@ -1,5 +1,4 @@
-<?php
-	//session_start(); 
+<?php 
 //postavljanje avatara za profil
 
 	$medic = @$_REQUEST['pomocnapom'];

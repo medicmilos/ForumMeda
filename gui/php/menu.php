@@ -29,19 +29,21 @@
 			
 			<?php  
 				if($_REQUEST['page']=='0') {
-					echo("<li class='active'><a href='index.php?page=0'><b>&starf;</b><span> ALL POSTS </span>(<span id='number'>$broj_postova</span>)</li>");
+					echo("<li class='active minuspad'><a href='index.php?page=0'><b>&starf;</b><span> ALL POSTS </span>(<span id='number'>$broj_postova</span>)</a></li>");
 				}else {
-					echo("<li><a href='index.php?page=0'><b>&starf;</b><span>ALL POSTS </span>(<span id='number'><?php echo('$broj_postova')?></span>)</li>");
+					echo("<li><a href='index.php?page=0'><b>&starf;</b><span>ALL POSTS </span>(<span id='number'><?php echo('$broj_postova')?></span>)</a></li>");
 				}
 				if($_REQUEST['page']=='11') {
-					echo("<li  class='active'><a href='index.php?page=11'> <b>&starf;</b> <span> Members gallery </span></a></li>");
+					echo("<li  class='active'  minuspad><a href='index.php?page=11'> <b>&starf;</b> <span> Members gallery </span></a></li>");
 				}else {
 					echo("<li><a href='index.php?page=11'>&nbsp;  <b>&starf;</b> <span> Members gallery </span></a></li>");
 				}
 				if($_REQUEST['page']=='1') {
-					echo("<li class='active'><a href='index.php?page=1'> <b>&starf;</b ><span> Cpanel </span></a></li>");
-				}else {
+					echo("<li class='active'  minuspad><a href='index.php?page=1'> <b>&starf;</b ><span> Cpanel </span></a></li>");
+				}else if(@$_SESSION['user_mod']=='1'){
 					echo("<li><a href='index.php?page=1'>&nbsp;  <b>&starf;</b ><span> Cpanel </span></a></li>");
+				}else{
+					
 				}
 			?> 
 			

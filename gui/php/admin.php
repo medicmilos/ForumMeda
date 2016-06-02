@@ -1,6 +1,5 @@
-<?php 
-	if($_SESSION['user_mod']=='1'){
-		if($_SERVER['HTTP_REFERER']=='AFqAw3g0Xic7tng.php'){
+<?php
+	if($_SESSION['user_mod']=='1'){ 
 			echo("
 			
 				<div id='sadrzaj'>
@@ -20,14 +19,10 @@
 					<?php
 						include('widget.php');
 					?>
-				</div>
-				
+				</div> 
 			"); 
 		}
-	}else{
-		echo("Eror 404");
-	}
-
+	  
 ?>
 
 

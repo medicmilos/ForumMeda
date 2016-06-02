@@ -503,9 +503,13 @@ body{
 	height:42px;
 	margin:0px auto;
 } 
+.minuspad{
+    margin-top: -0.5px !important;
+}
 #mainmenu ul li{
     display:inline-block;
-}
+	margin-top:10px;
+} 
 #mainmenu ul li a{
     text-decoration:none;  
     color:#3b3b3b; 
