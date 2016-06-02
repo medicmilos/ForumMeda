@@ -34,7 +34,7 @@
 		
 		
 		if($g==0){ 
-			$password = sha1($password); 
+			$password = md5($password); 
 			$upit = "SELECT * FROM users WHERE email='".$email."' OR username = '".$username."' ";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);

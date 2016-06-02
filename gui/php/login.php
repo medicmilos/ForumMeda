@@ -11,7 +11,7 @@
         //$username = mysql_real_escape_string($konekcija, $username);
         //$password = mysql_real_escape_string($konekcija, $password);
  
-        //$password = md5($password);
+        $password = md5($password);
 		if(!($username == '' || $password == '')){
 		$upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
 			include("konekcija.php");	

@@ -1010,3 +1010,135 @@ body{
 	transform: scale(1,1); 
 	}
 }
+
+
+#statistika{
+	background-color:#f2f2f2;
+	border-radius:5px;  
+}
+
+
+ 
+
+
+
+table a{
+	text-decoration:none;
+	color: #176b18; 
+} 
+#xmark2 a{
+	color:#a94442 !important;
+}
+#admin-nav{
+	width:100%;
+	height:50px;
+	margin:10px auto;
+	text-align:center;
+}  
+.admin-nav-cont{ 
+	display: inline-block;
+	text-align:center !important;   
+	background-color:#48c9b0; 
+	height:28px;
+	min-width:80px; 
+	border:none;
+	border-radius:3px; 
+	padding:10px 5px 2px 5px;
+	margin-right: 10px;
+} 
+.admin-nav-cont a{
+	text-decoration:none;
+	color:#FFF;
+}
+.admin-nav-cont:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+    outline-color: #48c9b0;
+}
+#sadrzaj td{
+	width:300px;
+	color:#636267;
+} 
+#sadrzaj table{
+	border-color:#7b7b7b; 
+	text-align: center;
+}
+#sadrzaj table tr:nth-child(2){ 
+	color: #7b7b7b;
+	background-color: #f2f2f2;
+    border-radius: 5px;
+}
+#sadrzaj table tr:nth-child(1) td{ 
+	color:#4F4F4B !important;
+	border:none !important;
+	padding:5px 0px 10px 0px;
+} 
+.naprednazad:hover{
+	color:#e64b21;
+}
+#sadrzaj table tr:nth-child(2) td{ 
+	color:#4F4F4B !important; 
+}
+#xmark2{
+	color:#a94442 !important;
+	text-align:center;
+	font-size:20px; 
+}
+#xmark1{ 
+	text-align:center;
+	font-size:30px;  
+}
+#xmark1 a{ 
+	text-decoration:none; 
+	color:#176b18 !important;
+}
+#admin-nav1{
+	width:100%;
+	min-height:50px;
+	margin:10px auto;
+	text-align:center; 
+} 
+.admin-nav-cont1 a{  
+	display:block;   
+	background-color:#48c9b0; 
+	min-height:28px;
+	width:280px; 
+	border:none;
+	border-radius:3px; 
+	padding:14px 5px 5px 5px;
+	margin: 13px auto;
+} 
+.admin-nav-cont1 a{
+	text-decoration:none;
+	color:#FFF; 
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+    font-size:15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.admin-nav-cont1 a:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+    outline-color: #48c9b0;
+} 
+#sadrzaj h2{
+	color:#4F4F4F;
+	margin-bottom:26px;
+}
+#user-content{
+	width:100%;
+	min-height:100px;
+	margin:10px auto;
+	text-align:center;
+	color: #4F4F4F;
+}
+#user-content2{
+	color: #4F4F4F !important; 
+}
+#taEditEmail {
+    width:200px !important;
+	height:20px;
+}
+#user-content2 span{
+	height:30px;
+

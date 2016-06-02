@@ -21,7 +21,12 @@
 			</li> 
 			<li>
 				<a href="#"> 
-					<span>Members gallery</span>
+				<b>&starf;</b> <span> Members gallery </span>
+				</a>
+			</li>
+			<li>
+				<a href="admin.php"> 
+					<b>&starf;</b ><span> Cpanel </span> 
 				</a>
 			</li>
 		</ul>

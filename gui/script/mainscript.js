@@ -38,6 +38,13 @@ $(document).ready(function(){
 	$('#description .edit').click(function(){
 	$(this).parent().html("<textarea id='taEditProfile' name='taEditProfile' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveDesc'>");
 	});	 
+	
+	
+	
+	
+	$('.editmail .email1').click(function(){
+	$(this).parent().html("<textarea id='taEditEmail' name='taEditEmail' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveEmail'>");
+	});	
 /*---------------------------blok koji se pojavljuje kada korisnik zeli da komentarise komentar----------------- ------------*/ 
 	$(".reply").on( "click",function (e) {
 		e.preventDefault();	
