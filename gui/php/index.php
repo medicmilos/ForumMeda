@@ -36,7 +36,7 @@
 				 
 				switch($page){
 					case "0": include("content.php");break;
-					case "1": include("AFqAw3g0Xic7tng.php"); break; 
+					case "1": include("admin.php"); break; 
 					case "2": include("register.php"); break; 
 					case "3": include("manage_users.php"); break; 
 					case "4": include("member.php"); break; 
@@ -46,9 +46,8 @@
 					case "8": include("confirm.php"); break; 
 					case "9": include("contact.php"); break; 
 					case "10": include("author.php"); break; 
-					case "11": include("members_gallery.php"); break;
-					case "12": include("admin.php"); break;
-					default: include("content.php");
+					case "11": include("members_gallery.php"); break; 
+					default: header("Location: index.php?page=0");
 				}
 			 
 			?>

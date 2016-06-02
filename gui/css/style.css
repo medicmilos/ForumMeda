@@ -509,7 +509,10 @@ body{
 #mainmenu ul li{
     display:inline-block;
 	margin-top:10px;
-} 
+}
+#taEditPass{
+	width:273px;
+}
 #mainmenu ul li a{
     text-decoration:none;  
     color:#3b3b3b; 
