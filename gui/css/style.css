@@ -513,6 +513,7 @@ body{
 	font-size:11px;
 	font-weight:600;
 	text-transform:uppercase;
+	margin-right:20px;
 }
 #navmenu .active{
 	border-top:5px solid #48c9b0;
@@ -538,6 +539,10 @@ body{
 	width:215px;
 	height:100%;
 	margin:0px auto;
+}
+#statistika{
+	background-color:#f2f2f2;
+	border-radius:5px;  
 }
 #statistika{
 	background-color:#f2f2f2;
@@ -1012,6 +1017,7 @@ body{
 }
 
 
+<<<<<<< HEAD
 #statistika{
 	background-color:#f2f2f2;
 	border-radius:5px;  
@@ -1021,13 +1027,16 @@ body{
  
 
 
+=======
+>>>>>>> parent of 483466f... Revert "strahota"
 
-table a{
+.tableusers table a{
 	text-decoration:none;
 	color: #176b18; 
 } 
 #xmark2 a{
 	color:#a94442 !important;
+	text-decoration:none;
 }
 #admin-nav{
 	width:100%;
@@ -1055,28 +1064,32 @@ table a{
 	box-shadow: inset 0 1px 0 #f09379;
     outline-color: #48c9b0;
 }
-#sadrzaj td{
+.tableusers td{
 	width:300px;
-	color:#636267;
+	color:#636267; 
 } 
-#sadrzaj table{
-	border-color:#7b7b7b; 
+.tableusers table{
+	border-color:#e6e6e6; 
 	text-align: center;
 }
-#sadrzaj table tr:nth-child(2){ 
+.tableusers table tr:nth-child(2){ 
 	color: #7b7b7b;
 	background-color: #f2f2f2;
     border-radius: 5px;
 }
-#sadrzaj table tr:nth-child(1) td{ 
+.tableusers table tr:nth-child(1) td{ 
 	color:#4F4F4B !important;
 	border:none !important;
 	padding:5px 0px 10px 0px;
 } 
+.naprednazad{
+	text-decoration:none;
+	color:#176b18;
+}
 .naprednazad:hover{
 	color:#e64b21;
 }
-#sadrzaj table tr:nth-child(2) td{ 
+.tableusers table tr:nth-child(2) td{ 
 	color:#4F4F4B !important; 
 }
 #xmark2{
@@ -1134,11 +1147,39 @@ table a{
 }
 #user-content2{
 	color: #4F4F4F !important; 
+	margin:0px auto;
+	width:100%;
+	min-height:300px;
 }
 #taEditEmail {
     width:200px !important;
 	height:20px;
+} 
+#user-content2 table{ 
+	margin:0px auto;
+	text-align:left;
+	border: none;
 }
-#user-content2 span{
-	height:30px;
-
+#user-content2 table td{ 
+	width:120px;
+	padding:5px;
+}
+.save2{
+	background-color:#48c9b0;
+	color:#efefef;
+	height:35px;
+	width:100%;
+	text-align:center; 
+	border:none;
+	border-radius:3px;
+	box-shadow: inset 0 1px 0 #91decf;
+	margin-top:2px;
+}
+.save2:hover{  
+	box-shadow: inset 0 1px 0 #91decf;
+	cursor:pointer;
+} 
+.save22{  
+	padding: 0px;
+    border: none;
+} 

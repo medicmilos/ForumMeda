@@ -1,5 +1,5 @@
 <?php
-	@session_start();
+	//@session_start();
  
     if(isset($_REQUEST['btnLogin'])) { 
         $username = strip_tags($_REQUEST['tbUsername']);
@@ -23,16 +23,18 @@
 			while($red = mysql_fetch_array($rezultat)){
 				$id = $red['id_users'];
 				$db_password = $red['password'];	
+				$db_role = $red['user_mod'];	
 			}
 			if($password == $db_password) {
 					$_SESSION['username'] = $username;
 					$_SESSION['id_users'] = $id;
-					header("location:index.php?message= <div class='success'> Welcome back ".$_SESSION['username']."!</div>");
+					$_SESSION['user_mod'] = $db_role;
+					header("location:index.php?page=0&message= <div class='success'> Welcome back ".$_SESSION['username']."!</div>");
 			} else { 
-				header("location:index.php?message= <div class='error'> Login failed!</div>");
+				header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
 			}
 		}else{
-			header("location:index.php?message= <div class='error'> Login failed!</div>");
+			header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
 		}
 	}
 ?>

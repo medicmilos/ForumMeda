@@ -1,24 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-	<head>
-		<title>Meda - Forum</title>
-			<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-			<meta name="description" content=""/>
-			<meta name="keywords" content=""/>
-			<meta name="author" content=""/>
-			<link rel="shortcut icon" href="../images/icon.ico"/>
-			<link rel="stylesheet" type="text/css" href="../css/style.css"/> 
-			<script type="text/javascript" src="../script/jquery-1.12.3.min.js"></script>
-			<script type="text/javascript" src="../script/mainscript.js"></script>
-	</head>
-	<body>
-		<?php
-			include("header.php");
-		?>
-		<?php
-			include("menu.php");
-		?>
-		<div id='wrapper'>
+ 
 			<div id='sadrzaj'>
 				
 				<?php
@@ -34,7 +14,24 @@
 						$_SESSION['pomocniid333']=$_REQUEST['idposta'];
 							 
 					}
-//START citanje komentara na post, iz baze					
+//START citanje komentara na post, iz baze	
+	//START upis komentara sa posta u bazu
+					if(isset($_REQUEST['btnReply'])) {  
+						$urlpom = $_SESSION['pomocniurl'];
+						$upit = "INSERT INTO comments (id_posts, username, comment) VALUES ('".$_SESSION['pomocniid333']."', '".$_SESSION['username']."', '".$_REQUEST['taComment']."')";
+								include("konekcija.php");
+								$rezultat = mysql_query($upit, $konekcija); 
+								mysql_close($konekcija); 
+					}else{
+	//START brojanje pregleda
+						$upit4 = "UPDATE posts SET views=views+1 WHERE id_posts= '".$_SESSION['pomocniid333']."'";
+							include("konekcija.php"); 
+							$comments = mysql_query($upit4, $konekcija);
+							mysql_close($konekcija); 
+					}
+//END brojanje pregleda	
+
+					
 					$upit222 = "SELECT  c.username  username, c.comment  comment, c.time  time, c.id_comments id_comments FROM comments c  INNER JOIN posts p ON c.id_posts=p.id_posts WHERE c.id_posts= '".$_SESSION['pomocniid333']."'";
 						include("konekcija.php");
 						$rezultat32 = mysql_query($upit222, $konekcija);  
@@ -51,7 +48,15 @@
 						$komentarizbaze = $red12['comment'];
 						$time2 = $red12['time']; 
 						$idkomentara = $red12['id_comments']; 
-						
+//START upis u bazu ugnjezdenog komentara
+					if(isset($_REQUEST['nested-reply'])){  
+						$upit2 = "INSERT INTO nested_comments (id_comments, username, comment, id_posts) VALUES ('".$_REQUEST['idnested']."', '".$_SESSION['username']."', '".$_REQUEST['nested']."', '".$_SESSION['pomocniid333']."') ";
+						include("konekcija.php");
+						$rezultat2 = mysql_query($upit2, $konekcija);  
+						mysql_close($konekcija);  
+					} 
+//END upis u bazu ugnjezdenog komentara
+
 //START citanje ugnjezdenog komentara na komentar, iz baze 
 						$upit33 = "SELECT * FROM nested_comments where id_comments=$idkomentara";
 						include("konekcija.php");
@@ -98,9 +103,13 @@
 						$nestcomment = $red2['comment'];
 						$nesttime = $red2['time'];
 						$_SESSION['nestedidcomment'] = $idkomentara;
-						$nested_iz_baze .= "<div id='nested-koments'>$nestcomment</div><div id='nested-info'>replied $time3 ago by <a href='member.php?usernamem=$nestusername'>$nestusername</a></div><br/>"; 
+						$nested_iz_baze .= "<div id='nested-koments'>$nestcomment</div><div id='nested-info'>replied $time3 ago by <a href='index.php?page=4&usernamem=$nestusername'>$nestusername</a></div><br/>";
 					}
+					
+					
 //END citanje ugnjezdenog komentara	iz baze 
+
+
 						$time2 = time() - strtotime($time2);
 						 
 						if ($time2<60) {
@@ -129,10 +138,11 @@
 											<span id='komentari_levi'></span> 
 											<div id='komentari_komentar'>$komentarizbaze</div> <br/>
 											<span id='komentari_edit'> </span>
-											<span id='komentari_info'>answered $time2 ago by <a href='member.php?usernamem=$userizbaze'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
+											<span id='komentari_info'>answered $time2 ago by <a href='index.php?page=4&usernamem=$userizbaze'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
 											$nested_iz_baze
 											<div id='komentari_komentarisi'>
 												<form action='". $_SERVER['PHP_SELF'] ."' method='GET'>
+													<input type='hidden' name='page' value='7' />	
 													<div class='msjdcsna'>
 														<a href='' class='reply'>Reply</a>
 													</div>
@@ -143,15 +153,7 @@
 					}
 //END citanje komentara na post, iz baze					
 					
-//START upis u bazu ugnjezdenog komentara
-					if(isset($_REQUEST['nested-reply'])){  
-						$upit2 = "INSERT INTO nested_comments (id_comments, username, comment, id_posts) VALUES ('".$_REQUEST['idnested']."', '".$_SESSION['username']."', '".$_REQUEST['nested']."', '".$_SESSION['pomocniid333']."') ";
-						include("konekcija.php");
-						$rezultat2 = mysql_query($upit2, $konekcija);  
-						mysql_close($konekcija); 
-						header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333'].""); 
-					} 
-//END upis u bazu ugnjezdenog komentara
+
 
 //START post iz baze sa svim svojim detaljima
 					$upit = "SELECT * FROM posts where id_posts = '".$_SESSION['pomocniid333']."'";
@@ -174,7 +176,7 @@
 								<div class='paket_desno_description'>$description</div>
 								$promenljiva
 								<div>Your answer: </div><br/><br/>
-								<form action='". $_SERVER['PHP_SELF'] ."'  method='GET'>
+								<form action='". $_SERVER['PHP_SELF'] ."'  method='GET'> 
 									<div id='dodatak2'>
 										<textarea name='taComment' id='taComment' rows='6' cols='98.5'></textarea><br/><br/>
 										<input type='submit' name='btnReply' id='btnReply' value='Reply'/>
@@ -187,35 +189,15 @@
 					} 
 //END post iz baze sa svim svojim detaljima					
 					
-//START upis komentara sa posta u bazu
-					if(isset($_REQUEST['btnReply'])) {  
-						$urlpom = $_SESSION['pomocniurl'];
-						$upit = "INSERT INTO comments (id_posts, username, comment) VALUES ('".$_SESSION['pomocniid333']."', '".$_SESSION['username']."', '".$_REQUEST['taComment']."')";
-								include("konekcija.php");
-								$rezultat = mysql_query($upit, $konekcija); 
-								mysql_close($konekcija);
-								@header("Location: $_SERVER[PHP_SELF]?$urlpom&idposta=".$_SESSION['pomocniid333'].""); 
-//END upis komentara sa posta u bazu								
-					}else{
-//START brojanje pregleda
-						$upit4 = "UPDATE posts SET views=views+1 WHERE id_posts= '".$_SESSION['pomocniid333']."'";
-							include("konekcija.php"); 
-							$comments = mysql_query($upit4, $konekcija);
-							mysql_close($konekcija); 
-					}
-//END brojanje pregleda		
+
+ 
+	
 			
 				?>	 		
 
-			</div>
-			<div id='desno'>
-				<?php
-					include("widget.php");
-				?>
-			</div>
-		</div>
-        <?php
-			include("footer.php");
-		?> 
-	</body>
-</html>
+</div> 
+			<div id="desno">
+	<?php
+		include("widget.php");
+	?>
+</div>

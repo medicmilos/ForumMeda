@@ -36,15 +36,31 @@ $(document).ready(function(){
 	});
 /*---------------------------deskripcija korisnika koja se pojavljuje kad on zeli da je edituje----------------------*/	 
 	$('#description .edit').click(function(){
-	$(this).parent().html("<textarea id='taEditProfile' name='taEditProfile' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveDesc'>");
+	$(this).parent().html("<input type='hidden' name='page' value='4' /><textarea id='taEditProfile' name='taEditProfile' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveDesc'>");
 	});	 
 	
 	
 	
 	
-	$('.editmail .email1').click(function(){
-	$(this).parent().html("<textarea id='taEditEmail' name='taEditEmail' class='form-control'>"+$(this).text()+"</textarea><input type='submit' class='save' value='Save' name='btnSaveEmail'>");
-	});	
+	
+	
+$('.editmail .email1').click(function(){
+	$(this).parent().html(" <textarea id='taEditEmail' name='taEditEmail' class='form-control'>"+$(this).text()+"</textarea>");
+	});	 
+$('.editpass .editpass1').click(function(){
+	$(this).parent().html("  <textarea id='taEditPass' name='taEditPass' class='form-control'>"+$(this).text()+"</textarea>");
+	});		
+$('.editdesc .editdesc1').click(function(){
+	$(this).parent().html(" <textarea id='taEditDesc' name='taEditDesc' class='form-control'>"+$(this).text()+"</textarea> ");
+	});		
+ 
+	
+	
+	
+	
+	
+	
+	
 /*---------------------------blok koji se pojavljuje kada korisnik zeli da komentarise komentar----------------- ------------*/ 
 	$(".reply").on( "click",function (e) {
 		e.preventDefault();	

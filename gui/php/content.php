@@ -37,6 +37,7 @@ if(!isset($_SESSION['id_users'])){
 }else{
 	echo("
 	<form action='". $_SERVER['PHP_SELF'] ."' method='GET'>
+	<input type='hidden' name='page' value='0' />	
 		<input type='text' name='tbTitle' id='tbTitle' placeholder='Whats your question? Be specific.'/><br/> 
 		<div id='dodatak'>
 			<textarea name='taPost' id='taPost' rows='6' cols='98.5'></textarea>
@@ -91,8 +92,8 @@ if(!isset($_SESSION['id_users'])){
 			if(!isset($_SESSION['id_users'])){
 				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
 			}else{
-				$pomocna = "<a href='posts.php?title=$title&username=$username&idposta=$idpost'>$title</a>";
-				$_SESSION['pomocniurl'] = "title=$title";
+				$pomocna = "<a href='index.php?page=7&title=$title&username=$username&idposta=$idpost'>$title</a>";
+				$_SESSION['pomocniurl'] = "$title";
 				
 			} 
 //izlistavanje broja odgovora
@@ -149,7 +150,7 @@ if(!isset($_SESSION['id_users'])){
 				</div>
 				<div class='paket_desno_opis'>
 					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
-					<span class='paket_desno_opis_user'><a href='member.php?usernamem=$username'>$username</a></span>
+					<span class='paket_desno_opis_user'><a href='index.php?page=4&usernamem=$username'>$username</a></span>
 				</div>
 			</div>
 		</div> 

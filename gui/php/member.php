@@ -1,15 +1,17 @@
 <?php
-	session_start(); 
+	//session_start(); 
 //postavljanje avatara za profil
 
 	$medic = @$_REQUEST['pomocnapom'];
 	if($medic == 'meda'){
+		if(isset($_FILES['file']['tmp_name'])){
 		move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
 		$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
 		include("konekcija.php");
 		$rezultat = mysql_query($upit2, $konekcija);  
 		mysql_close($konekcija);
 	} 
+	}
 	
 	if(isset($_REQUEST['usernamem'])){ 
 		$upit = "SELECT * FROM users WHERE username = '".$_REQUEST['usernamem']."'";
@@ -179,8 +181,8 @@
 		if(!isset($_SESSION['id_users'])){
 			$pomocna = "<a href='javascript:void(0);'>$title</a>";	
 		}else{
-			$pomocna = "<a href='posts.php?title=$title&idposta=$idpost'>$title</a>";
-			$_SESSION['lazarzmaj'] = "posts.php?title=$title&idposta=$idpost";
+			$pomocna = "<a href='index.php?page=7&title=$title&idposta=$idpost'>$title</a>";
+			$_SESSION['lazarzmaj'] = "index.php?page=7&title=$title&idposta=$idpost";
 		}
 		 
 		 
@@ -243,7 +245,7 @@
 				</div>
 				<div class='paket_desno_opis'>
 					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
-					<span class='paket_desno_opis_user'><a href='member.php?usernamem=$username'>$username</a></span>
+					<span class='paket_desno_opis_user'><a href='index.php?page=4&usernamem=$username'>$username</a></span>
 				</div>
 			</div>
 			</div> 
@@ -257,40 +259,10 @@
 	
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head>
-	<title>Meda - Forum</title>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-		<meta name="description" content=""/>
-		<meta name="keywords" content=""/>
-		<meta name="author" content=""/>
-		<link rel="shortcut icon" href="../images/icon.ico"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css"/> 
-		<script type="text/javascript" src="../script/jquery-1.12.3.min.js"></script>
-		<script type="text/javascript" src="../script/mainscript.js"></script>
-</head>
-	<body>
-		<?php
-			include("header.php");
-		?>
-		<?php
-			include("menu.php");
-		?>
-		<div id='wrapper'>
+ 
 			<div id='sadrzaj'>
 				<?php
 					include("user.php");
 				?>
 			</div>
-			<div id='desno'>
-				<?php
-					include("widget.php");
-				?>
-			</div>
-		</div>
-        <?php
-			include("footer.php");
-		?> 
-	</body>
-</html>
+			 
