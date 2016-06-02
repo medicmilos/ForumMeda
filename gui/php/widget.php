@@ -65,20 +65,14 @@
 				include("konekcija.php");
 					$rezultat = mysql_query($upit399, $konekcija); 
 					mysql_close($konekcija);
-				  
-		
+				   
 			}
-			
 			 
 			
 			$answer .=  "<div class='radio'><label><input type='radio' name='rbPoll' class='poll' value='".$idanswer."' onchange='javascript:this.form.submit();'/> ".$red['answer']."</label></div>";
 		}
 	
-	
-	
-	
-	
-	
+	 
 	echo (
 		"<div id='desnocontent'>
 			<p>STATISTICS</p>
@@ -108,22 +102,10 @@
 			</div>
 			
 			
-			
-			
-			
-			
-			
-			
+			 
 			
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
+		 
 		"
 	);
 	

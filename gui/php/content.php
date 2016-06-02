@@ -91,8 +91,8 @@ if(!isset($_SESSION['id_users'])){
 			if(!isset($_SESSION['id_users'])){
 				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
 			}else{
-				$pomocna = "<a href='posts.php?title=$title&username=$username&idposta=$idpost'>$title</a>";
-				$_SESSION['pomocniurl'] = "title=$title";
+				$pomocna = "<a href='index.php?page=7&title=$title&username=$username&idposta=$idpost'>$title</a>";
+				$_SESSION['pomocniurl'] = "$title";
 				
 			} 
 //izlistavanje broja odgovora
@@ -149,7 +149,7 @@ if(!isset($_SESSION['id_users'])){
 				</div>
 				<div class='paket_desno_opis'>
 					<span class='paket_desno_opis_time'>asked ".$time." ago&nbsp;by</span>
-					<span class='paket_desno_opis_user'><a href='member.php?usernamem=$username'>$username</a></span>
+					<span class='paket_desno_opis_user'><a href='index.php?page=4&usernamem=$username'>$username</a></span>
 				</div>
 			</div>
 		</div> 

@@ -12,6 +12,6 @@
 		$upit = "UPDATE users SET active='1' WHERE username='".$username."' ";
 		$rezultat = mysql_query($upit, $konekcija); 
 		mysql_close($konekcija);
-		header("location:index.php?message= <div class='success'> Registration was successful, you can login now!</div>");
+		header("location:index.php?page=0&message= <div class='success'> Registration was successful, you can login now!</div>");
 	}
 ?>

@@ -30,7 +30,7 @@
 					$maliavatar
 						<span id='avatar_span'>
 							<p>Change avatar</p>
-							<form action='". $_SERVER['PHP_SELF'] ."?pomocnapom=meda' method='POST' enctype='multipart/form-data'>
+							<form action='". $_SERVER['PHP_SELF'] ."&pomocnapom=meda' method='GET' enctype='multipart/form-data'>
 								<input  id='forma_avatar' type='file' name='file' onchange='javascript:this.form.submit();'> 
 							</form> 
 						</span>
@@ -41,7 +41,7 @@
 					</div>
 					<div id='sadrzaj_membersindole'>
 						<div id='description'>
-							<form action='". $_SERVER['PHP_SELF'] ."' method='POST'>
+							<form action='index.php?page=4' method='GET'>
 								<p class='edit'>$descript</p> 
 								<span class='tagline'>Click on description to edit it.</span>
 							</form> 

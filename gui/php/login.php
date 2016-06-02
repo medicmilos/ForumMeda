@@ -1,5 +1,5 @@
 <?php
-	@session_start();
+	//@session_start();
  
     if(isset($_REQUEST['btnLogin'])) { 
         $username = strip_tags($_REQUEST['tbUsername']);
@@ -11,7 +11,7 @@
         //$username = mysql_real_escape_string($konekcija, $username);
         //$password = mysql_real_escape_string($konekcija, $password);
  
-        //$password = md5($password);
+        $password = md5($password);
 		if(!($username == '' || $password == '')){
 		$upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
 			include("konekcija.php");	
@@ -27,12 +27,12 @@
 			if($password == $db_password) {
 					$_SESSION['username'] = $username;
 					$_SESSION['id_users'] = $id;
-					header("location:index.php?message= <div class='success'> Welcome back ".$_SESSION['username']."!</div>");
+					header("location:index.php?page=0&message= <div class='success'> Welcome back ".$_SESSION['username']."!</div>");
 			} else { 
-				header("location:index.php?message= <div class='error'> Login failed!</div>");
+				header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
 			}
 		}else{
-			header("location:index.php?message= <div class='error'> Login failed!</div>");
+			header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
 		}
 	}
 ?>

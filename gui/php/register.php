@@ -34,7 +34,7 @@
 		
 		
 		if($g==0){ 
-			$password = sha1($password); 
+			$password = md5($password); 
 			$upit = "SELECT * FROM users WHERE email='".$email."' OR username = '".$username."' ";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);
@@ -46,62 +46,49 @@
 				mysql_close($konekcija);
 				
 				if(!$rezultat){ 
-					header("location:register.php?message=Error: " . mysql_error()); 
+					header("location:index.php?page=2&message=Error: " . mysql_error()); 
 				}else { 
-					$to = $email;
 					
-					$ 
- 
-					$ver_code = "http://milos-medic.byethost16.com/php/confirm.php?username=".$username."&code=".$password."";
-					//$ver_code = "http://127.0.0.1/git/meda-forum/gui/php/confirm.php?username='".$username."'&code='".$password."'";
-					$subject = "Verification link | ForumMeda"; 
-					$message = "<html><head></head><body>
-					<div>
+					
 					 
-					<a style='background-color:red;' href='$ver_code'>Verifikacija</a>
-					</div></body></html>";
-					$headers = "MIME-Version: 1.0" . "\r\n";
-					$headers .= "Content-type:text/html;" . "\r\n";
+ 
+					$ver_code = "http://milos-medic.byethost16.com/php/index.php?page=8&username=".$username."&code=".$password."";
+					//$ver_code = "http://127.0.0.1/git/meda-forum/gui/php/index.php?page=8&username='".$username."'&code='".$password."'";
+					
+					
+					
+					$to = $email;
+					$subject = 'Verification link | ForumMeda'; 
+					
+					$message = "<html><body>"; 
+					$message .= "<table ><tr><td></td><td width='600' style='display: block !important;max-width: 600px !important; margin: 0 auto !important;  clear: both !important; margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box;font-size: 14px;'><div><table style=' background-color: #fff;border: 1px solid #e9e9e9;border-radius: 3px;' width='100%' cellpadding='0' cellspacing='0'><tr><td style='padding: 20px;'><table width='100%' cellpadding='0' cellspacing='0'><tr><td style='padding: 0 0 20px;'>Please confirm your email address by clicking the link below.</td></tr><tr><td style='padding: 0 0 20px;'>We may need to send you information about our service and it is important that we have an accurate email address.</td></tr><tr><td style='padding: 0 0 20px;'><a href='".$ver_code."' style='text-decoration: none;color: #FFF; background-color: #348eda; border: solid #348eda; border-width: 10px 20px;line-height: 2em;  font-weight: bold;  text-align: center; cursor: pointer; display: inline-block; border-radius: 5px;text-transform: capitalize;'>Confirm email address</a></td></tr><tr><td style='padding: 0 0 20px;'>&mdash; The ForumMeda Team</td></tr></table></td></tr></table></div></td><td></td></tr></table>";
+					$message .= "</body></html>";
+					  
+					$headers = "From: ForumMeda\r\n"; 
+					$headers .= "MIME-Version: 1.0\r\n";
+					$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+			 
 					if (mail($to, $subject, $message, $headers)) {   
-						header("location:index.php?message= <div class='info'> Confirm your email adress!!</div>");
+						header("location:index.php?page=0&message= <div class='info'> Confirm your email adress!!</div>");
 					}else { 
-						header("location:register.php?message= <div id='erori'Registration failed!</div>"); 
+						header("location:index.php?page=2&message= <div id='erori'Registration failed!</div>"); 
 					}
 				} 
 			}else {
-				header("location:register.php?message=<div id='erori'>User with that email or username is registered, <br/>try with another email or username!</div>");
+				header("location:index.php?page=2&message=<div id='erori'>User with that email or username is registered, <br/>try with another email or username!</div>");
 			}
 		}else{
 			 $greske[]="That email or username is in use";
 		}
 	}
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-<head>
-	<title>Meda - Forum</title>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-		<meta name="description" content=""/>
-		<meta name="keywords" content=""/>
-		<meta name="author" content=""/>
-		<link rel="shortcut icon" href="../images/icon.ico"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
-		<script type="text/javascript" src="../script/jquery-1.12.3.min.js"></script> 
-		<script type="text/javascript" src="../script/mainscript.js"></script>
-</head>
-	<body>
-		<?php
-			include("header.php");
-		?>
-		<?php
-			include("menu.php");
-		?> 
-		<div id="wrapper">
+ 
+		 
 			<div id="sadrzaj">
-						 <div id='registerpage'>
-				<h2>Register now (it's free) </h2><br/>
-				<header><?php if(isset($_REQUEST['message'])) echo $_REQUEST['message']; ?></header><br/>
+				<div id='registerpage'>
+					<h2>Register now (it's free) </h2><br/>
+					<header><?php if(isset($_REQUEST['message'])) echo $_REQUEST['message']; ?></header><br/>
 					<form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='GET' onSubmit='return check();'>
 						<input type='text' name='tbUsername2' id='tbUsername2' placeholder='username'/><br/>
 						<span id='userS' class='greskeR'></span><br/>
@@ -119,14 +106,6 @@
 					</form>
 				</div>
 			</div>
-			<div id="desno">
-			<?php
-				include("widget.php");
-			?>
-		</div>
-		</div> 
-        <?php
-			include("footer.php");
-		?>
-	</body>
-</html>
+			 
+		  
+          

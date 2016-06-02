@@ -1,0 +1,35 @@
+.image-box{
+	width:31%;
+	padding:1%;
+	float:left;
+}
+.image-box img{
+	width:100%;
+}
+.clear{
+	clear:both;
+}
+#crop-button{
+	margin-top:20px;
+	padding:10px;
+	width:100%;
+	background:#333;
+	color:#fff;
+	border:0px;
+}
+#crop-tool{
+	background:rgba(255, 255, 255, 0.5);
+	border:1px dashed #fff;
+	width:150px;
+	height:150px;
+	position:absolute;
+}
+.image-full-div{
+	width:35%;
+	
+}.image-full-div img{
+	width:100%;
+	
+}
+
+ 
