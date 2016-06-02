@@ -47,7 +47,7 @@
 					case "9": include("contact.php"); break; 
 					case "10": include("author.php"); break; 
 					case "11": include("members_gallery.php"); break; 
-					default: header("Location: index.php?page=0");
+					default: include("content.php");break;
 				}
 			 
 			?>

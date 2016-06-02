@@ -177,6 +177,7 @@
 								$promenljiva
 								<div>Your answer: </div><br/><br/>
 								<form action='". $_SERVER['PHP_SELF'] ."'  method='GET'> 
+								<input type='hidden' name='page' value='7'/>
 									<div id='dodatak2'>
 										<textarea name='taComment' id='taComment' rows='6' cols='98.5'></textarea><br/><br/>
 										<input type='submit' name='btnReply' id='btnReply' value='Reply'/>
