@@ -24,11 +24,11 @@
         <p>Copyright &copy; <a href="#">ForumMeda</a>. All rights reserved.</p>
         
         <div id="mreze">
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
+            <a href=""><img src=""></a>
+            <a href=""><img src=""></a>
+            <a href=""><img src=""></a>
+            <a href=""><img src=""></a>
+            <a href=""><img src=""></a>
         </div>
         </div>
     </div>

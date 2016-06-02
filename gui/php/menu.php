@@ -10,9 +10,10 @@
 <div class="cisti"></div>
 <div id="mainmenuwrapper">
 	<div id="mainmenu">
-		<ul id="navmenu"> 
+		<ul id="navmenu">
+
 			<li class="active">
-				<a href="index.php?page=0">
+				<a href="index.php">
 					<b>&starf;</b>
 					<span>ALL POSTS</span>
 					(<span id="number"><?php echo("$broj_postova")?></span>)
@@ -20,12 +21,7 @@
 			</li> 
 			<li>
 				<a href="#"> 
-					<b>&starf;</b> <span> Members gallery </span>
-				</a>
-			</li>
-			<li>
-				<a href="index.php?page=1"> 
-					<b>&starf;</b ><span> Cpanel </span>
+					<span>Members gallery</span>
 				</a>
 			</li>
 		</ul>
