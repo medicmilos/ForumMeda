@@ -16,11 +16,11 @@
 			echo ("<tr><td width=\"50px\">");
 			xyz="";
 			if($levo<0){
-				xyz=" Pocetak </td><td width=\"50px\"><a href=\"index.php?page=3&skriveno=$desno\"> Naredni</a>";
+				xyz=" Pocetak </td><td width=\"50px\"><a href=\"manage_users.php?skriveno=$desno\"> Naredni</a>";
 			}elseif($desno > $ukupno_zapisa){
-				xyz=" <a href=\"index.php?page=3&skriveno=$levo\"> Prethodni </a></td><td width=\"50px\">Kraj ";
+				xyz=" <a href=\"manage_users.php?levo\"> Prethodni </a></td><td width=\"50px\">Kraj ";
 			}else {
-				xyz="<a href=\"index.php?page=3&skriveno=$levo\"> Prethodni </a></td><td width=\"50px\"><a href=\"index.php?page=3&skriveno=$desno\"> Naredni </a>";
+				xyz="<a href=\"manage_users.php?skriveno=$levo\"> Prethodni </a></td><td width=\"50px\"><a href=\"manage_users.php?skriveno=$desno\"> Naredni </a>";
 			}
 				echo ("</td></tr>");
 			$rezultat2 = mysql_query("SELECT id_users FROM users LIMIT $koliko_po_strani OFFSET $skriveno ");
