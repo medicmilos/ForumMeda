@@ -90,6 +90,7 @@
 					<h2>Register now (it's free) </h2><br/>
 					<header><?php if(isset($_REQUEST['message'])) echo $_REQUEST['message']; ?></header><br/>
 					<form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='GET' onSubmit='return check();'>
+						<input type='hidden' name='page' value='2'/>
 						<input type='text' name='tbUsername2' id='tbUsername2' placeholder='username'/><br/>
 						<span id='userS' class='greskeR'></span><br/>
 						<input type='text' name='tbEmail2' id='tbEmail2' placeholder='email'/><br/>

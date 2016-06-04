@@ -7,7 +7,7 @@
 		move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
 		$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
 		include("konekcija.php");
-		$rezultat = mysql_query($upit2, $konekcija);  
+		$rezultat = mysql_query($upit2, $konekcija); 
 		mysql_close($konekcija);
 	} 
 	}

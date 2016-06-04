@@ -511,7 +511,7 @@ body{
 	margin-top:10px;
 }
 #taEditPass{
-	width:273px;
+	width:273px !important;
 }
 #mainmenu ul li a{
     text-decoration:none;  
@@ -1159,7 +1159,7 @@ body{
 	min-height:300px;
 }
 #taEditEmail {
-    width:200px !important;
+    width:100% !important;
 	height:20px;
 } 
 #user-content2 table{ 
@@ -1190,3 +1190,32 @@ body{
 	padding: 0px;
     border: none;
 } 
+.tableposts table td:nth-child(2){
+	width:52% !important;
+}  
+.tableposts table td:nth-child(5){
+	width:20% !important;
+} 
+.tableposts table td{  
+	padding:5px;
+}
+.posts-content table td:nth-child(2){  
+	width:100% !important;
+}
+.form-control{
+	width:100% !important;
+	height:100% !important;
+}
+#taEditDesc{
+	min-height:60px !important;
+}
+.tableposts2 table td:nth-child(3){
+	width:52% !important;
+	
+}  
+.posts-content22 {
+	margin:60px auto !important;
+}  
+.unicorn{
+	background-color:#F5F5F5;
+}  

@@ -1,9 +1,9 @@
  <div id="sadrzaj"> 
 	<div id='admin-nav'>
 		<span class='admin-nav-cont'><a href='index.php?page=3'>Users</a></span>
-		<span class='admin-nav-cont'><a href=''>Posts</a></span>
-		<span class='admin-nav-cont'><a href=''>Comments</a></span>
-		<span class='admin-nav-cont'><a href=''>Nested comments</a></span>
+		<span class='admin-nav-cont'><a href='index.php?page=12'>Posts</a></span>
+		<span class='admin-nav-cont'><a href='index.php?page=15'>Comments</a></span>
+		<span class='admin-nav-cont'><a href='index.php?page=16'>Nested comments</a></span>
 		<span class='admin-nav-cont'><a href=''>Polls</a></span>
 	</div>
 	

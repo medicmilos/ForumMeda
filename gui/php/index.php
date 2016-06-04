@@ -47,7 +47,11 @@
 					case "9": include("contact.php"); break; 
 					case "10": include("author.php"); break; 
 					case "11": include("members_gallery.php"); break; 
-					default: include("content.php");break;
+					case "12": include("manage_posts.php"); break; 
+					case "13": include("manage_post.php"); break; 
+					case "14": include("manage_comment.php"); break; 
+					case "15": include("manage_comments.php"); break; 
+					default: include("404.php");break;
 				}
 			 
 			?>
