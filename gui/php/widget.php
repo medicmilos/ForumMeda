@@ -21,7 +21,7 @@
 
 //anketa
 
-	$idpoll = '';
+	/*$idpoll = '';
 	$question = '';
 	$upit = "SELECT * FROM poll WHERE active='1'";
 			include("konekcija.php");
@@ -70,9 +70,27 @@
 			 
 			
 			$answer .=  "<div class='radio'><label><input type='radio' name='rbPoll' class='poll' value='".$idanswer."' onchange='javascript:this.form.submit();'/> ".$red['answer']."</label></div>";
-		}
+		}*/
 	
 	 
+	 
+	 
+	
+	$idpoll = '';
+	$question = '';
+	$stampa = '';
+	$upit = "SELECT * FROM poll WHERE active='1'";
+			include("konekcija.php");
+			$rezultat = mysql_query($upit, $konekcija);  
+			mysql_close($konekcija);
+		
+		while($red = mysql_fetch_array($rezultat)){ 
+			$idpoll = $red['id_poll'];
+			$question = $red['question'];
+			
+			$stampa = "<input type='radio' name='rbPoll' id='' value=''><br/>";
+		}
+			
 	echo (
 		"<div id='desnocontent'>
 			<p>STATISTICS</p>
@@ -91,17 +109,16 @@
 				</div>
 			</div>
 			
+			 
 			<p>POLL</p>
-			<div id='statistika'>  
-				<h4>$question</h4><br/> 
-				<div id='poll-vote'>
-					<form action='". $_SERVER['PHP_SELF'] ."' method='POST'>
-					$answer<br/> 
-					</form>
-				</div> 
+			<div id='statistika'> 
+			<div id='statistika2'> 
+				<form action='' method='GET'>
+					$question<br/>
+					<input type='button' onClick='ajaxprovera();' name='btnPoll' value='click'/>
+				</form>
 			</div>
-			
-			
+			</div>
 			 
 			
 		</div>

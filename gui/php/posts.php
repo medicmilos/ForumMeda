@@ -141,7 +141,7 @@
 											<span id='komentari_info'>answered $time2 ago by <a href='index.php?page=4&usernamem=$userizbaze'><span class='paket_desno_opis_user'>$userizbaze</span></a></span><br/><br/><br/>
 											$nested_iz_baze
 											<div id='komentari_komentarisi'>
-												<form action='". $_SERVER['PHP_SELF'] ."' method='GET'>
+												<form action='". $_SERVER['PHP_SELF'] ."' method='GET' onSubmit='return provera3();'>
 													<input type='hidden' name='page' value='7' />	
 													<div class='msjdcsna'>
 														<a href='' class='reply'>Reply</a>
@@ -176,7 +176,7 @@
 								<div class='paket_desno_description'>$description</div>
 								$promenljiva
 								<div>Your answer: </div><br/><br/>
-								<form action='". $_SERVER['PHP_SELF'] ."'  method='GET'> 
+								<form action='". $_SERVER['PHP_SELF'] ."'  method='GET' onSubmit='return provera2();'> 
 								<input type='hidden' name='page' value='7'/>
 									<div id='dodatak2'>
 										<textarea name='taComment' id='taComment' rows='6' cols='98.5'></textarea><br/><br/>

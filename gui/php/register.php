@@ -7,7 +7,7 @@
 		$gender = $_REQUEST['rbGender'];
 		
 		$remail = "/^[\w\.]+[\d]*@[\w]+\.\w{2,3}(\.[\w]{2})?$/"; 
-		$rusername = "/^[\w\s\/\.\_\d]{4,}$/"; 
+		$rusername = "/^[\w\s\/\.\_\d]{4,20}$/"; 
 		$rpassword = "/^[\w\s\/\.\_\d]{4,}$/";
 		$greske = array(); 
 		 $g=0; 
@@ -91,14 +91,13 @@
 					<header><?php if(isset($_REQUEST['message'])) echo $_REQUEST['message']; ?></header><br/>
 					<form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='GET' onSubmit='return check();'>
 						<input type='hidden' name='page' value='2'/>
-						<input type='text' name='tbUsername2' id='tbUsername2' placeholder='username'/><br/>
+						<input type='text' name='tbUsername2' id='tbUsername2' placeholder='username' onBlur="reg1();" /><br/>
 						<span id='userS' class='greskeR'></span><br/>
-						<input type='text' name='tbEmail2' id='tbEmail2' placeholder='email'/><br/>
-						<span id='emailS' class='greskeR'></span><br/>
-						
-						<input type='password' name='tbPassword2' id='tbPassword2' placeholder='password'/><br/>
+						<input type='text' name='tbEmail2' id='tbEmail2' placeholder='email' onBlur="reg2();" /><br/>
+						<span id='emailS' class='greskeR'></span><br/> 
+						<input type='password' name='tbPassword2' id='tbPassword2' placeholder='password' onBlur="reg3();" /><br/>
 						<span id='passS' class='greskeR'></span><br/>
-						<input type='password' name='tbPassword22' id='tbPassword22' placeholder='re-password'/><br/>
+						<input type='password' name='tbPassword22' id='tbPassword22' placeholder='re-password' onBlur="reg4();" /><br/>
 						<span id='passS2' class='greskeR'></span><br/>
 						<input type='radio' name='rbGender' id='rbGenderM' value='male' checked/> <label class='genders'>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type='radio' name='rbGender' id='rbGenderR' value='female' /> <label class='genders'>Female</label><br/>

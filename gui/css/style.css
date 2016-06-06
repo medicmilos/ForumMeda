@@ -1,4 +1,5 @@
 *{padding:0px; margin:0px;}
+@font-face { font-family: gotham_blackregular; src: url('ufonts.com_gotham-black.ttf');} 
 .cisti{clear:both;}
 
 body{
@@ -420,8 +421,7 @@ body{
 	height:35px;  
 	padding-left:5px;
     border: 1px solid #e6e6e6;
-    background: none;
-    border-color: #e6e6e6 !important;	
+    background: none; 	
 }
 #taComment:focus{
     outline-color:#48c9b0;
@@ -431,7 +431,7 @@ body{
 	margin: 0px 0px -7px 10px;
 	border: 1px solid #e6e6e6;
     background: none;
-    border-color: #e6e6e6 !important;
+   /* border-color: #e6e6e6 !important;*/
 	border-radius:5px; 
 }
 #taPost:focus{
@@ -441,8 +441,7 @@ body{
 	resize:none;
 	margin: 0px 0px -7px 10px;
 	border: 1px solid #e6e6e6;
-    background: none;
-    border-color: #e6e6e6 !important;
+    background: none; 
 	border-radius:5px; 
 }
 
@@ -457,8 +456,7 @@ body{
 	height:30px;  
 	padding-left:5px;
     border: 1px solid #e6e6e6;
-    background: none;
-    border-color: #e6e6e6 !important;	
+    background: none; 
 }
 #btnPost{
 	margin:0px 0px 0px 10px;
@@ -966,11 +964,7 @@ body{
 	text-align:center;
 }
 
-
-
  
-
-
 
 #tbTags{
 	margin-bottom:10px;
@@ -994,8 +988,6 @@ body{
 	    color: #636267;
 }  
   
- 
-   
   
   
 .greskeR2{
@@ -1022,21 +1014,14 @@ body{
 	transform: scale(1,1); 
 	}
 }
-
-
-<<<<<<< HEAD
+ 
 #statistika{
 	background-color:#f2f2f2;
 	border-radius:5px;  
 }
 
-
  
-
-
-=======
->>>>>>> parent of 483466f... Revert "strahota"
-
+ 
 .tableusers table a{
 	text-decoration:none;
 	color: #176b18; 
@@ -1247,4 +1232,141 @@ body{
 	text-align:center;
 	font-weight:normal;
 	width:120px; 
+}
+
+#autor{
+	height:600px;
+	width:735px;
+	margin:0px auto; 
+}
+#naslov i{ 
+	color:#4F4F4F; 
+}
+#naslov{
+	height:30px;
+	width:735px;
+	text-align:center;
+	text-weight:bold;
+	color:#7b7b7b;
+	font-size:25px;
+	padding-top:20px;
+	border-bottom: 1px dotted #7b7b7b;
+}
+#slika img{
+	width:250px;
+	height:290px;
+	border:3px solid #4F4F4F;
+}
+#slika{
+	height:290px;
+	width:250px;
+	float:left;
+	padding-top:10px;
+}
+#ukratko{
+	height:300px;
+	width:450px;
+	float:left; 
+	padding:30px 10px 0px 20px
+}
+#ukratko p{
+	color:#7b7b7b;
+	font-family:Arial;
+	font-size:19px;
+	text-align:left;
+}
+#ukratko a{
+	text-decoration:none;
+	color:#7b7b7b;
+}
+#ukratko a:hover{
+	color:#4F4F4F;
+}
+
+
+
+
+#table{
+	margin:10px auto; 
+	width:620px; 
+	height:560px;  
+	color:#ccc;  
+}
+#table td{
+	padding:0px 30px 0px 10px;
+	padding-bottom: 2px; 
+    font-size: 13px;  
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+}
+#table h2{
+	color:#4F4F4F;
+}
+#table textarea:focus, #table input:focus{
+    outline: none;
+}
+#table textarea, #table input{
+	font-family:Arial, Helvetica, sans-serif;
+	border: none;
+	border-bottom:1px solid #7b7b7b;
+	
+}
+#table textarea{
+	width:100% !important; 
+}
+#table input{
+	height:30px; 
+}
+
+#table .tbps{
+	width:186px !important; 
+}
+.button11{
+	width:50% !important;
+	border-bottom:none !important;
+	
+}
+.button1{ 
+	border-bottom:none !important; 
+	height:20px;
+	width:40px;
+	margin-top:2px;
+	color:#7b7b7b;
+	
+}
+
+
+#table h3 {
+    font-size: 35px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;  
+	color:#7b7b7b !important;
+}
+#table #tbYSubject{
+	width:100% !important; 
+}
+.greskeR{
+	color:#a94442 !important;
+}
+.crvenoo{
+	border-color:#a94442  !important; 
+}
+#kategorije a{
+	text-decoration:none; 
+	color: #95a5a6;
+	font-size: 1.025em;
+	padding: 0px 0px 0px 5px;
+}
+#kategorije ul{
+	list-style:none;
+}
+#kategorije li{  
+    display: block;padding: 5px 10px 5px 10px;
+}
+#kategorije1 p{  
+   border-bottom: 1px solid #e6e6e6;
+    margin: 15px 0px 10px 0px;
+    padding-bottom: 5px;
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #636267;
 }

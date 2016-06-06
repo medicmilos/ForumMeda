@@ -12,7 +12,7 @@
 		<meta name="author" content=""/>
 		<link rel="shortcut icon" href="../images/icon.ico"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css"/>  
-		<link rel="stylesheet" type="text/css" href="../css/class.css"/>  
+		<link rel="stylesheet" type="text/css" href="../css/class.css"/>   
 		<link rel="stylesheet" type="text/css" href="../css/lightbox.min.css"/>  
 		<script type="text/javascript" src="../script/jquery-2.2.4.min.js"></script>   
 		
