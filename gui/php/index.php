@@ -21,7 +21,7 @@
 		
  
 </head>
-	<body>
+	<body onLoad='ajaxprovera();'>
 		<?php
 			include("header.php");
 		?>
@@ -53,6 +53,8 @@
 					case "13": include("manage_post.php"); break; 
 					case "14": include("manage_comment.php"); break; 
 					case "15": include("manage_comments.php"); break; 
+					case "16": include("manage_nested_comments.php"); break; 
+					case "17": include("manage_nested_comment.php"); break; 
 					default: include("404.php");break;
 				}
 			 

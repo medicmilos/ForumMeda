@@ -1360,7 +1360,8 @@ body{
 	list-style:none;
 }
 #kategorije li{  
-    display: block;padding: 5px 10px 5px 10px;
+    display: block;
+	padding: 5px 10px 5px 10px;
 }
 #kategorije1 p{  
    border-bottom: 1px solid #e6e6e6;
@@ -1369,4 +1370,34 @@ body{
     font-family: Open Sans, Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #636267;
+}
+#statistika2{  
+	color:#7b7b7b;
+	padding:10px;
+	text-align:center;
+}
+#statistika2 div:nth-child(1){  
+	border-bottom: 1px solid #e6e6e6;
+	color:#4F4F4F;
+	margin-bottom:10px;
+}
+.rbpoll{  
+	text-align:left !important;
+	padding-left:35px;
+}
+#statistika2 #submit_poll{
+	margin-top:8px;
+	background-color:#48c9b0;
+	color:#efefef;
+	height: 17px;
+    width: 42px;
+	text-align:center; 
+	border:none;
+	border-radius:3px;
+	box-shadow: inset 0 1px 0 #91decf;
+}
+#statistika2 #submit_poll:hover{
+	background-color:#e64b21;
+	box-shadow: inset 0 1px 0 #f09379;
+	outline-color:#48c9b0;
 }

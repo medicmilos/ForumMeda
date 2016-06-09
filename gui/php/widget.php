@@ -91,10 +91,10 @@
 			$stampa = "<input type='radio' name='rbPoll' id='' value=''><br/>";
 		}
 			
-	echo (
-		"<div id='desnocontent'>
-			<p>STATISTICS</p>
-			<div id='statistika'> 
+		echo (
+			"<div id='desnocontent'>
+				<p>STATISTICS</p>
+				<div id='statistika'> 
 				<div class='tridela' id='members'>
 					<span class='brojevi' id='broj'>$broj_usera</span>
 					<span class='spanovi' >MEMBERS</span>
@@ -108,23 +108,30 @@
 					<span class='spanovi'>COMMENTS</span>
 				</div>
 			</div>
+		");
+		
+		
+		if(!(@$_REQUEST['page']==0)){ 
 			
-			 
+			echo (" 
 			<p>POLL</p>
 			<div id='statistika'> 
 			<div id='statistika2'> 
-				<form action='' method='GET'>
-					$question<br/>
-					<input type='button' onClick='ajaxprovera();' name='btnPoll' value='click'/>
-				</form>
+				
 			</div>
 			</div>
-			 
+		");
 			
-		</div>
+			
+				} 
+				
+				
+		
+		
+		echo ("	 
+			</div>
 		 
-		"
-	);
+		");
 	
 ?>
 

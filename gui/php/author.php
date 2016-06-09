@@ -111,14 +111,10 @@
 			</div>
 			
 			<p>POLL</p>
-			<div id='statistika'>  
-				<h4>$question</h4><br/> 
-				<div id='poll-vote'>
-					<form action='". $_SERVER['PHP_SELF'] ."' method='POST'>
-					<input type='hidden' name='page' value='0'/>
-					$answer<br/> 
-					</form>
-				</div> 
+			<div id='statistika'> 
+			<div id='statistika2'> 
+				
+			</div>
 			</div>
 			
 			

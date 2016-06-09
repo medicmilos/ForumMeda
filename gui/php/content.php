@@ -335,9 +335,10 @@ if(!isset($_SESSION['id_users'])){
 			} 
 		} 
 		$novo = explode(' ', $tagovi);
+		$result = array_unique($novo);
 			$tagovi33='';
 			$i = 0;				
-			foreach($novo as $r23){  
+			foreach($result as $r23){  
 				if(++$i > 17) break;
 				$tagovi33 = "$r23";
 		 
