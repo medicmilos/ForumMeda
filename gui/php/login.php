@@ -13,9 +13,9 @@
  
         $password = md5($password);
 		if(!($username == '' || $password == '')){
-		$upit = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+		$upit = "SELECT * FROM users WHERE username='$username' AND active=1 LIMIT 1";
 			include("konekcija.php");	
-				$rezultat = mysql_query($upit, $konekcija);
+			$rezultat = mysql_query($upit, $konekcija);
 			mysql_close($konekcija); 
 
 			$id = '';
@@ -23,16 +23,26 @@
 			while($red = mysql_fetch_array($rezultat)){
 				$id = $red['id_users'];
 				$db_password = $red['password'];	
+				$db_username = $red['username'];	
 				$db_role = $red['user_mod'];	
+				$db_active = $red['active'];	
 			}
-			if($password == $db_password) {
+			if(($username == $db_username) && $db_active=='0') {
+					$_SESSION['username'] = $username;
+					$_SESSION['id_users'] = $id;
+					$_SESSION['user_mod'] = $db_role;
+					header("location:index.php?page=0&message= <div class='info'> Please confirm your email adress!</div>");
+			}else{
+				if($password == $db_password) {
 					$_SESSION['username'] = $username;
 					$_SESSION['id_users'] = $id;
 					$_SESSION['user_mod'] = $db_role;
 					header("location:index.php?page=0&message= <div class='success'> Welcome back ".$_SESSION['username']."!</div>");
-			} else { 
-				header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
+				} else { 
+					header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
+				}
 			}
+			
 		}else{
 			header("location:index.php?page=0&message= <div class='error'> Login failed!</div>");
 		}

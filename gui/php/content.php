@@ -103,7 +103,7 @@ if(!isset($_SESSION['id_users'])){
   
 			$pomocna = '';
 			if(!isset($_SESSION['id_users'])){
-				$pomocna = "<a href='javascript:void(0);'>$title</a>";
+				$pomocna = "<a href='index.php?page=0&message= <div class='info'> Login to see or comment topic!</div>'>$title</a>";
 			}else{
 				$pomocna = "<a href='index.php?page=7&title=$title&username=$username&idposta=$idpost'>$title</a>";
 				$_SESSION['pomocniurl'] = "$title";
@@ -263,14 +263,11 @@ if(!isset($_SESSION['id_users'])){
 			
 			echo ("<div class='sadrzaj_paket'>
 			<div class='paket_levo'>
-				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>0</span>
-					<span class='paket_levo_glasovi_tekst'>votes</span>
-				</div>
+				
 				<div class='paket_levo_glasovi'>
 					<span class='paket_levo_glasovi_broj'>$broj_komentara</span>
 					<span class='paket_levo_glasovi_tekst'>$odgovori</span>
-				</div>
+				</div> 
 				<div class='paket_levo_glasovi'>
 					<span class='paket_levo_glasovi_broj'>$broj_pregleda</span>
 					<span class='paket_levo_glasovi_tekst'> $pregledi</span>

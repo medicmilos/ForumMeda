@@ -4,8 +4,9 @@
 		$mail = trim($_REQUEST['tbYmail']); 
 		$phone = trim($_REQUEST['tbYPhone']);
 		$subject = trim($_REQUEST['tbYSubject']); 
+		$message = trim($_REQUEST['tbYMessage']); 
 		
-		$rname = "/^[A-Z]{1}[a-z]{2,28}$/";
+		$rname = "/^[\w\s\/\.\_\d]{2,28}$/";
 		$rmail = "/^[\w\.]+[\d]*@[\w]+\.\w{2,3}(\.[\w]{2})?$/"; 
 		$rphone = "/^\d$/";
 		
@@ -34,25 +35,20 @@
 			$message = "E-mail: ".$mail."\n Phone: ".$phone."\n Message: ".$message;  
 					
 			if (mail($to, $subject, $message)) {   
-						header("location:index.php?page=9&message= <div class='info'> Thanks for contacting me!</div>");
+						//header("location:index.php?page=9&message= <div class='info'> Thanks for contacting me!</div>");
+						echo("radi");
 					}else { 
-						header("location:index.php?page=9&message= <div id='erori'Sending mail failed!</div>"); 
+						//header("location:index.php?page=9&message= <div id='erori'Sending mail failed!</div>"); 
+						echo("ne radi"); 
 					} 
 		}else{  
+		echo("Usao sam u ELS"); 
 		}
-		
-		
-		
-		
-		
-		
+		 
 	}
 ?>
 
-
-
-
-
+ 
 <div id="sadrzaj">  
 	 <div id="table">
 		<form action='<?php echo $_SERVER['PHP_SELF']; ?>' method="GET" onSubmit='return check2();'>

@@ -4,12 +4,13 @@
 			<span class='admin-nav-cont'><a href='index.php?page=12'>Posts</a></span>
 			<span class='admin-nav-cont'><a href='index.php?page=15'>Comments</a></span>
 			<span class='admin-nav-cont'><a href='index.php?page=16'>Nested comments</a></span>
-			<span class='admin-nav-cont'><a href=''>Polls</a></span>
+			<span class='admin-nav-cont'><a href='index.php?page=18'>Polls</a></span>
 		</div>
 	 
 	<?php   
 	
-		$koliko_po_strani = 3;
+	
+		$koliko_po_strani = 5;
 		if(@$_GET['skriveno']) {
 			$skriveno = $_GET['skriveno'];
 		}else {
@@ -74,9 +75,19 @@
 				}else{
 					$usermod="User";
 				}
+				$maliavatar='';
+				if($avatar == ''){ 
+					$maliavatar = "<img src='../images/members/default.png' width='46' height='51'/>";   
+				}else{ 
+					$maliavatar = "<img src='../images/members/$avatar' width='46' height='51'/>";
+				} 
+				
+				
+				
+				
 				echo("<tr>
 					<td>$pom</td>
-					<td><img src='../images/members/$avatar' width='46' height='51'/></td>
+					<td>$maliavatar</td>
 					<td width='46'>$username</td>
 					<td>$email</td>
 					<td>$usermod</td>
@@ -95,7 +106,7 @@
 				$rezultat = mysql_query($upit, $konekcija);  
 				mysql_close($konekcija);
 		}
-	
+	echo ("<div class='adduser save2'><a href='index.php?page=20'>Add new user</a></div>");
 	?>
 	
 </div>

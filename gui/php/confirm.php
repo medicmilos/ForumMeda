@@ -1,9 +1,9 @@
 <?php
 	$username = $_REQUEST['username'];
-	$code = $_REQUEST['code'];
+	$token = $_REQUEST['token'];
 	
 	include('konekcija.php');
-	$upit1 = "SELECT username, password FROM users WHERE username='".$username."' AND password='".$code."' ";
+	$upit1 = "SELECT username, password FROM users WHERE username='".$username."' AND password='".$token."' ";
 	$rezultat2 = mysql_query($upit1, $konekcija);
 	mysql_close($konekcija);
 	

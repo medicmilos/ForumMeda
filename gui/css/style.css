@@ -329,6 +329,8 @@ body{
 .paket_levo{ 
 	float:left;
 	margin-top:10px; 
+	margin-right: 10px;
+    margin-left: 10px;
 }
 .paket_levo_glasovi{
 	width:33px;
@@ -336,6 +338,7 @@ body{
 	text-align: center;
 	margin-right: 5px;
 	color:#9199a1;
+	margin-left:10px;
 }
 .paket_desno{
 	width:576px; 
@@ -507,6 +510,7 @@ body{
 #mainmenu ul li{
     display:inline-block;
 	margin-top:10px;
+	padding-bottom:5px;
 }
 #taEditPass{
 	width:273px !important;
@@ -1400,4 +1404,39 @@ body{
 	background-color:#e64b21;
 	box-shadow: inset 0 1px 0 #f09379;
 	outline-color:#48c9b0;
+}
+.userad table{
+	margin: 0px auto;
+    text-align: left;
+    border: none;
+}
+.userad table td {
+    width: 120px;
+    padding: 5px;
+	color:#636267;
+}
+.adduser{
+    width: 200px; 
+	margin:10px auto;
+	text-align:center;
+	padding-top:8px;
+	height:25px !important;
+}
+.adduser a{
+    text-decoration:none;
+	color:#FFF;
+}
+#user-content img{
+    border:1px solid #000;
+}
+.thanks{
+    background-color:rgba(42, 99, 42, 0.63) !important;
+	color:#FFF !important;
+}
+.already{
+    background-color:rgba(169, 68, 66, 0.76) !important;
+	color:#FFF !important;
+}
+.hoveric:hover{
+    border-bottom:5px solid #e64b21 !important;
 }

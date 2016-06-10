@@ -55,7 +55,10 @@
 					case "15": include("manage_comments.php"); break; 
 					case "16": include("manage_nested_comments.php"); break; 
 					case "17": include("manage_nested_comment.php"); break; 
-					default: include("404.php");break;
+					case "18": include("manage_polls.php"); break;
+					case "19": include("manage_poll.php"); break; 
+					case "20": include("useradd.php"); break; 
+					default: include("content.php");break;
 				}
 			 
 			?>

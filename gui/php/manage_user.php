@@ -4,7 +4,7 @@
 		<span class='admin-nav-cont'><a href='index.php?page=12'>Posts</a></span>
 		<span class='admin-nav-cont'><a href='index.php?page=15'>Comments</a></span>
 		<span class='admin-nav-cont'><a href='index.php?page=16'>Nested comments</a></span>
-		<span class='admin-nav-cont'><a href=''>Polls</a></span>
+		<span class='admin-nav-cont'><a href='index.php?page=18'>Polls</a></span>
 	</div>
 	
 <?php    
@@ -45,6 +45,15 @@
 			$usermod = $red['user_mod'];
 			$active = $red['active'];
 			
+			
+			$maliavatar='';
+				if($avatar == ''){ 
+					$maliavatar = "<img src='../images/members/default.png' width='155' height='165'/>";   
+				}else{ 
+					$maliavatar = "<img src='../images/members/$avatar' width='155' height='165'/>";
+				}
+			
+			
 			$usermod1='';
 			$usermod2='';
 			$useractive1='';
@@ -66,7 +75,7 @@
 			echo("
 			
 				<div id='user-content'>
-					<img src='../images/members/$avatar' width='155' height='165' border='1'/><br/>
+					<div>$maliavatar</div><br/>
 					<h3>$username<h3>
 					
 				</div><br/>

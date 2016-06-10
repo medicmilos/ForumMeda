@@ -40,23 +40,15 @@
 			$rezultat = mysql_query($upit, $konekcija);
 			mysql_close($konekcija);
 			if(mysql_num_rows($rezultat) == 0){
-				$upit = "INSERT INTO users (id_users, username, password, email, user_mod, active) VALUES (NULL, '".$username."', '".$password."', '".$email."', '2', '0')";
+				$upit = "INSERT INTO users (id_users, username, password, email, gender, user_mod, active) VALUES (NULL, '".$username."', '".$password."', '".$email."', '".$gender."', '2', '0')";
 				include("konekcija.php");
 				$rezultat = mysql_query($upit, $konekcija);  
 				mysql_close($konekcija);
 				
 				if(!$rezultat){ 
 					header("location:index.php?page=2&message=Error: " . mysql_error()); 
-				}else { 
-					
-					
-					 
- 
-					$ver_code = "http://milos-medic.byethost16.com/php/index.php?page=8&username=".$username."&code=".$password."";
-					//$ver_code = "http://127.0.0.1/git/meda-forum/gui/php/index.php?page=8&username='".$username."'&code='".$password."'";
-					
-					
-					
+				}else {  
+					$ver_code = "http://milos-medic.byethost16.com/php/index.php?page=8&username=".$username."&token=".$password."";  
 					$to = $email;
 					$subject = 'Verification link | ForumMeda'; 
 					
@@ -99,13 +91,17 @@
 						<span id='passS' class='greskeR'></span><br/>
 						<input type='password' name='tbPassword22' id='tbPassword22' placeholder='re-password' onBlur="reg4();" /><br/>
 						<span id='passS2' class='greskeR'></span><br/>
-						<input type='radio' name='rbGender' id='rbGenderM' value='male' checked/> <label class='genders'>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type='radio' name='rbGender' id='rbGenderR' value='female' /> <label class='genders'>Female</label><br/>
+						<input type='radio' name='rbGender' id='rbGenderM' value='M' checked/> <label class='genders'>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type='radio' name='rbGender' id='rbGenderR' value='F' /> <label class='genders'>Female</label><br/>
 						<span id='genderS' class='greskeR'></span><br/>
 						<input type='submit' name='btnRegister2' id='btnRegister2' value='Register'/><br/><br/>
 					</form>
 				</div>
 			</div>
 			 
-		  
+	<div id="desno">
+	<?php
+		include("widget.php");
+	?>
+</div>		  
           

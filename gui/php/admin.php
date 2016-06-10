@@ -1,5 +1,6 @@
-<div id="sadrzaj"> <?php
-	if($_SESSION['user_mod']=='1'){ 
+<div id="sadrzaj"> 
+<?php
+	if(@$_SESSION['user_mod']=='1'){ 
 			echo("
 			
 				<div id='sadrzaj'>
@@ -10,7 +11,7 @@
 						<span class='admin-nav-cont1'><a href='index.php?page=12'>Posts</a></span>
 						<span class='admin-nav-cont1'><a href='index.php?page=15'>Comments</a></span>
 						<span class='admin-nav-cont1'><a href='index.php?page=16'>Nested comments</a></span>
-						<span class='admin-nav-cont1'><a href=''>Polls</a></span> 
+						<span class='admin-nav-cont1'><a href='index.php?page=18'>Polls</a></span> 
 						
 					</div>
 
@@ -21,9 +22,10 @@
 					?>
 				</div> 
 			"); 
-		}
+		
 	  
-?></div> 
+?>
+</div> 
 <div id="desno">
 	<?php
 		//statistika sajta
@@ -131,6 +133,7 @@
 		 
 		"
 	);
+	}
 	?>
 </div>
  

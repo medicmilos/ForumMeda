@@ -21,7 +21,7 @@
 				echo $red['answer']." : ".$red['votes']."<br/>";
 			}
 			
-			echo "You already voted.";#vratiti rez glasanja
+			echo "<div class='already'>You already voted.</div>";#vratiti rez glasanja
 		}else{
 			if($_GET['answers']!='0'){
 				$query = "INSERT INTO poll_votes VALUES('','".$_GET['answers']."','".$_SERVER["REMOTE_ADDR"]."')";
@@ -31,9 +31,21 @@
 				mysql_query($query2,$konekcija);
 				mysql_close($konekcija); 
 				
-				echo "Thanks for vote."; 
+				echo "<div class='thanks'>Thanks for vote.</div>";
+$query11 = "SELECT * FROM poll WHERE active='1'";
+			include('konekcija.php');
+			$result22 = mysql_query($query11, $konekcija);
+			$r2 = mysql_fetch_array($result22);
+			
+			$query3 = "SELECT * FROM poll_answers WHERE id_poll='".$r2['id_poll']."'";
+			$result3 = mysql_query($query3,$konekcija);
+			mysql_close($konekcija);
+			
+			while($red = mysql_fetch_array($result3)){
+				echo $red['answer']." : ".$red['votes']."<br/>";
+			}				
 			}else{ 
-				echo "Select an answer!"; 
+				echo "<div class='already'>Select an answer!</div>"; 
 			}
 		} 
 	}else{

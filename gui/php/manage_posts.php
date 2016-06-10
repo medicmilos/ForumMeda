@@ -4,10 +4,18 @@
 			<span class='admin-nav-cont'><a href='index.php?page=12'>Posts</a></span>
 			<span class='admin-nav-cont'><a href='index.php?page=15'>Comments</a></span>
 			<span class='admin-nav-cont'><a href='index.php?page=16'>Nested comments</a></span>
-			<span class='admin-nav-cont'><a href=''>Polls</a></span>
+			<span class='admin-nav-cont'><a href='index.php?page=18'>Polls</a></span>
 		</div>
 	 
 	<?php   
+	
+	if(isset($_REQUEST['delete'])){
+			$upit = "DELETE FROM posts WHERE id_posts='".$_REQUEST['delete']."'";
+				include("konekcija.php");
+				$rezultat = mysql_query($upit, $konekcija);  
+				mysql_close($konekcija);
+		}
+	
 	
 		$koliko_po_strani = 2;
 		if(@$_GET['skriveno']) {
@@ -79,12 +87,7 @@
 			echo("</table></form>");
 			echo("</div>")
 			;
-		if(isset($_REQUEST['delete'])){
-			$upit = "DELETE FROM posts WHERE id_posts='".$_REQUEST['delete']."'";
-				include("konekcija.php");
-				$rezultat = mysql_query($upit, $konekcija);  
-				mysql_close($konekcija);
-		}
+		
 	
 	?>
 	
