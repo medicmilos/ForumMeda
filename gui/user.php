@@ -54,7 +54,7 @@
 				<div id='sadrzaj_membersin2'>
 					$broj_postova2
 					$sadrzaj_postovi
-				</div>
+				</div><div id='userpagin'>$xyz</div>
 			</div>"
 		);  
 	}

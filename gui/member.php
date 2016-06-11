@@ -3,13 +3,25 @@
 
 	$medic = @$_REQUEST['pomocnapom'];
 	if($medic == 'meda'){
-		if(isset($_FILES['file']['tmp_name'])){
-		move_uploaded_file($_FILES['file']['tmp_name'],"../images/members/".$_FILES['file']['name']);
-		$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
-		include("konekcija.php");
-		$rezultat = mysql_query($upit2, $konekcija); 
-		mysql_close($konekcija);
-	} 
+		if(isset($_FILES['file']['tmp_name'])){ 
+			$maxsize    = 2097152;
+			$tipovi = array( 
+				'image/jpeg',
+				'image/jpg',
+				'image/gif',
+				'image/png'
+			);
+			
+			if(($_FILES['file']['size'] >= $maxsize) || (!in_array($_FILES['file']['type'], $tipovi))){
+				header("location:index.php?page=4&message= <div class='error'> Only JPG, JPEG, PNG, GIF image format, and 2mb max!</div>");
+			}else{
+				move_uploaded_file($_FILES['file']['tmp_name'],"images/members/".$_FILES['file']['name']);
+				$upit2 = "UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'";
+				include("konekcija.php");
+				$rezultat = mysql_query($upit2, $konekcija); 
+				mysql_close($konekcija);
+			} 
+		} 
 	}
 	
 	if(isset($_REQUEST['usernamem'])){ 
@@ -38,9 +50,9 @@
 	$time2 = date('M d, Y', $time2);
 	
 	if($slika == ''){ 
-		$maliavatar = "<img src='../images/members/default.png' width='145px' height='155px' alt='default_img' >";   
+		$maliavatar = "<img src='images/members/default.png' width='145px' height='155px' alt='default_img' >";   
 	}else{ 
-		$maliavatar = "<img src='../images/members/$slika' width='145px' height='155px' alt='default_img' >";
+		$maliavatar = "<img src='images/members/$slika' width='145px' height='155px' alt='default_img' >";
 	} 
 //deskripcija korisnika
 
@@ -76,6 +88,41 @@
 				$descript;
 			}
 		}
+		
+// PAGINACIJA
+
+$koliko_po_strani = 3;
+		if(@$_GET['skriveno']) {
+			$skriveno = $_GET['skriveno'];
+		}else {
+			$skriveno = 0;
+		}
+		include ("konekcija.php");
+		$upit2 = mysql_query("SELECT count(id_posts) FROM posts WHERE username = '".$_SESSION['username']."'");
+		$niz = mysql_fetch_array($upit2);
+		$ukupno_zapisa = $niz[0];
+		$levo = $skriveno - $koliko_po_strani;
+		$desno = $skriveno + $koliko_po_strani;
+		// Zaglavlje tabele sa navigacijom
+		echo ("<tr><td width=\"50px\">");
+		$xyz="";
+		if($levo<0){
+			
+			
+			
+			if(($ukupno_zapisa-$skriveno)<=$koliko_po_strani){
+				$xyz=" ";
+			}else{
+				$xyz="<a class='naprednazad napred1' href=\"index.php?page=4&skriveno=$desno\"> Forward &#10093;&#10093; </a>";
+			}
+			
+			
+		}elseif($desno >= $ukupno_zapisa){
+			$xyz="<a href=\"index.php?page=4&skriveno=$levo\"  class='naprednazad nazad1' > &#10092;&#10092; Back </a>";
+		}else {
+			$xyz="<a href=\"index.php?page=4&skriveno=$levo\" class='naprednazad nazad1' > &#10092;&#10092; Back ------------------------<a href=\"index.php?page=4&skriveno=$desno\" class='naprednazad napred1' > Forward &#10093;&#10093; </a>";
+		}
+		
 //topics created part 1
 	if(isset($_REQUEST['usernamem'])){
 		$upit4 = "SELECT COUNT(*) as ukupno FROM posts where username = '".$_REQUEST['usernamem']."'";
@@ -122,13 +169,13 @@
 	
 		
 	if(isset($_REQUEST['usernamem'])){ 
-			$upit3 = "SELECT * FROM posts where username = '".$_REQUEST['usernamem']."'";
+			$upit3 = "SELECT * FROM posts where username = '".$_REQUEST['usernamem']."'  LIMIT $koliko_po_strani OFFSET $skriveno";
 		include("konekcija.php");
 		$rezultat = mysql_query($upit3, $konekcija);  
 		mysql_close($konekcija);
 		
 	}else{
-		$upit3 = "SELECT * FROM posts where username = '".$_SESSION['username']."'";
+		$upit3 = "SELECT * FROM posts where username = '".$_SESSION['username']."'  LIMIT $koliko_po_strani OFFSET $skriveno";
 		include("konekcija.php");
 		$rezultat = mysql_query($upit3, $konekcija);  
 		mysql_close($konekcija);
@@ -221,13 +268,9 @@
 				$pregledi = "view";
 			}else{
 				$pregledi = "views";
-			}
+			} 
 		$sadrzaj_postovi .= "<div class='sadrzaj_paket'>
-			<div class='paket_levo'>
-				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>0</span>
-					<span class='paket_levo_glasovi_tekst'>votes</span>
-				</div>
+			<div class='paket_levo'> 
 				<div class='paket_levo_glasovi'>
 					<span class='paket_levo_glasovi_broj'>$broj_komentara</span>
 					<span class='paket_levo_glasovi_tekst'>$odgovori</span>
@@ -260,8 +303,8 @@
 
  
 			<div id='sadrzaj'>
-				<?php
-					include("user.php");
+				<?php  
+					include("user.php"); 
 				?>
 			</div>
 			 <div id="desno">

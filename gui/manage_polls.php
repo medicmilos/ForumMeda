@@ -55,7 +55,7 @@
 				include("konekcija.php");
 				$rezultat = mysql_query($upit, $konekcija);  
 				mysql_close($konekcija);
-			echo("<div class='tableusers tableposts2'>");
+			echo("<div class='tableusers tableposts2 tableposts223'>");
 			echo("<table border='2.75' width='100%'><form>");
 			echo $xyz;
 			echo ("</td></tr>"); 
@@ -86,6 +86,7 @@
 				</tr>"); 
 			}
 			echo("</table></form>");
+			echo("<div id='pollwarn'>Only one poll can be ACTIVE at the same time!</div>");
 			echo("</div>");
 			
 		

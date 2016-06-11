@@ -4,9 +4,9 @@
 		$post = trim($_REQUEST['taPost']); 
 		$tags = trim($_REQUEST['tbTags']); 
 		
-		$rtitle = "/^[\w\s\/\.\_\d]{4,}$/"; 
-		$rpost = "/^[\w\s\/\.\_\d]{4,}$/"; 
-		$rtags = "/^[\w\s\/\.\,\_\d]{4,}$/";
+		$rtitle = "/^$/"; 
+		$rpost = "/^$/"; 
+		$rtags = "/^$/";
 		$greske = array(); 
 		
 		if(!preg_match($rtitle, $title)){
@@ -34,7 +34,8 @@
 
 <div id="sadrzaj">
 
-<?php
+<?php 
+
 if(!isset($_SESSION['id_users'])){
 	
 }else{
@@ -55,6 +56,100 @@ if(!isset($_SESSION['id_users'])){
 ?>  
 	
 	<?php 
+	
+	
+	
+	
+	
+	/////////////////////////////// PAGINACIJA /////////////////////////////////////////////////////////////////////////////////////////
+	
+		include('konekcija.php');
+		$sql=mysql_query("SELECT * FROM posts ORDER BY views DESC",$konekcija); //uzimamo sve vesti izz baze
+		mysql_close($konekcija);
+		
+		$nr=mysql_num_rows($sql); //prebrojimo redove
+		if(isset($_GET['pn'])) //uzmemo vrednost iz URL adrese
+		{
+			$pn=preg_replace('#[^0-9]#i','',$_GET['pn']); //stavimo samo broj iz te vrednosti u promenljivu
+		}
+		else
+		{
+			$pn=1; //ako nema vrednosti znaci da je korisnik prvi put tu i dolazimo na prvo stranu
+		}
+		
+		$items_per_page=5; 
+		
+		$last_page=ceil($nr/$items_per_page); //broj redova kroz broj vesti po strani
+		if($pn<1)
+		{
+			$pn=1;
+		}
+		else if($pn>$last_page)
+		{
+			$pn=$last_page;
+		}
+		
+		
+		//////////////////////////////////////////////
+		
+		$center_pages=''; //prikaz brojeva stranica
+		$sub1=$pn-1; //jedna manje
+		$sub2=$pn-2;
+		$add1=$pn+1; //jedna vise
+		$add2=$pn+2;
+		
+		if($pn == 1)  //ako je na prvoj strani
+		{
+			$center_pages.="&nbsp; <span class='page_num_active'>$pn</span>&nbsp;"; //prikazemo taj broj gde se nalazi
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$add1'>$add1</a> &nbsp;"; //i opciju da doda jos jednu stranicu
+		}
+		else if($pn == $last_page) //ako je na zadnjoj strani
+		{
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$sub1'>$sub1</a> &nbsp;"; //prikazemo opciju za jednu manje
+			$center_pages.="&nbsp; <span class='page_num_active'>$pn</span>&nbsp;"; //i stranicu gde se sad nalazi
+		}
+		else if($pn > 2 && $pn < ($last_page-1))
+		{
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$sub2'>$sub2</a> &nbsp;";
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$sub1'>$sub1</a> &nbsp;";
+			$center_pages.="&nbsp; <span class='page_num_active'>$pn</span>&nbsp;";
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$add1'>$add1</a> &nbsp;";
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$add2'>$add2</a> &nbsp;";
+		}
+		else if($pn > 1 && $pn < $last_page)
+		{
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$sub1'>$sub1</a> &nbsp;";
+			$center_pages.="&nbsp; <span class='page_num_active'>$pn</span>&nbsp;";
+			$center_pages.="&nbsp; <a href='index.php?page=0&pn=$add1'>$add1</a> &nbsp;";
+		}
+		
+		///////////////////////////////////////////////////// 
+  
+		 
+		
+		$pagination_display=''; //setujemo promenljivu
+		
+		if($last_page != "1") //ako ima vise od jedne strane, ako nema nista od ovoga se nece prikazati
+		{
+			//$pagination_display.="Page <strong>$pn</strong> od $last_page"; //prikaze stranu gde se nalazimo od kolikog broja strana
+			
+			if($pn != 1) //ako nismo na prvoj strani
+			{
+				$previous=$pn - 1;
+				$pagination_display.="&nbsp; <a href='index.php?page=0&pn=$previous' class='nazad'>&#10092;&#10092; Prev</a>"; //dodajemo na prethodni pagination_display, prikazacemo dugme nazad koje nas vodi na prethodnu stranicu
+			}
+			
+			$pagination_display.="<span class='pagination_numbers'>$center_pages<span>"; //broj strane gde se nalazimo uvek ce biti u sredini
+			
+			if($pn != $last_page) //ako nismo na zadnjoj strani
+			{ 
+				$next_page=$pn+1; 
+				$pagination_display.="&nbsp; <a href='index.php?page=0&pn=$next_page' class='napred'>Next &#10093;&#10093;</a>"; //dodajemo na prethodni pagination_display, prikazacemo dugme naprede koje nas vodi na prethodnu stranicu
+			}
+		}
+		 
+	 
+	
 		if(isset($_REQUEST['rbKategorija'])){
 			$upit = "SELECT * FROM posts where tags LIKE '%".$_REQUEST['rbKategorija']."%'";
 			include("konekcija.php");
@@ -103,7 +198,7 @@ if(!isset($_SESSION['id_users'])){
   
 			$pomocna = '';
 			if(!isset($_SESSION['id_users'])){
-				$pomocna = "<a href='index.php?page=0&message= <div class='info'> Login to see or comment topic!</div>'>$title</a>";
+				$pomocna = "<a href='#' class='titlenolog'>$title</a>";
 			}else{
 				$pomocna = "<a href='index.php?page=7&title=$title&username=$username&idposta=$idpost'>$title</a>";
 				$_SESSION['pomocniurl'] = "$title";
@@ -144,11 +239,7 @@ if(!isset($_SESSION['id_users'])){
 				}
 			
 			echo ("<div class='sadrzaj_paket'>
-			<div class='paket_levo'>
-				<div class='paket_levo_glasovi'>
-					<span class='paket_levo_glasovi_broj'>0</span>
-					<span class='paket_levo_glasovi_tekst'>votes</span>
-				</div>
+			<div class='paket_levo'> 
 				<div class='paket_levo_glasovi'>
 					<span class='paket_levo_glasovi_broj'>$broj_komentara</span>
 					<span class='paket_levo_glasovi_tekst'>$odgovori</span>
@@ -174,7 +265,7 @@ if(!isset($_SESSION['id_users'])){
 		
 		}
 		}else{
-			$upit = "SELECT * FROM posts";
+			$upit = "SELECT * FROM posts  ORDER BY views DESC LIMIT ".($pn-1)*$items_per_page.",$items_per_page";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija);
@@ -221,7 +312,7 @@ if(!isset($_SESSION['id_users'])){
   
 			$pomocna = '';
 			if(!isset($_SESSION['id_users'])){
-				$pomocna = "<a href='javascript:void(0);'>$title</a>";	
+				$pomocna = "<a href='#' class='titlenolog'>$title</a>";//javascript:void(0);	
 			}else{
 				$pomocna = "<a href='index.php?page=7&title=$title&username=$username&idposta=$idpost'>$title</a>";
 				$_SESSION['pomocniurl'] = "$title";
@@ -262,8 +353,7 @@ if(!isset($_SESSION['id_users'])){
 				}
 			
 			echo ("<div class='sadrzaj_paket'>
-			<div class='paket_levo'>
-				
+			<div class='paket_levo'> 
 				<div class='paket_levo_glasovi'>
 					<span class='paket_levo_glasovi_broj'>$broj_komentara</span>
 					<span class='paket_levo_glasovi_tekst'>$odgovori</span>
@@ -287,7 +377,7 @@ if(!isset($_SESSION['id_users'])){
 		<div class='cisti'></div>");
 		 
 		
-		}
+		}echo ("<div id='pagination'>$pagination_display</div>");
 		}
 	
 	
@@ -336,7 +426,7 @@ if(!isset($_SESSION['id_users'])){
 			$tagovi33='';
 			$i = 0;				
 			foreach($result as $r23){  
-				if(++$i > 17) break;
+				if(++$i > 10) break;
 				$tagovi33 = "$r23";
 		 
 				if($tagovi33==''){

@@ -18,9 +18,9 @@
 		}  
 		
 		if($slika == ''){ 
-			$maliavatar2 = "<a href='index.php?page=4'><img src='../images/members/default.png' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";   
+			$maliavatar2 = "<a href='index.php?page=4'><img src='images/members/default.png' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";   
 		}else{
-			$maliavatar2 = "<a href='index.php?page=4'><img src='../images/members/$slika' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";
+			$maliavatar2 = "<a href='index.php?page=4'><img src='images/members/$slika' width='55px' height='55px' alt='default_img' id='firstavatar' /></a>";
 		} 
 		
 		if(!isset($_SESSION['id_users'])){
@@ -47,10 +47,10 @@
 						<div id='nav'>
 							$maliavatar2
 							<ul id='menu'> 
-								<li ><a id='username_menu' href='javascript:void(0);'>".$_SESSION['username']." <img src='../images/strelica.png'></a>
+								<li ><a id='username_menu' href='javascript:void(0);'>".$_SESSION['username']." <img src='images/strelica.png'></a>
 									<ul>
-										<a class='profile_logout' href='index.php?page=4'><li ><img src='../images/user.png'><br/>Profile</li></a>
-										<a class='profile_logout' href='index.php?page=5'><li ><img src='../images/logout.png'><br/>Logout</li></a>
+										<a class='profile_logout' href='index.php?page=4'><li ><img src='images/user.png'><br/>Profile</li></a>
+										<a class='profile_logout' href='index.php?page=5'><li ><img src='images/logout.png'><br/>Logout</li></a>
 									</ul>
 								</li> 
 							</ul>

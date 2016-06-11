@@ -70,9 +70,12 @@ $('.editdesc .editdesc1').click(function(){
 	$(this).parent().html(" <textarea id='taEditDesc' name='taEditDesc' class='form-control'>"+$(this).text()+"</textarea> ");
 	});	
 /*---------------------------NESTO NOVO----------------------*/	 
-  
+	
 		
-		
+	$('.titlenolog').click(function(){
+		document.location.href = "index.php?page=0&message= <div class='info'> Please login to see topic.</div>"; 
+		//alert("radi");
+	});		
 		
 		
 		
@@ -100,9 +103,9 @@ function provera1(){
 	var post = document.getElementById("taPost").value;
 	var tags = document.getElementById("tbTags").value;  
 	
-	var reg_title=/^[\w\s\/\.\_\d]{4,}$/;
-	var reg_post=/^[\w\s\/\.\_\d]{4,}$/;
-	var reg_tags=/^[\w\s\/\.\,\_\d]{4,}$/;
+	var reg_title=/^$/;
+	var reg_post=/^$/;
+	var reg_tags=/^$/;
 	
 	var greske=0; 
 	

@@ -1199,9 +1199,8 @@ body{
 	min-height:60px !important;
 }
 .tableposts2 table td:nth-child(3){
-	width:52% !important;
-	
-}  
+	width:52% !important; 
+}  tableposts223
 .posts-content22 {
 	margin:60px auto !important;
 }  
@@ -1440,3 +1439,56 @@ body{
 .hoveric:hover{
     border-bottom:5px solid #e64b21 !important;
 }
+#pagination .napred, #pagination .nazad{
+    text-decoration:none;
+	color:rgba(7, 69, 113, 0.82);
+	font-weight:bold;
+}
+#pagination{
+    width: 100%;
+    height: 30px;
+	text-align:center;
+	margin-top:20px;
+} 
+.pagination_numbers a{
+	text-decoration:none;
+	color:rgba(0, 119, 204, 0.61);
+}
+#pagination .pagination_numbers{
+	color:#074571;
+}
+#pagination .napred{ 
+	float:right;
+	margin-right:30px;
+} 
+#pagination .nazad{ 
+	float:left;
+	margin-left:20px;
+} 
+#userpagin .napred1{ 
+	float:right;
+	margin-right:10px;
+	color:rgba(7, 69, 113, 0.82) !important;
+}  
+#userpagin .nazad1{ 
+	margin-left:10px;
+	color:rgba(7, 69, 113, 0.82) !important;
+}  
+#userpagin{  
+	margin-top:10px;
+}   
+.posts-content33{  
+	width:50% !important;
+} 
+.tableposts223 table td:nth-child(3){
+	width:7% !important; 
+}  
+.tableposts223 table td:nth-child(2){
+	width:50% !important; 
+}  
+#pollwarn{
+	margin:10px auto;
+	text-align:center;
+	color:#a94442;
+	text-transform:uppercase;
+}  

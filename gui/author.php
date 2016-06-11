@@ -6,11 +6,11 @@
 			</p>
 		</div>
 		<div id="slika">
-			<img src="../images/milos.jpg" title="author" alt="milos medic"/>
+			<img src="images/milos.jpg" title="author" alt="milos medic"/>
 		</div>
 		<div id="ukratko">
 			<p>
-				Hi, my name is Miloš Medić, I was born on 29th of January in 1995. I graduated from the middle Electrotechnical school “PTT”, for telecommunications engineering. Upon finishing high school I got accepted to “ICT College of Vocational Studies” in Belgrade in 2014,  where I’m currently in the second year of studies.<br/><br/>
+				Hi, my name is Miloš Medić, I was born on 29th of January in 1995. I graduated from the middle Electrotechnical school “PTT”, for telecommunications engineering. Upon finishing high school I got accepted to “ICT College of Vocational Studies” in Belgrade in 2014,  where I’m currently in the second year of studies. This is my third school project.<br/><br/>
 				<b>e-mail:</b><a href="mailto:milos.medic.130.14@ict.edu.rs?subject=Got site&body=Hi Milos, " title="e-mail"> milos.medic.130.14@ict.edu.rs</a><br/><br/>
 			</p>
 		</div>

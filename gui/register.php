@@ -48,7 +48,7 @@
 				if(!$rezultat){ 
 					header("location:index.php?page=2&message=Error: " . mysql_error()); 
 				}else {  
-					$ver_code = "http://milos-medic.byethost16.com/php/index.php?page=8&username=".$username."&token=".$password."";  
+					$ver_code = "http://milos-medic.byethost16.com/index.php?page=8&username=".$username."&token=".$password."";  
 					$to = $email;
 					$subject = 'Verification link | ForumMeda'; 
 					

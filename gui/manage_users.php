@@ -77,9 +77,9 @@
 				}
 				$maliavatar='';
 				if($avatar == ''){ 
-					$maliavatar = "<img src='../images/members/default.png' width='46' height='51'/>";   
+					$maliavatar = "<img src='images/members/default.png' width='46' height='51'/>";   
 				}else{ 
-					$maliavatar = "<img src='../images/members/$avatar' width='46' height='51'/>";
+					$maliavatar = "<img src='images/members/$avatar' width='46' height='51'/>";
 				} 
 				
 				

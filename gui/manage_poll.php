@@ -10,9 +10,10 @@
 <?php    
 		if(isset($_REQUEST['btnSaveUprofile'])){
 			@$question = ($_REQUEST['taEditEmail']);
-			@$comment = ($_REQUEST['taEditPass']); 
+			@$comment = ($_REQUEST['taEditPass']);  
+			@$active = ($_REQUEST['rbEditMod']);  
 			
-			$upit = "UPDATE poll SET question = '".$question."' WHERE id_poll = '".$_REQUEST['id']."'";
+			$upit = "UPDATE poll SET question = '".$question."', active='".$active."' WHERE id_poll = '".$_REQUEST['id']."'";
 				include("konekcija.php");
 				$rezultat = mysql_query($upit, $konekcija);  
 				mysql_close($konekcija); 
@@ -37,24 +38,38 @@
 		while($red = mysql_fetch_array($rezultat)){  
 			$idcomment = $red['id_poll']; 
 			$question = $red['question'];  
+			$usermod = $red['active'];  
+			
+			
+			
+			
+			$usermod1='';
+			$usermod2='';  
+			if($usermod=='1'){
+				$usermod1="checked";
+			}else{
+				$usermod2="checked";
+			}
 			
 		}	 
 		
 		
-		$stampa='';
-		$upit22 = "SELECT pa.answer FROM poll p JOIN poll_answers pa ON p.id_poll=pa.id_poll WHERE pa.id_poll='".$_REQUEST['id']."'";
+		/*$stampa='';
+		$upit22 = "SELECT pa.answer as answer,  pa.id_answers as id_answers FROM poll p JOIN poll_answers pa ON p.id_poll=pa.id_poll WHERE pa.id_poll='".$_REQUEST['id']."'";
 			include("konekcija.php");
 			$rezultat33 = mysql_query($upit22, $konekcija);  
 			mysql_close($konekcija);
 		while($red2 = mysql_fetch_array($rezultat33)){   
 			$answer = $red2['answer'];  
+			$id_answers = $red2['id_answers'];  
 			
 			
 			$stampa .="<tr>
-						<td><span class='editmail'><input type='hidden' name='taEditEmail' value='$answer' /><span class='email1'>$answer</span></span></td>
+						<input type='hidden' name='brojanswer' value='$id_answers' />
+						<td><span class='editpass'><input type='hidden' name='taEditPass' value='$answer' /><span class='editpass1'>$answer</span></span></td>
 					</tr>
 					";
-		}
+		}*/
 		
 		
 		
@@ -66,15 +81,23 @@
 			$pom++;
 			echo("
 			
-			<div id='user-content2' class='posts-content posts-content22'>
+			<div id='user-content2' class='posts-content posts-content22 posts-content33'>
 				<table border='1'>
 					<input type='hidden' name='page' value='19' />
 					<tr><td><b>Question:</b></td><td><span class='editmail'><input type='hidden' name='taEditEmail' value='$question' /><span class='email1'>$question</span></span></td></tr>
 					<tr>
-						<td rowspan=4><b>Answers:</b></td> 
-					</tr>
-					$stampa
-					<tr> </tr>
+						<td rowspan=3><b>Active:</b></td> 
+					</tr> 
+					<tr>
+					<td> 
+					
+					<span class='editmod'>
+					<input type='hidden' name='taEditMod' value='$usermod' />
+					<input type='radio' name='rbEditMod' value='1' $usermod1 /> Yes<br/>
+					<input type='radio' name='rbEditMod' value='0' $usermod2 /> No
+					</span>
+					 
+					</td></tr><tr></tr>    
 					<tr><td class='save22' colspan='2'><b>  <input type='submit' class='save2' value='Update' name='btnSaveUprofile'>  </b></td></tr>
 				</table>
 			</div> 	

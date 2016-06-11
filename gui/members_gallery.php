@@ -26,8 +26,8 @@
 				
 				 
 					echo "<div class='img2'>";
-						echo "<a  class='example-image-link'  data-lightbox='example-set' data-title='$username' href='../images/members/".$image."'>";
-						echo "<img class='example-image' src='../images/members/".$image."'/></a>";
+						echo "<a  class='example-image-link'  data-lightbox='example-set' data-title='$username' href='images/members/".$image."'>";
+						echo "<img class='example-image' src='images/members/".$image."'/></a>";
 
 						echo "<div class='descr2'>".$username."</div></div>";
 				 
