@@ -8,25 +8,26 @@
 		
 		$rname = "/^[\w\s\/\.\_\d]{2,28}$/";
 		$rmail = "/^[\w\.]+[\d]*@[\w]+\.\w{2,3}(\.[\w]{2})?$/"; 
-		$rphone = "/^\d$/";
+		$rphone = "/^\d+$/";
 		
 		$greske = array(); 
 		 $g=0; 
 		
 		if(!preg_match($rname, $name)){
 			 $g++;
+			 echo("n");
 		}
 		if(!preg_match($rmail, $mail)){
-			 $g++;
+			 $g++;echo("e");
 		} 
 		if(!preg_match($rphone, $phone)){
-			 $g++;
+			 $g++;echo("p");
 		} 
-		if(empty($subject)){
-			 $g++;
+		if($subject==""){
+			 $g++;echo("s");
 		}  
-		if(empty($message)){
-			 $g++;
+		if($message==""){
+			 $g++;echo("m");
 		}  
 		
 		if($g==0){ 
@@ -35,15 +36,11 @@
 			$message = "E-mail: ".$mail."\n Phone: ".$phone."\n Message: ".$message;  
 					
 			if (mail($to, $subject, $message)) {   
-						//header("location:index.php?page=9&message= <div class='info'> Thanks for contacting me!</div>");
-						echo("radi");
+						header("location:index.php?page=9&message= <div class='info'> Thanks for contacting us!</div>");
 					}else { 
-						//header("location:index.php?page=9&message= <div id='erori'Sending mail failed!</div>"); 
-						echo("ne radi"); 
+						header("location:index.php?page=9&message= <div id='erori'Sending mail failed!</div>"); 
 					} 
-		}else{  
-		echo("Usao sam u ELS"); 
-		}
+		} 
 		 
 	}
 ?>
@@ -59,27 +56,27 @@
 				</tr>
 				<tr> 
 					<td>
-						<input type="text" name="tbYName" id="tbYName" class='tbps'  onBlur="fild1();" placeholder='Your Name'/> 
+						<input type="text" name="tbYName" id="tbYName" class='tbps' value='<?php echo @$_REQUEST['tbYName']; ?>' onBlur="fild1();" placeholder='Your Name'/> 
 						<label id='nameS' class='greskeR'></label> 
 					</td>
 					<td>
-						<input type="text"  class='tbps' name="tbYmail" id="tbYmail"  onBlur="fild2();" placeholder='Your E-mail'/>
+						<input type="text"  class='tbps' name="tbYmail" id="tbYmail" value='<?php echo @$_REQUEST['tbYmail']; ?>' onBlur="fild2();" placeholder='Your E-mail'/>
 						<label id='mailS' class='greskeR'></label>
 					</td>
 					<td>
-						<input type="text" class='tbps'  name="tbYPhone" id="tbYPhone" onBlur="fild3();" placeholder='Your Phone'/>
+						<input type="text" class='tbps'  name="tbYPhone" id="tbYPhone" value='<?php echo @$_REQUEST['tbYPhone']; ?>' onBlur="fild3();" placeholder='Your Phone'/>
 						<label id='phoneS' class='greskeR'></label>
 					</td>
 				</tr> 
 				 <tr> 
 					<td colspan='3'>
-						<input type="text" name="tbYSubject" id="tbYSubject"  onBlur="fild4();" placeholder='Subject' />
+						<input type="text" name="tbYSubject" id="tbYSubject" value='<?php echo @$_REQUEST['tbYSubject']; ?>' onBlur="fild4();" placeholder='Subject' />
 						<br/><span id='subjectS' class='greskeR'></span>
 					</td>
 				</tr>
 				<tr> 
 					<td colspan='3'>
-						<textarea name="tbYMessage" id="tbYMessage" rows="2" onBlur="fild5();"  placeholder='Message' ></textarea>
+						<textarea name="tbYMessage" id="tbYMessage" rows="2" onBlur="fild5();" value='<?php echo @$_REQUEST['tbYMessage']; ?>' placeholder='Message' ></textarea>
 						<br/><span id='mesageS' class='greskeR'></span>					
 					</td>
 				</tr>

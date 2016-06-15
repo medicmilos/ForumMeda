@@ -7,9 +7,9 @@
 <head>
 	<title>Meda - Forum</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-		<meta name="description" content=""/>
-		<meta name="keywords" content=""/>
-		<meta name="author" content=""/>
+		<meta name="description" content="ForumMeda - The best IT forum"/>
+		<meta name="keywords" content="Forum, meda, it, php, javascript, ForumMeda"/>
+		<meta name="author" content="Milos Medic"/>
 		<link rel="shortcut icon" href="images/icon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>  
 		<link rel="stylesheet" type="text/css" href="css/class.css"/>   

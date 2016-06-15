@@ -103,9 +103,9 @@ function provera1(){
 	var post = document.getElementById("taPost").value;
 	var tags = document.getElementById("tbTags").value;  
 	
-	var reg_title=/^$/;
-	var reg_post=/^$/;
-	var reg_tags=/^$/;
+	var reg_title=/^[\w\s\/\.\:\?\!\,\_\d]{2,500}$/;
+	var reg_post=/^[\w\s\/\.\:\,\?\!\_\d]{2,500}$/;
+	var reg_tags=/^[\w\s\/\.\:\,\?\!\_\d]{2,55}$/;
 	
 	var greske=0; 
 	
@@ -285,7 +285,7 @@ function check(){
 	var passS = document.getElementById("passS");
 	var passS2 = document.getElementById("passS2");
 	
-	var reg_user=/^[\w\s\/\.\_\d]{4,}$/;
+	var reg_user=/^[\w\s\/\.\_\d]{4,20}$/;
 	var reg_email=/^[\w\.]+[\d]*@[\w]+\.\w{2,3}(\.[\w]{2})?$/;
 	var reg_pass=/^[\w\s\/\.\_\d]{4,}$/;
 	
@@ -404,7 +404,7 @@ function reg4() {
 //provera submitovanja komenara na post
 function provera2(){ 
 	var comment = document.getElementById("taComment").value;  
-	var reg_taComment=/^[\w\s\/\.\_\d]{4,}$/;
+	var reg_taComment=/^[\w\s\/\.\:\,\?\!\_\d]{2,500}$/;
 	var greske=0; 
 	
 	if(!reg_taComment.test(comment)){   
@@ -423,7 +423,7 @@ function provera2(){
 //provera submitovanja nested-komenara na post
 function provera3(){ 
 	var ncomment = document.getElementById("nestedcomment").value;  
-	var reg_nComment=/^[\w\s\/\.\_\d]{4,}$/;
+	var reg_nComment=/^[\w\s\/\.\:\,\?\!\_\d]{2,500}$/;
 	var greske=0; 
 	
 	if(!reg_nComment.test(ncomment)){   
@@ -484,129 +484,3 @@ function getanswer(){
 	}
 	return check;
 }
-
-
-
-
-
-
-
-	
-	
-/*
-
-
- function enter(event){
-	if(event.keyCode == 44|| event.which == 44){
-		var pom= "";
-		pom=document.getElementById("tbTags").value;
-		document.getElementById("tbTags").value="";
- 
-		var stari = document.getElementById("p");
-		var dodatak = "<span class='tag' id='tagid'>"+pom+"<span class='xmark' onclick='brisanje(this);'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";
-		var novi = document.createElement("span");
-		novi.innerHTML = dodatak;
-		stari.insertBefore(novi,null);
-		
-		
-	} 
-}
-
-function brisanje(e){ 
-	e.parentNode.style.display = 'none';
-}  */
- /*
-function enter(event){
-	if(event.keyCode == 32|| event.which == 32){
-		var pom= "";
-		pom=document.getElementById("tbTags").value;
-		document.getElementById("tbTags").value="";
-		document.getElementById("p").innerHTML +="<span class='tag'>"+pom+"<span class='xmark' onclick='brisanje(this);'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";
-		
-		space();
-	}
-}
-function space(){ 
-	document.getElementById("tbTags").value="";
-}
-
-*/
-
-
-
-
-
-/*
-var tagovi = [
-              "ActionScript",
-              "Asp",
-              "BASIC",
-              "C",
-              "C++",
-              "Clojure",
-              "Haskell",
-              "Java",
-              "JavaScript",
-              "Perl",
-              "PHP",
-              "Python",
-              "Ruby",
-              "Scala",
-              "Scheme",
-              "XML",
-              "XSL",
-              "Database",
-              "SQL",
-              "MySQL"
-            ];
-var temp= "";
-var k=0;
-var l='';
-var m=-1;
-
-function enter(event){
-	if(event.keyCode == 32 || event.which == 32){
-		var cc = l.toLowerCase();
-		var ccc = document.getElementById("tbTags").value.toLowerCase();
-		ccc= ccc.substring(0, ccc.length - 1);
-		if(cc.indexOf(ccc)!=-1){
-			//if(m!=-1){
-				var pom= "";
-				pom=document.getElementById("tbTags").value;
-				document.getElementById("tbTags").value="";
-				document.getElementById("p").innerHTML +="<span class='tag show'>"+l+"<span class='xmark' onclick='del(this);'></span><input type='hidden' name='ovo[]' value='"+pom+"'/></span>";l='';
-			//}
-		}else{
-			document.getElementById("tbTags").value="";
-		}  
-	} 
-
-
-	temp=document.getElementById("tbTags").value;
-	document.getElementById("n").innerHTML="";
-	
-	//prvi tekst bez cifre , sta je kesirano za tag
-	document.getElementById("n").innerHTML+=l+"<br/>";
-	k=0;
-	for(var i=0;i<tagovi.length;i++){
-		//da li se u tagu nalazi temp
-		var a = tagovi[i].toLowerCase();
-		var b = temp.toLowerCase();
-		//document.getElementById("p").innerHTML+= a.indexOf(b)+"<br/>";
-	
-	
-		if(a.indexOf(b)!=-1){
-			m=a.indexOf(b); document.getElementById("n").innerHTML+= tagovi[i]+" "+m+"<br/>";
-			//pamti samo prvi tag
-			if(k==0){
-				l=tagovi[i];k++;
-			}
-		}
-	}
-}
-
-function del(a){
-	a.parentNode.style.display = "none";
-	//bloku hidden staviti value na -1 
-	//pre preuzimanja hidden infoa pitati da li je taj value -1 i onda ga ne poslati (primiti)
-}*/

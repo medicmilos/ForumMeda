@@ -31,14 +31,14 @@
    
     <div id="dole">
         <div id="dole2">
-        <p>Copyright &copy; <a href="#">ForumMeda</a>. All rights reserved.</p>
+        <p>Copyright 2016 &copy; <a href="#">ForumMeda</a>. All rights reserved.</p>
         
         <div id="mreze">
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
-            <a href=""><img src=""/></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/socialn/facebook.png"/></a>
+            <a href="https://twitter.com/" target="_blank"><img src="images/socialn/twitter.png"/></a>
+            <a href="https://www.reddit.com/" target="_blank"><img src="images/socialn/reddit.png"/></a>
+            <a href="https://www.youtube.com/" target="_blank"><img src="images/socialn/youtube.png"/></a>
+            <a href="https://www.flickr.com/" target="_blank"><img src="images/socialn/flickr.png"/></a>
         </div>
         </div>
     </div>

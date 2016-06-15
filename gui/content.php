@@ -4,9 +4,9 @@
 		$post = trim($_REQUEST['taPost']); 
 		$tags = trim($_REQUEST['tbTags']); 
 		
-		$rtitle = "/^$/"; 
-		$rpost = "/^$/"; 
-		$rtags = "/^$/";
+		$rtitle = "/^[\w\s\/\.\:\,\?\!\_\d]{2,500}$/"; 
+		$rpost = "/^[\w\s\/\.\:\,\?\!\_\d]{2,500}$/"; 
+		$rtags = "/^[\w\s\/\.\:\,\?\!\_\d]{2,55}$/";
 		$greske = array(); 
 		
 		if(!preg_match($rtitle, $title)){
@@ -265,7 +265,7 @@ if(!isset($_SESSION['id_users'])){
 		
 		}
 		}else{
-			$upit = "SELECT * FROM posts  ORDER BY views DESC LIMIT ".($pn-1)*$items_per_page.",$items_per_page";
+			$upit = "SELECT * FROM posts  ORDER BY time DESC LIMIT ".($pn-1)*$items_per_page.",$items_per_page";
 			include("konekcija.php");
 			$rezultat = mysql_query($upit, $konekcija);  
 			mysql_close($konekcija);

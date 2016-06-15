@@ -68,7 +68,13 @@
 						$nesttime = '';
 						$nested_iz_baze = ''; 
 						
-						
+ 
+					while($red2 = mysql_fetch_array($rezultat23)){ 
+						$nestusername = $red2['username'];
+						$nestcomment = $red2['comment'];
+						$nesttime = $red2['time'];
+						$_SESSION['nestedidcomment'] = $idkomentara;
+ 
 						
 						$time3 = time() - strtotime($nesttime);
 						 
@@ -93,16 +99,7 @@
 						}else{
 							$time3 = round($time3 / 60 / 60 / 60 / 60 /60 + 1)." years";
 						}
-						
-						
-						
-						
-						
-					while($red2 = mysql_fetch_array($rezultat23)){ 
-						$nestusername = $red2['username'];
-						$nestcomment = $red2['comment'];
-						$nesttime = $red2['time'];
-						$_SESSION['nestedidcomment'] = $idkomentara;
+ 
 						$nested_iz_baze .= "<div id='nested-koments'>$nestcomment</div><div id='nested-info'>replied $time3 ago by <a href='index.php?page=4&usernamem=$nestusername'>$nestusername</a></div><br/>";
 					}
 					
@@ -171,9 +168,13 @@
 							<div>
 								<div class='paket_desno_pnaslov'>$title</div>
 								<div class='paket_desno_votes'>
-									<a href='' id='voted' >&starf;</a>
+									&#10149;
 								</div> 
-								<div class='paket_desno_description'>$description</div>
+								<div class='paket_desno_description'>$description 
+								
+								
+								<span id='komentari_info' class='izmenaopisa'>asked by <a href='#'><span class='paket_desno_opis_user'>$username</span></a></span>
+								</div>
 								$promenljiva
 								<div>Your answer: </div><br/><br/>
 								<form action='". $_SERVER['PHP_SELF'] ."'  method='GET' onSubmit='return provera2();'> 
