@@ -1,4 +1,3 @@
 # meda-forum
-PHP forum for college
+Project in procedural PHP for college
 
-ne dirati nista bez da goxy zna
