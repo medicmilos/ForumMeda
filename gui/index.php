@@ -22,6 +22,7 @@
  
 </head>
 	<body onLoad='ajaxprovera();'>
+		<?php include_once("analyticstracking.php") ?>
 		<?php
 			include("header.php");
 		?>
